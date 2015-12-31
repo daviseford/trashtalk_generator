@@ -11,16 +11,25 @@
     <link rel="stylesheet" media="screen" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
+    <!-- SweetAlert CSS and JS -->
+    <link rel="stylesheet" type="text/css" href="js/libraries/sweetalert/css/sweetalert.css">
+    <script src="js/libraries/sweetalert/js/sweetalert.min.js" type="text/javascript"></script>
+
+    <!-- Bootstrap Select CSS and JS -->
+    <link href='js/libraries/bootstrap-select/css/bootstrap-select.min.css' rel='stylesheet'/>
+    <script src="js/libraries/bootstrap-select/js/bootstrap-select.min.js"></script>
+
+    <script src="js/shittalk.js"></script>
 
     <!-- Google Analytics -->
     <script>
         (function (i, s, o, g, r, a, m) {
             i['GoogleAnalyticsObject'] = r;
             i[r] = i[r] || function () {
-                        (i[r].q = i[r].q || []).push(arguments)
-                    }, i[r].l = 1 * new Date();
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
             a = s.createElement(o),
-                    m = s.getElementsByTagName(o)[0];
+                m = s.getElementsByTagName(o)[0];
             a.async = 1;
             a.src = g;
             m.parentNode.insertBefore(a, m)
@@ -40,9 +49,30 @@
         <p>Based on the popular shittalk.cfg - crowdsourced insults</p>
         <p>There may be additional features added, such as a rough imitation of machine learning to produce new insults.
             Let's get bayesian.
-            <a class="btn btn-primary btn-lg">Learn more</a>
         </p>
     </div>
+</div>
+
+<div class="container">
+    <form class="form-horizontal" role="form">
+        <div class="form-group">
+            <legend>Write your own</legend>
+        </div>
+
+        <div class="form-group">
+            <label for="create_shittalk_Text" class="col-sm-3 control-label">Create your own:</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" id="create_shittalk_Text" placeholder="">
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-sm-9 col-sm-offset-3">
+                <button type="submit" id="create_shittalk_Btn" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </form>
 </div>
 
 </body>
