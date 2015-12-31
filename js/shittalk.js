@@ -20,6 +20,24 @@ $(document).ready(function () {
             });
         });
 
+    $('.glyphicon-arrow-up')
+        .button()
+        .click(function (e) {
+            e.preventDefault();
+            console.log('upvoted!');
+            var text = $(this).attr("title");
+            console.log(text);
+
+            var query = {};
+            query['text'] = text;
+            query['query'] = 'upvote_Row';
+            var request = queryController(query);
+            request.done(function (data) {
+                console.log(data);
+                console.log('YAY!!!!');
+            })
+        });
+
     function queryController(query) {
         return $.ajax({
             url: "php/controller/controller.php",

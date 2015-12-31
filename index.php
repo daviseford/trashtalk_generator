@@ -73,7 +73,26 @@
             </div>
         </div>
     </form>
+
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <?php
+        require_once(__DIR__ . '/php/shittalk_functions.php');
+
+        $sql = "SELECT * FROM shittalkDB;";
+        $result = mySqlQuery($sql);
+
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                echo $row['text'] . '<span class="glyphicon glyphicon-arrow-up" aria-hidden="true" title="' . $row['text'] . '"> </span> <span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span> <br />';
+
+            }
+        }
+
+
+        ?>
+    </div>
 </div>
+
 
 </body>
 </html>
