@@ -77,6 +77,9 @@ require_once(__DIR__ . '/php/shittalk_functions.php');
         </p>
         <p class="small">Coming soon: Download these binds to an easy-to-use Source script, which will work in TF2,
             Counterstrike, Dota, and all Source Engine games.</p>
+        <p>Looking for the original shittalk.cfg? <a href="cfg/shittalkcfg.rar" class="btn btn-primary btn-primary">
+                <span class="glyphicon glyphicon-download-alt"></span> Download</a>
+        </p>
     </div>
 </div>
 
