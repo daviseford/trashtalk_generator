@@ -16,6 +16,7 @@ $(document).ready(function () {
                 console.log(data);
                 if (data === true) {
                     console.log('happy dance!');
+                    location.reload();
                 }
             });
         });
@@ -35,6 +36,26 @@ $(document).ready(function () {
             request.done(function (data) {
                 console.log(data);
                 console.log('YAY!!!!');
+                location.reload();
+            })
+        });
+
+    $('.glyphicon-arrow-down')
+        .button()
+        .click(function (e) {
+            e.preventDefault();
+            console.log('downvoted!');
+            var text = $(this).attr("title");
+            console.log(text);
+
+            var query = {};
+            query['text'] = text;
+            query['query'] = 'downvote_Row';
+            var request = queryController(query);
+            request.done(function (data) {
+                console.log(data);
+                console.log('YAY!!!!');
+                location.reload();
             })
         });
 

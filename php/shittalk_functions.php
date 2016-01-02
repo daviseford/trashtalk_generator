@@ -60,3 +60,47 @@ function returnResponse($response)
         echo json_encode('');
     }
 }
+
+
+function strip_double_quotes($string)
+{
+    $search = array(
+        '"',
+        '&ldquo;',
+        '&rdquo;',
+        '“',
+        '”',
+        chr(147),
+        chr(148),
+        '&lsquo;',
+        '&rsquo;',
+        "‘",
+        "’",
+        chr(145),
+        chr(146),
+        chr(151),
+        '—',
+        '&mdash;',
+        '&ndash;');
+
+    $replace = array(
+        "'",
+        "'",
+        "'",
+        "'",
+        "'",
+        "'",
+        "'",
+        "'",
+        "'",
+        "'",
+        "'",
+        "'",
+        "'",
+        '-',
+        '-',
+        '-',
+        '-');
+
+    return str_replace($search, $replace, $string);
+}

@@ -1,3 +1,6 @@
+<?php
+require_once(__DIR__ . '/php/shittalk_functions.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,18 +49,39 @@
 <div class="jumbotron">
     <div class="container">
         <h1>Welcome to the Shittalk Generator</h1>
-        <p>Based on the popular shittalk.cfg - crowdsourced insults</p>
+        <p>Help us out by rating this bind:</p>
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <?php
+
+                    $sql = "SELECT * FROM shittalkDB ORDER BY rand() LIMIT 1;";
+                    $result = mySqlQuery($sql);
+
+                    if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                            $netVotes = $row['upvotes'] - $row['downvotes'];
+                            $tr = '<span class="glyphicon glyphicon-arrow-up text-success" aria-hidden="true" title="' . $row['text'] . '"> </span> <span class="glyphicon glyphicon-arrow-down text-danger" aria-hidden="true" title="' . $row['text'] . '"></span>  <strong>' . $row['text'] . '</strong>';
+                            echo $tr;
+                        }
+                    }
+
+                    ?>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+        <div class="row clearfix"></div>
         <p>There may be additional features added, such as a rough imitation of machine learning to produce new insults.
             Let's get bayesian.
         </p>
+        <p class="small">Coming soon: Download these binds to an easy-to-use Source script, which will work in TF2,
+            Counterstrike, Dota, and all Source Engine games.</p>
     </div>
 </div>
 
 <div class="container">
     <form class="form-horizontal" role="form">
-        <div class="form-group">
-            <legend>Write your own</legend>
-        </div>
 
         <div class="form-group">
             <label for="create_shittalk_Text" class="col-sm-3 control-label">Create your own:</label>
@@ -76,7 +100,7 @@
 
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
-
+        <legend>Rate Some More</legend>
         <div class="table-responsive">
             <table class="table">
 
@@ -90,15 +114,15 @@
 
 
                 <?php
-                require_once(__DIR__ . '/php/shittalk_functions.php');
 
-                $sql = "SELECT * FROM shittalkDB ORDER BY upvotes DESC;";
+                $sql = "SELECT *, `upvotes` - `downvotes` AS `netVotes` FROM shittalkDB ORDER BY rand() LIMIT 25;";
                 $result = mySqlQuery($sql);
 
                 if ($result->num_rows > 0) {
                     while ($row = $result->fetch_assoc()) {
                         $netVotes = $row['upvotes'] - $row['downvotes'];
-                        echo '<tr><td><span class="glyphicon glyphicon-arrow-up text-success" aria-hidden="true" title="' . $row['text'] . '"> </span> <span class="glyphicon glyphicon-arrow-down text-danger" aria-hidden="true"></span> ' . $netVotes . ' points</td><td>' . $row['text'] . '</td></tr>';
+                        $tr = '<tr><td><span class="glyphicon glyphicon-arrow-up text-success" aria-hidden="true" title="' . $row['text'] . '"> </span> <span class="glyphicon glyphicon-arrow-down text-danger" aria-hidden="true" title="' . $row['netVotes'] . '"></span> ' . $netVotes . ' points</td><td>' . $row['text'] . '</td></tr>';
+                        echo $tr;
                     }
                 }
 

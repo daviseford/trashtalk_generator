@@ -37,6 +37,12 @@ if (isset($postdec['query'])) {
                     $response = upvoteRow($postdec['text']); //returns true if successful, false otherwise
                 }
                 break;
+
+            case 'downvote_Row':
+                if (!empty($postdec['text'])) {
+                    $response = downvoteRow($postdec['text']); //returns true if successful, false otherwise
+                }
+                break;
         }
 
     }
@@ -45,7 +51,7 @@ if (isset($postdec['query'])) {
 
 function createShittalkRow($text)
 {
-    $text_escaped = mysql_escape_mimic($text);
+    $text_escaped = mysql_escape_mimic(strip_double_quotes($text));
     $today = mysql_escape_mimic(date("Y-m-d H:i:s"));
 
     $sql = "INSERT INTO `shittalkDB`
@@ -56,9 +62,19 @@ function createShittalkRow($text)
     return $result;
 }
 
-function upvoteRow($text){
+function upvoteRow($text)
+{
     $text_escaped = mysql_escape_mimic($text);
     $sql = "UPDATE shittalkDB SET upvotes = upvotes + 1 WHERE text LIKE '$text_escaped';";
+    $result = mySqlQuery($sql);
+
+    return $result;
+}
+
+function downvoteRow($text)
+{
+    $text_escaped = mysql_escape_mimic($text);
+    $sql = "UPDATE shittalkDB SET downvotes = downvotes + 1 WHERE text LIKE '$text_escaped';";
     $result = mySqlQuery($sql);
 
     return $result;
