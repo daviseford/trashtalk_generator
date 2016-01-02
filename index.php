@@ -75,21 +75,39 @@
     </form>
 
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        <?php
-        require_once(__DIR__ . '/php/shittalk_functions.php');
-
-        $sql = "SELECT * FROM shittalkDB;";
-        $result = mySqlQuery($sql);
-
-        if ($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
-                echo $row['text'] . '<span class="glyphicon glyphicon-arrow-up" aria-hidden="true" title="' . $row['text'] . '"> </span> <span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span> <br />';
-
-            }
-        }
 
 
-        ?>
+        <div class="table-responsive">
+            <table class="table">
+
+                <!--                <thead>-->
+                <!--                <tr>-->
+                <!--                    <th>th is 0</th>-->
+                <!--                    <th>th is 1</th>-->
+                <!--                </tr>-->
+                <!--                </thead>-->
+                <tbody>
+
+
+                <?php
+                require_once(__DIR__ . '/php/shittalk_functions.php');
+
+                $sql = "SELECT * FROM shittalkDB ORDER BY upvotes DESC;";
+                $result = mySqlQuery($sql);
+
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+                        $netVotes = $row['upvotes'] - $row['downvotes'];
+                        echo '<tr><td><span class="glyphicon glyphicon-arrow-up text-success" aria-hidden="true" title="' . $row['text'] . '"> </span> <span class="glyphicon glyphicon-arrow-down text-danger" aria-hidden="true"></span> ' . $netVotes . ' points</td><td>' . $row['text'] . '</td></tr>';
+                    }
+                }
+
+
+                ?>
+                </tbody>
+            </table>
+        </div>
+
     </div>
 </div>
 
