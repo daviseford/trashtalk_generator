@@ -8,6 +8,8 @@
 
 
 require_once(__DIR__ . '/../shittalk_functions.php');
+require_once(__DIR__ . '/../lib/forceutf8/Encoding.php');
+use ForceUTF8\Encoding;  // It's namespaced now.
 
 //set_time_limit(0);
 //error_reporting(E_ALL);
@@ -96,6 +98,9 @@ function createShittalkRow($text)
     if (strlen($text) > 128) {
         $text = substr($text, 0, 128); //shorten to source game default length
     }
+
+    $text_to_utf8 = Encoding::toUTF8($text);
+    $text = Encoding::fixUTF8($text_to_utf8);
     $text_escaped = mysql_escape_mimic(strip_double_quotes($text));
     $today = mysql_escape_mimic(date("Y-m-d H:i:s"));
 

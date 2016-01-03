@@ -9,34 +9,45 @@ $(document).ready(function () {
             e.preventDefault();
             var that = this;
 
-            var form = {};
-            form['create_shittalk_Text'] = $('#create_shittalk_Text').val();
-            form['query'] = 'check_IfDuplicate';
+            var shittalkText = $('#create_shittalk_Text').val();
 
-            var duplicateRequest = queryController(form);
-            duplicateRequest.done(function (data) {
-                console.log(data);
-                var number = data + 0;
+            if (S(shittalkText).contains('http://') || S(shittalkText).contains('www.') || S(shittalkText).contains('.com')) {
 
-                if (data < 1) {
-                    var form2 = {};
-                    form2['create_shittalk_Text'] = $('#create_shittalk_Text').val();
-                    form2['query'] = 'create_Shittalk';
+                $(that).parent().parent().addClass('has-error');
+                $('#helpBlock2').removeClass('hidden');
 
-                    var request = queryController(form2);
-                    request.done(function (data) {
-                        console.log(data);
-                        if (data === true) {
-                            console.log('happy dance!');
-                            location.reload();
-                        }
-                    });
-                } else {
-                    $(that).parent().parent().addClass('has-error');
-                    $(that).parent().parent().find('span').removeClass('hidden');
-                }
+            } else {
 
-            });
+
+                var form = {};
+                form['create_shittalk_Text'] = shittalkText;
+                form['query'] = 'check_IfDuplicate';
+
+                var duplicateRequest = queryController(form);
+                duplicateRequest.done(function (data) {
+                    console.log(data);
+                    var number = data + 0;
+
+                    if (data < 1) {
+                        var form2 = {};
+                        form2['create_shittalk_Text'] = shittalkText;
+                        form2['query'] = 'create_Shittalk';
+
+                        var request = queryController(form2);
+                        request.done(function (data) {
+                            console.log(data);
+                            if (data === true) {
+                                console.log('happy dance!');
+                                location.reload();
+                            }
+                        });
+                    } else {
+                        $(that).parent().parent().addClass('has-error');
+                        $('#helpBlock').removeClass('hidden');
+                    }
+
+                });
+            }
         });
 
     makeJumboRows(3);

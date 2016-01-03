@@ -83,9 +83,10 @@ require_once(__DIR__ . '/php/shittalk_functions.php');
                         <input type="text" class="form-control" id="create_shittalk_Text" placeholder=""
                                maxlength="128" aria-describedby="helpBlock">
                         <span id="helpBlock" class="help-block hidden">This insult already exists in our database</span>
+                        <span id="helpBlock2" class="help-block hidden">Please do not submit websites.</span>
                     </div>
                     <div class="col-sm-3">
-                        <button type="submit" id="create_shittalk_Btn" class="btn btn-primary" >Submit</button>
+                        <button type="submit" id="create_shittalk_Btn" class="btn btn-primary">Submit</button>
 
                     </div>
                 </div>
@@ -108,7 +109,8 @@ require_once(__DIR__ . '/php/shittalk_functions.php');
 
                     if ($result->num_rows > 0) {
                         while ($row = $result->fetch_assoc()) {
-                            $li = '<li class="list-group-item" id="recentid_' . $row['id'] . '"><span class="badge">' . $row['netVotes'] . '</span><span class="glyphicon glyphicon-arrow-up text-success" aria-hidden="true"> </span> <span class="glyphicon glyphicon-arrow-down text-danger" aria-hidden="true"></span> ' . $row['text'] . '</li>';
+                            $li = '<li class="list-group-item" id="recentid_' . $row['id'] . '"><span class="badge">' . $row['netVotes'] . '</span> ' . $row['text'] . '</li>';
+                            //<span class="glyphicon glyphicon-arrow-up text-success" aria-hidden="true"> </span> <span class="glyphicon glyphicon-arrow-down text-danger" aria-hidden="true"></span>
                             echo $li;
                         }
                     }
@@ -126,7 +128,8 @@ require_once(__DIR__ . '/php/shittalk_functions.php');
 
                     if ($result->num_rows > 0) {
                         while ($row = $result->fetch_assoc()) {
-                            $li = '<li class="list-group-item" id="topid_' . $row['id'] . '"><span class="badge">' . $row['netVotes'] . '</span><span class="glyphicon glyphicon-arrow-up text-success" aria-hidden="true"> </span> <span class="glyphicon glyphicon-arrow-down text-danger" aria-hidden="true"></span> ' . $row['text'] . '</li>';
+                            $li = '<li class="list-group-item" id="topid_' . $row['id'] . '"><span class="badge">' . $row['netVotes'] . '</span> ' . $row['text'] . '</li>';
+                            //<span class="glyphicon glyphicon-arrow-up text-success" aria-hidden="true"> </span> <span class="glyphicon glyphicon-arrow-down text-danger" aria-hidden="true"></span>
                             //<span class="badge">' . $row['netVotes'] . '</span>
                             echo $li;
                         }
