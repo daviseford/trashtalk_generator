@@ -76,7 +76,7 @@ function getUpvotedTextRowsForCfg($limit = 2000)
 
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
-            if ($row['netVotes'] > 1) {
+            if ($row['netVotes'] > 4) {
                 $response[] = $row['text'];
             }
         }

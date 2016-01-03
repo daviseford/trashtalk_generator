@@ -23,9 +23,21 @@ function getRowsForDeletion()
     $result = mySqlQuery($sql);
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
-            if ($row['netVotes'] < -4) {
-                $response[] = $row['id'];
+
+            $totalVotes = $row['upvotes'] + $row['downvotes'];
+            $threshold = $totalVotes * 0.6;
+
+            if ($totalVotes > 50) { //only use threshold once it's large enough
+                if ($threshold < $row['downvotes']) {
+                    $response[] = $row['id'];
+                }
+            } else {
+                if ($row['netVotes'] < -4) {
+                    $response[] = $row['id'];
+                }
             }
+
+
         }
     }
     return $response;
@@ -37,7 +49,7 @@ function deleteAllSelectedRows($arrayOfIDs)
         $id = $arrayOfIDs[$i];
         $sql = "DELETE FROM shittalkDB WHERE `id` = $id;";
         $result = mySqlQuery($sql);
-        if ($result === 1) {
+        if ($result === 1 || $result === true) {
             echo 'Deleted row ' . $id . '<br />';
         }
     }
