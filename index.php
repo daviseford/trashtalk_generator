@@ -22,7 +22,9 @@ require_once(__DIR__ . '/php/shittalk_functions.php');
     <link href='js/libraries/bootstrap-select/css/bootstrap-select.min.css' rel='stylesheet'/>
     <script src="js/libraries/bootstrap-select/js/bootstrap-select.min.js"></script>
 
-    <script src="js/shittalk.js"></script>
+    <!-- String -->
+    <script src="js/libraries/string/string.min.js"></script>
+
 
     <!-- Google Analytics -->
     <script>
@@ -49,95 +51,168 @@ require_once(__DIR__ . '/php/shittalk_functions.php');
 <div class="jumbotron">
     <div class="container">
         <h1>Welcome to the Shittalk Generator</h1>
-        <p>Help us out by rating this bind:</p>
+        <p>Help us out by rating these binds:</p>
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <tbody id="jumbotron_tbody">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="row clearfix"></div>
+
+    </div>
+
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <form class="form-horizontal" role="form">
+
+                <div class="form-group">
+                    <h3><label for="create_shittalk_Text" class="col-sm-3 control-label">Create your own:</label></h3>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="create_shittalk_Text" placeholder=""
+                               maxlength="128">
+                    </div>
+                    <div class="col-sm-3">
+                        <button type="submit" id="create_shittalk_Btn" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+
+
+            </form>
+        </div>
+    </div>
+    <div class="row clearfix"></div>
+
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+
+                <ul class="list-group" id="recent_listGroup">
+                    <li class="list-group-item"><h3 class="text-center">Recent Insults</h3></li>
+                    <?php
+                    $sql = "SELECT *, `upvotes`-`downvotes` AS `netVotes` FROM shittalkDB ORDER by `date_created` DESC LIMIT 10;";
+                    $result = mySqlQuery($sql);
+
+                    if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                            $li = '<li class="list-group-item" id="recentid_' . $row['id'] . '"><span class="badge">' . $row['netVotes'] . '</span><span class="glyphicon glyphicon-arrow-up text-success" aria-hidden="true"> </span> <span class="glyphicon glyphicon-arrow-down text-danger" aria-hidden="true"></span> ' . $row['text'] . '</li>';
+                            echo $li;
+                        }
+                    }
+                    ?>
+                </ul>
+            </div>
+
+            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+
+                <ul class="list-group" id="top_listGroup">
+                    <li class="list-group-item"><h3 class="text-center">Top Insults</h3></li>
+                    <?php
+                    $sql = "SELECT *, `upvotes`-`downvotes` AS `netVotes` FROM shittalkDB ORDER by `netVotes` DESC LIMIT 10;";
+                    $result = mySqlQuery($sql);
+
+                    if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                            $li = '<li class="list-group-item" id="topid_' . $row['id'] . '"><span class="badge">' . $row['netVotes'] . '</span><span class="glyphicon glyphicon-arrow-up text-success" aria-hidden="true"> </span> <span class="glyphicon glyphicon-arrow-down text-danger" aria-hidden="true"></span> ' . $row['text'] . '</li>';
+                            //<span class="badge">' . $row['netVotes'] . '</span>
+                            echo $li;
+                        }
+                    }
+                    ?>
+                </ul>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <p><a href="php/build_cfg.php" class="btn btn-lg btn-block btn-success">
+                            <span class="glyphicon glyphicon-cloud-download" title="generated shittalk.cfg"
+                                  id="downloadBtn"></span> Download Current Build</a>
+                        </p>
+                        <p class="small text-center pull-right">Includes all upvoted insults</p>
+                        <div class="row clearfix"></div>
+                        <p></p>
+                        <p>Download these binds to an easy-to-use Source script, which work in TF2,
+                            CS:GO, CS:Source, Dota2, and all other Source Engine games.</p>
+                        <p><h4>Installation:</h4>
+                        <ul>
+                            <li>Drag shittalk.cfg to your game's cfg folder. For TF2: <code>\Steam\steamapps\common\Team
+                                    Fortress 2\tf\cfg</code>
+                            </li>
+                            <li>Add <code>"exec shittalk.cfg"</code> to your autoexec.cfg.</li>
+                            <li>Alternatively, add <code>+exec shittalk.cfg</code> to your game's launch options.</li>
+                            <li>By default, <code>TAB</code> cycles through the insults, and <code>X</code> sends the
+                                message to chat.
+                            </li>
+                            <li>You can modify these binds in the shittalk.cfg file.</li>
+                            <li>The more keys you can bind <code>cycle_both</code> to, the better. The
+                                <code>cycle_both</code> command is what
+                                provides the psuedo-randomness of the script.
+                            </li>
+                        </ul>
+                        </p>
+
+
+                        <div class="row clearfix"></div>
+                        <br/>
+                        <p class="small">Looking for the original shittalk.cfg? <br/>
+                            <a href="cfg/shittalkcfg.rar"
+                               class="btn btn-primary btn-block"
+                               title="shittalk.cfg by Davis Ford">
+                                <span class="glyphicon glyphicon-download-alt"></span> Download Shittalk Classic</a>
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+            <legend>Rate Some More</legend>
+            <div class="table-responsive">
+                <table class="table">
+
+                    <tbody id="rate_more_tbody">
+
+
                     <?php
 
-                    $sql = "SELECT * FROM shittalkDB ORDER BY rand() LIMIT 1;";
+                    $sql = "SELECT *, `upvotes` - `downvotes` AS `netVotes` FROM shittalkDB ORDER BY rand() LIMIT 25;";
                     $result = mySqlQuery($sql);
 
                     if ($result->num_rows > 0) {
                         while ($row = $result->fetch_assoc()) {
                             $netVotes = $row['upvotes'] - $row['downvotes'];
-                            $tr = '<span class="glyphicon glyphicon-arrow-up text-success" aria-hidden="true" title="' . $row['text'] . '"> </span> <span class="glyphicon glyphicon-arrow-down text-danger" aria-hidden="true" title="' . $row['text'] . '"></span>  <strong>' . $row['text'] . '</strong>';
+                            $tr = '<tr id="ratemoreid_' . $row['id'] . '"><td><span class="glyphicon glyphicon-arrow-up text-success" style="font-size:1.4em;" aria-hidden="true"> </span> <span class="glyphicon glyphicon-arrow-down text-danger" style="font-size:1.4em;" aria-hidden="true"></span></td><td>' . $row['text'] . '</td></tr>';
                             echo $tr;
                         }
                     }
 
+
                     ?>
-                </div>
+                    </tbody>
+                </table>
             </div>
         </div>
-        <div class="col-md-2"></div>
-        <div class="row clearfix"></div>
-        <p>There may be additional features added, such as a rough imitation of machine learning to produce new insults.
-            Let's get bayesian.
-        </p>
-        <p class="small">Coming soon: Download these binds to an easy-to-use Source script, which will work in TF2,
-            Counterstrike, Dota, and all Source Engine games.</p>
-        <p>Looking for the original shittalk.cfg? <a href="cfg/shittalkcfg.rar" class="btn btn-primary btn-primary">
-                <span class="glyphicon glyphicon-download-alt"></span> Download</a>
-        </p>
-    </div>
-</div>
-
-<div class="container">
-    <form class="form-horizontal" role="form">
-
-        <div class="form-group">
-            <label for="create_shittalk_Text" class="col-sm-3 control-label">Create your own:</label>
-            <div class="col-sm-9">
-                <input type="text" class="form-control" id="create_shittalk_Text" placeholder="">
-            </div>
-        </div>
-
-
-        <div class="form-group">
-            <div class="col-sm-9 col-sm-offset-3">
-                <button type="submit" id="create_shittalk_Btn" class="btn btn-primary">Submit</button>
-            </div>
-        </div>
-    </form>
-
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-
-        <legend>Rate Some More</legend>
-        <div class="table-responsive">
-            <table class="table">
-
-                <!--                <thead>-->
-                <!--                <tr>-->
-                <!--                    <th>th is 0</th>-->
-                <!--                    <th>th is 1</th>-->
-                <!--                </tr>-->
-                <!--                </thead>-->
-                <tbody>
-
-
-                <?php
-
-                $sql = "SELECT *, `upvotes` - `downvotes` AS `netVotes` FROM shittalkDB ORDER BY rand() LIMIT 25;";
-                $result = mySqlQuery($sql);
-
-                if ($result->num_rows > 0) {
-                    while ($row = $result->fetch_assoc()) {
-                        $netVotes = $row['upvotes'] - $row['downvotes'];
-                        $tr = '<tr><td><span class="glyphicon glyphicon-arrow-up text-success" aria-hidden="true" title="' . $row['text'] . '"> </span> <span class="glyphicon glyphicon-arrow-down text-danger" aria-hidden="true" title="' . $row['netVotes'] . '"></span> ' . $netVotes . ' points</td><td>' . $row['text'] . '</td></tr>';
-                        echo $tr;
-                    }
-                }
-
-
-                ?>
-                </tbody>
-            </table>
-        </div>
-
     </div>
 </div>
 
 
 </body>
+
+<!-- Shittalk -->
+<script src="js/shittalk.js"></script>
 </html>
