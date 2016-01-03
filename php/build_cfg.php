@@ -12,7 +12,7 @@ $myfile = fopen($file, "r") or die("Unable to open file!");
 
 $fileContents = fread($myfile, filesize($file));
 fclose($myfile);
-
+timestampDownload();
 $trashcanBinds = makeTrashCanBinds();
 if (!empty($trashcanBinds)) {
     $count = count($trashcanBinds);
@@ -25,6 +25,7 @@ if (!empty($trashcanBinds)) {
 
     $filename = 'shittalk.cfg';
 
+
     header("Cache-Control: public");
     header("Content-Description: File Transfer");
     header('Content-Length: ' . strlen($content));
@@ -35,8 +36,6 @@ if (!empty($trashcanBinds)) {
     echo $content;
 
 }
-
-
 
 
 function makeTrashCanBinds()
@@ -85,17 +84,18 @@ function getUpvotedTextRowsForCfg($limit = 500)
     return $response;
 }
 
-function createShittalkRow($text)
+function timestampDownload()
 {
-    $text_escaped = mysql_escape_mimic(strip_double_quotes($text));
-    $today = mysql_escape_mimic(date("Y-m-d H:i:s"));
+    date_default_timezone_set('America/New_York');
+    $timestamp = date('Y-m-d G:i:s');
 
-    $sql = "INSERT INTO `shittalkDB`
-            (`text`, `date_created`, `custom`)
-            VALUES ('$text_escaped', '$today', 0);";
-    $result = mySqlQuery($sql);
 
-    return $result;
+    $sql = "UPDATE `timestamps`
+            SET uses = uses + 1,
+            last_use = '$timestamp'
+            WHERE `action` = 'download';";
+    mySqlQuery($sql);
+
 }
 
 function get_delimited($str, $delimiter = '"')

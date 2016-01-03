@@ -25,6 +25,7 @@ require_once(__DIR__ . '/php/shittalk_functions.php');
     <!-- String -->
     <script src="js/libraries/string/string.min.js"></script>
 
+    <link rel="stylesheet" type="text/css" href="css/shittalk.css">
 
     <!-- Google Analytics -->
     <script>
@@ -100,7 +101,7 @@ require_once(__DIR__ . '/php/shittalk_functions.php');
                 <ul class="list-group" id="recent_listGroup">
                     <li class="list-group-item"><h3 class="text-center">Recent Insults</h3></li>
                     <?php
-                    $sql = "SELECT *, `upvotes`-`downvotes` AS `netVotes` FROM shittalkDB ORDER by `date_created` DESC LIMIT 10;";
+                    $sql = "SELECT *, `upvotes`-`downvotes` AS `netVotes` FROM shittalkDB ORDER by `date_created` DESC LIMIT 12;";
                     $result = mySqlQuery($sql);
 
                     if ($result->num_rows > 0) {
@@ -118,7 +119,7 @@ require_once(__DIR__ . '/php/shittalk_functions.php');
                 <ul class="list-group" id="top_listGroup">
                     <li class="list-group-item"><h3 class="text-center">Top Insults</h3></li>
                     <?php
-                    $sql = "SELECT *, `upvotes`-`downvotes` AS `netVotes` FROM shittalkDB ORDER by `netVotes` DESC LIMIT 10;";
+                    $sql = "SELECT *, `upvotes`-`downvotes` AS `netVotes` FROM shittalkDB ORDER by `netVotes` DESC LIMIT 12;";
                     $result = mySqlQuery($sql);
 
                     if ($result->num_rows > 0) {
@@ -143,8 +144,8 @@ require_once(__DIR__ . '/php/shittalk_functions.php');
                         <p class="small text-center pull-right">Includes all upvoted insults</p>
                         <div class="row clearfix"></div>
                         <p></p>
-                        <p>Download these binds to an easy-to-use Source script, which work in TF2,
-                            CS:GO, CS:Source, Dota2, and all other Source Engine games.</p>
+                        <p>Download these binds to an easy-to-use Source script, which works in TF2,
+                            CS:GO, CS:Source, DoTA2, and all other Source Engine games.</p>
                         <p><h4>Installation:</h4>
                         <ul>
                             <li>Drag shittalk.cfg to your game's cfg folder. For TF2: <code>\Steam\steamapps\common\Team
@@ -181,7 +182,16 @@ require_once(__DIR__ . '/php/shittalk_functions.php');
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
-            <legend>Rate Some More</legend>
+            <legend>Rate Some More - <?php
+                $sql = "SELECT COUNT(*) AS `total` FROM shittalkDB;";
+                $result = mySqlQuery($sql);
+
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+                        echo '<small>' . $row['total'] . ' insults and counting</small>';
+                    }
+                }
+                ?> </legend>
             <div class="table-responsive">
                 <table class="table">
 
@@ -205,6 +215,32 @@ require_once(__DIR__ . '/php/shittalk_functions.php');
                     ?>
                     </tbody>
                 </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container content">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="testimonials">
+                <div class="active item">
+                    <blockquote><p>
+                            He finally found solice in a little thing, so simple, yet so sweet. Being
+                            mean to other individuals in the team fortress 2 community. This device
+                            which he has created has made it possible for others to share in his
+                            happiness. Laughter Is his Job, Tears Are his Game, creating this (I want to call it an
+                            app?) is his profession.
+                            This is who Davis is, this is the last thing that he wants from the TF2 community.
+                            ... Davis 2016.</p></blockquote>
+                    <div class="carousel-info">
+                        <img alt="" src="img/avatar_2x.png" class="pull-left">
+                        <div class="pull-left">
+                            <span class="testimonials-name">Dave__AC</span>
+                            <span class="testimonials-post">Professional Human</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
