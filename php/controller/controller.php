@@ -49,10 +49,31 @@ if (isset($postdec['query'])) {
                     $response = getRandomRows($postdec['limit']); //returns true if successful, false otherwise
                 }
                 break;
+
+            case 'check_IfDuplicate':
+                if (!empty($postdec['create_shittalk_Text'])) {
+                    $response = checkIfDuplicate($postdec['create_shittalk_Text']); //returns true if successful, false otherwise
+                }
+                break;
         }
 
     }
     returnResponse($response); //sends back the message
+}
+
+
+function checkIfDuplicate($text)
+{
+    $response = 0;
+    $text_escaped = mysql_escape_mimic($text);
+    $sql = "SELECT COUNT(*) AS `total` FROM shittalkDB WHERE `text` = '$text_escaped';";
+    $result = mySqlQuery($sql);
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $response = $row['total'];
+        }
+    }
+    return $response;
 }
 
 function getRandomRows($limit)

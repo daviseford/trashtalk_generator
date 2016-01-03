@@ -81,10 +81,12 @@ require_once(__DIR__ . '/php/shittalk_functions.php');
                     <h3><label for="create_shittalk_Text" class="col-sm-3 control-label">Create your own:</label></h3>
                     <div class="col-sm-6">
                         <input type="text" class="form-control" id="create_shittalk_Text" placeholder=""
-                               maxlength="128">
+                               maxlength="128" aria-describedby="helpBlock">
+                        <span id="helpBlock" class="help-block hidden">This insult already exists in our database</span>
                     </div>
                     <div class="col-sm-3">
-                        <button type="submit" id="create_shittalk_Btn" class="btn btn-primary">Submit</button>
+                        <button type="submit" id="create_shittalk_Btn" class="btn btn-primary" >Submit</button>
+
                     </div>
                 </div>
 

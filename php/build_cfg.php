@@ -67,7 +67,7 @@ function makeTrashCanAliases($limit)
 
 
 //echo $fileContents;
-function getUpvotedTextRowsForCfg($limit = 500)
+function getUpvotedTextRowsForCfg($limit = 2000)
 {
     $response = [];
     $limit_escaped = mysql_escape_mimic($limit);

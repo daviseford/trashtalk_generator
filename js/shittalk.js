@@ -7,17 +7,35 @@ $(document).ready(function () {
         .button()
         .click(function (e) {
             e.preventDefault();
+            var that = this;
+
             var form = {};
             form['create_shittalk_Text'] = $('#create_shittalk_Text').val();
-            form['query'] = 'create_Shittalk';
+            form['query'] = 'check_IfDuplicate';
 
-            var request = queryController(form);
-            request.done(function (data) {
+            var duplicateRequest = queryController(form);
+            duplicateRequest.done(function (data) {
                 console.log(data);
-                if (data === true) {
-                    console.log('happy dance!');
-                    location.reload();
+                var number = data + 0;
+
+                if (data < 1) {
+                    var form2 = {};
+                    form2['create_shittalk_Text'] = $('#create_shittalk_Text').val();
+                    form2['query'] = 'create_Shittalk';
+
+                    var request = queryController(form2);
+                    request.done(function (data) {
+                        console.log(data);
+                        if (data === true) {
+                            console.log('happy dance!');
+                            location.reload();
+                        }
+                    });
+                } else {
+                    $(that).parent().parent().addClass('has-error');
+                    $(that).parent().parent().find('span').removeClass('hidden');
                 }
+
             });
         });
 
