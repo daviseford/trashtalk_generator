@@ -82,7 +82,8 @@ function strip_double_quotes($string)
         '—',
         '&mdash;',
         '&ndash;',
-        chr(133));
+        chr(133),
+        '//');
 
     $replace = array(
         "'",
@@ -102,7 +103,8 @@ function strip_double_quotes($string)
         '-',
         '-',
         '-',
-        '...');
+        '...',
+        '/');
 
     return str_replace($search, $replace, $string);
 }

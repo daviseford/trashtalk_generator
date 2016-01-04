@@ -156,7 +156,7 @@ require_once(__DIR__ . '/php/shittalk_functions.php');
                             <li>Drag shittalk.cfg to your game's cfg folder. For TF2: <code>\Steam\steamapps\common\Team
                                     Fortress 2\tf\cfg</code>
                             </li>
-                            <li>Add <code>"exec shittalk.cfg"</code> to your autoexec.cfg.</li>
+                            <li>Add <code>exec shittalk.cfg</code> to your autoexec.cfg.</li>
                             <li>Alternatively, add <code>+exec shittalk.cfg</code> to your game's launch options.</li>
                             <li>By default, <code>TAB</code> cycles through the insults, and <code>X</code> sends the
                                 message to chat.

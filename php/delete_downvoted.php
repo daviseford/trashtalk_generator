@@ -27,7 +27,7 @@ function getRowsForDeletion()
             $totalVotes = $row['upvotes'] + $row['downvotes'];
             $threshold = $totalVotes * 0.6;
 
-            if ($totalVotes > 50) { //only use threshold once it's large enough
+            if ($totalVotes > 70) { //only use threshold once it's large enough
                 if ($threshold < $row['downvotes']) {
                     $response[] = $row['id'];
                 }
