@@ -1,3 +1,4 @@
+
 /***
 User Profile Sidebar by @keenthemes
 A component of Metronic Theme - #1 Selling Bootstrap 3 Admin Theme in Themeforest: http://j.mp/metronictheme
@@ -79,4 +80,65 @@ Licensed under MIT
 .testimonials span.testimonials-post {
     color: #656565;
     font-size: 12px;
+}
+
+.vote-arrow {
+    font-size:1.7em;
+}
+
+.badge {
+    font-size: 1em
+}
+
+.borderless tbody tr td, .borderless tbody tr th, .borderless thead tr th {
+    border: none;
+}
+
+/*==========  Mobile First Method  ==========*/
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px) {
+    .vote-arrow {
+        font-size:3em;
+    }
+    .badge {
+        font-size: 1.7em
+    }
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 480px) {
+    .vote-arrow {
+        font-size:3em;
+    }
+    .badge {
+        font-size: 1.7em
+    }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+    .badge {
+        font-size: 1.3em
+    }
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+    .vote-arrow {
+        font-size:1.7em;
+    }
+    .badge {
+        font-size: 1em
+    }
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+    .vote-arrow {
+        font-size:1.7em;
+    }
+    .badge {
+        font-size: 1em
+    }
 }

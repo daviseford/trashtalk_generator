@@ -10,11 +10,17 @@ $(document).ready(function () {
             var that = this;
 
             var shittalkText = $('#create_shittalk_Text').val();
+            var shittalkText_LowerCase = shittalkText.toLowerCase();
 
-            if (S(shittalkText).contains('http://') || S(shittalkText).contains('www.') || S(shittalkText).contains('.com')) {
+            if (S(shittalkText_LowerCase).contains('http://') || S(shittalkText_LowerCase).contains('www.') || S(shittalkText_LowerCase).contains('.com')) {
 
                 $(that).parent().parent().addClass('has-error');
                 $('#helpBlock2').removeClass('hidden');
+
+            } else if (S(shittalkText_LowerCase).contains('nigger')) {
+
+                $(that).parent().parent().addClass('has-error');
+                $('#helpBlock3').removeClass('hidden');
 
             } else {
 
@@ -35,9 +41,9 @@ $(document).ready(function () {
 
                         var request = queryController(form2);
                         request.done(function (data) {
-                            console.log(data);
+                            //console.log(data);
                             if (data === true) {
-                                console.log('happy dance!');
+                                console.log('submission successful');
                                 location.reload();
                             }
                         });
@@ -58,10 +64,16 @@ $(document).ready(function () {
         post['limit'] = limit;
         var request = queryController(post);
         request.done(function (data) {
-            console.log(data);
+            //console.log(data);
             var rowHolder = [];
             for (var i = 0; i < data.length; i++) {
                 var currentRow = data[i];
+
+                var biased = currentRow['biased'] || '';
+                if (biased === true) {
+                    console.log('Biased');
+                }
+
                 var rowText = currentRow['text'] || '';
                 if (rowText !== '') {
                     var spantemplate = '<tr id="jumboid_' + currentRow['id'] + '"><td>' +
@@ -84,10 +96,10 @@ $(document).ready(function () {
 
                     if ($(this).is('[disabled=disabled]') !== true) {
 
-                        console.log('upvoted!');
+                        //console.log('upvoted!');
                         var text = $(this).parent().next().text();
                         var parent = $(this).parent().parent();
-                        console.log(text);
+                        ////console.log(text);
 
                         $(this).attr('disabled', 'disabled');
                         $(this).parent().parent().addClass('selected-st');
@@ -98,7 +110,7 @@ $(document).ready(function () {
                         query['query'] = 'upvote_Row';
                         var request = queryController(query);
                         request.done(function (data) {
-                            console.log(data);
+                            //console.log(data);
                             parent.addClass('bg-success');
                             checkIfJumbotronIsFull();
 
@@ -114,10 +126,10 @@ $(document).ready(function () {
                 .click(function (e) {
                     e.preventDefault();
                     if ($(this).is('[disabled=disabled]') !== true) {
-                        console.log('downvoted!');
+                        ////console.log('downvoted!');
                         var text = $(this).parent().next().text();
                         var parent = $(this).parent().parent();
-                        console.log(text);
+                        //console.log(text);
 
                         $(this).attr('disabled', 'disabled');
                         $(this).parent().parent().addClass('selected-st');
@@ -128,7 +140,7 @@ $(document).ready(function () {
                         query['query'] = 'downvote_Row';
                         var request = queryController(query);
                         request.done(function (data) {
-                            console.log(data);
+                            //console.log(data);
                             parent.addClass('bg-danger');
                             checkIfJumbotronIsFull();
                         });
@@ -145,7 +157,7 @@ $(document).ready(function () {
         var limit = 3;
         if ($('#jumbotron_tbody').find('.selected-st').length === limit) {
             makeJumboRows(3);
-            console.log('making jumbo rows in checkIfJumboFull');
+            //console.log('making jumbo rows in checkIfJumboFull');
         }
     }
 
@@ -168,11 +180,11 @@ $(document).ready(function () {
 
             if ($(this).is('[disabled=disabled]') !== true) {
 
-                //console.log('upvoted!');
+                ////console.log('upvoted!');
                 var parent = $(this).parent();
                 var text = parent.text();
 
-                //console.log(text);
+                ////console.log(text);
 
                 $(this).attr('disabled', 'disabled');
 
@@ -182,7 +194,7 @@ $(document).ready(function () {
                 query['query'] = 'upvote_Row';
                 var request = queryController(query);
                 request.done(function (data) {
-                    console.log(data);
+                    //console.log(data);
                     //var origBadgeVal = parent.find('.badge').text();
                     //parent.find('.badge').text(origBadgeVal+1);
                     parent.removeClass('list-group-item-danger');
@@ -200,11 +212,11 @@ $(document).ready(function () {
 
             if ($(this).is('[disabled=disabled]') !== true) {
 
-                //console.log('upvoted!');
+                ////console.log('upvoted!');
                 var parent = $(this).parent();
                 var text = parent.text();
 
-                //console.log(text);
+                ////console.log(text);
 
                 $(this).attr('disabled', 'disabled');
 
@@ -214,7 +226,7 @@ $(document).ready(function () {
                 query['query'] = 'downvote_Row';
                 var request = queryController(query);
                 request.done(function (data) {
-                    console.log(data);
+                    //console.log(data);
                     parent.removeClass('list-group-item-success');
                     parent.addClass('list-group-item-danger');
                 })
@@ -231,11 +243,11 @@ $(document).ready(function () {
 
             if ($(this).is('[disabled=disabled]') !== true) {
 
-                //console.log('upvoted!');
+                ////console.log('upvoted!');
                 var parent = $(this).parent();
                 var text = parent.text();
 
-                //console.log(text);
+                ////console.log(text);
 
                 $(this).attr('disabled', 'disabled');
 
@@ -245,7 +257,7 @@ $(document).ready(function () {
                 query['query'] = 'upvote_Row';
                 var request = queryController(query);
                 request.done(function (data) {
-                    console.log(data);
+                    //console.log(data);
                     parent.removeClass('list-group-item-danger');
                     parent.addClass('list-group-item-success');
                 })
@@ -261,11 +273,11 @@ $(document).ready(function () {
 
             if ($(this).is('[disabled=disabled]') !== true) {
 
-                console.log('downvoted!');
+                //console.log('downvoted!');
                 var parent = $(this).parent();
                 var text = parent.text();
 
-                //console.log(text);
+                ////console.log(text);
 
                 $(this).attr('disabled', 'disabled');
 
@@ -275,7 +287,7 @@ $(document).ready(function () {
                 query['query'] = 'downvote_Row';
                 var request = queryController(query);
                 request.done(function (data) {
-                    console.log(data);
+                    //console.log(data);
                     parent.removeClass('list-group-item-success');
                     parent.addClass('list-group-item-danger');
                 })
@@ -292,10 +304,10 @@ $(document).ready(function () {
 
             if ($(this).is('[disabled=disabled]') !== true) {
 
-                console.log('upvoted!');
+                //console.log('upvoted!');
                 var text = $(this).parent().next().text();
                 var parent = $(this).parent().parent();
-                console.log(text);
+                //console.log(text);
 
                 $(this).attr('disabled', 'disabled');
 
@@ -305,7 +317,7 @@ $(document).ready(function () {
                 query['query'] = 'upvote_Row';
                 var request = queryController(query);
                 request.done(function (data) {
-                    console.log(data);
+                    //console.log(data);
                     parent.removeClass('bg-danger');
                     parent.addClass('bg-success');
                     checkIfRateMoreIsFull();
@@ -320,10 +332,10 @@ $(document).ready(function () {
         .click(function (e) {
             e.preventDefault();
             if ($(this).is('[disabled=disabled]') !== true) {
-                console.log('downvoted!');
+                //console.log('downvoted!');
                 var text = $(this).parent().next().text();
                 var parent = $(this).parent().parent();
-                console.log(text);
+                //console.log(text);
 
                 $(this).attr('disabled', 'disabled');
 
@@ -333,7 +345,7 @@ $(document).ready(function () {
                 query['query'] = 'downvote_Row';
                 var request = queryController(query);
                 request.done(function (data) {
-                    console.log(data);
+                    //console.log(data);
                     parent.addClass('bg-danger');
                     checkIfRateMoreIsFull();
                 });
@@ -342,7 +354,7 @@ $(document).ready(function () {
             }
         });
 
-    $('.badge').each(function (object) {
+    $('.badge').each(function () {
         var that = this;
         var thisVal = $(this).text();
         if (thisVal < 0) {

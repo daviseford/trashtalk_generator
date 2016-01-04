@@ -78,15 +78,37 @@ function checkIfDuplicate($text)
     return $response;
 }
 
+
 function getRandomRows($limit)
 {
     $response = [];
     $limit_escaped = (int)$limit;
+    $randomInt = rand(0, 15);
+
+    /* Let's try to target stuff without votes first */
+    if ($randomInt <= 7) { //let's not bias it too much in favor, but we do want to include some new stuff when possible
+
+        $sql = "SELECT * FROM shittalkDB WHERE `upvotes` < 2 AND `downvotes` < 2 ORDER BY rand() LIMIT 1;";
+        $result = mySqlQuery($sql);
+
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $text = $row['text'];
+                $row['text'] = htmlspecialchars($text);
+                $row['biased'] = true;
+                $response[] = $row;
+            }
+            $limit_escaped--; //decrement the limit, as it'll be used by the normal, all-encompassing query
+        }
+    }
+
     $sql = "SELECT * FROM shittalkDB ORDER BY rand() LIMIT $limit_escaped;";
     $result = mySqlQuery($sql);
 
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
+            $text = $row['text'];
+            $row['text'] = htmlspecialchars($text);
             $response[] = $row;
         }
     }

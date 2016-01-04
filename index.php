@@ -7,6 +7,7 @@ require_once(__DIR__ . '/php/shittalk_functions.php');
     <meta charset="UTF-8">
     <title>Shittalk Generator</title>
 
+
     <!-- jQuery -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
@@ -57,7 +58,7 @@ require_once(__DIR__ . '/php/shittalk_functions.php');
             <div class="panel panel-default">
                 <div class="panel-body">
                     <div class="table-responsive">
-                        <table class="table">
+                        <table class="table borderless">
                             <tbody id="jumbotron_tbody">
                             </tbody>
                         </table>
@@ -66,7 +67,6 @@ require_once(__DIR__ . '/php/shittalk_functions.php');
             </div>
 
         </div>
-        <div class="row clearfix"></div>
 
     </div>
 
@@ -78,14 +78,17 @@ require_once(__DIR__ . '/php/shittalk_functions.php');
             <form class="form-horizontal" role="form">
 
                 <div class="form-group">
-                    <h3><label for="create_shittalk_Text" class="col-sm-3 control-label">Create your own:</label></h3>
-                    <div class="col-sm-6">
+                    <h3><label for="create_shittalk_Text" class="col-sm-3 col-xs-3 control-label">Create your
+                            own:</label>
+                    </h3>
+                    <div class="col-sm-6 col-xs-6">
                         <input type="text" class="form-control" id="create_shittalk_Text" placeholder=""
                                maxlength="128" aria-describedby="helpBlock">
                         <span id="helpBlock" class="help-block hidden">This insult already exists in our database</span>
                         <span id="helpBlock2" class="help-block hidden">Please do not submit websites.</span>
+                        <span id="helpBlock3" class="help-block hidden">Be cool.</span>
                     </div>
-                    <div class="col-sm-3">
+                    <div class="col-sm-3 col-xs-3">
                         <button type="submit" id="create_shittalk_Btn" class="btn btn-primary">Submit</button>
 
                     </div>
@@ -95,11 +98,12 @@ require_once(__DIR__ . '/php/shittalk_functions.php');
             </form>
         </div>
     </div>
+
     <div class="row clearfix"></div>
 
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 hidden-xs">
 
                 <ul class="list-group" id="recent_listGroup">
                     <li class="list-group-item"><h3 class="text-center">Recent Insults</h3></li>
@@ -109,7 +113,7 @@ require_once(__DIR__ . '/php/shittalk_functions.php');
 
                     if ($result->num_rows > 0) {
                         while ($row = $result->fetch_assoc()) {
-                            $li = '<li class="list-group-item" id="recentid_' . $row['id'] . '"><span class="badge">' . $row['netVotes'] . '</span> ' . $row['text'] . '</li>';
+                            $li = '<li class="list-group-item" id="recentid_' . $row['id'] . '"><span class="badge">' . $row['netVotes'] . '</span> ' . htmlspecialchars($row['text']) . '</li>';
                             //<span class="glyphicon glyphicon-arrow-up text-success" aria-hidden="true"> </span> <span class="glyphicon glyphicon-arrow-down text-danger" aria-hidden="true"></span>
                             echo $li;
                         }
@@ -118,7 +122,7 @@ require_once(__DIR__ . '/php/shittalk_functions.php');
                 </ul>
             </div>
 
-            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
 
                 <ul class="list-group" id="top_listGroup">
                     <li class="list-group-item"><h3 class="text-center">Top Insults</h3></li>
@@ -128,7 +132,7 @@ require_once(__DIR__ . '/php/shittalk_functions.php');
 
                     if ($result->num_rows > 0) {
                         while ($row = $result->fetch_assoc()) {
-                            $li = '<li class="list-group-item" id="topid_' . $row['id'] . '"><span class="badge">' . $row['netVotes'] . '</span> ' . $row['text'] . '</li>';
+                            $li = '<li class="list-group-item" id="topid_' . $row['id'] . '"><span class="badge">' . $row['netVotes'] . '</span> ' . htmlspecialchars($row['text']) . '</li>';
                             //<span class="glyphicon glyphicon-arrow-up text-success" aria-hidden="true"> </span> <span class="glyphicon glyphicon-arrow-down text-danger" aria-hidden="true"></span>
                             //<span class="badge">' . $row['netVotes'] . '</span>
                             echo $li;
@@ -142,13 +146,19 @@ require_once(__DIR__ . '/php/shittalk_functions.php');
 
                 <div class="panel panel-default">
                     <div class="panel-body">
-                        <p><a href="php/build_cfg.php" class="btn btn-lg btn-block btn-success">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+                            <a href="php/build_cfg.php"
+                               class="btn btn-lg btn-block btn-success">
                             <span class="glyphicon glyphicon-cloud-download" title="generated shittalk.cfg"
                                   id="downloadBtn"></span> Download Current Build</a>
-                        </p>
-                        <p class="small text-center pull-right">Includes all upvoted insults</p>
+                            <p class="small" style="padding-top: 2px;">Includes
+                                <strong><?php echo getIncludedBindCount(); ?></strong>
+                                top-rated insults</p>
+                        </div>
+
                         <div class="row clearfix"></div>
-                        <p></p>
+
+                        <br/>
                         <p>Download these binds to an easy-to-use Source script, which works in TF2,
                             CS:GO, CS:Source, DoTA2, and all other Source Engine games.</p>
                         <p><h4>Installation:</h4>
@@ -187,16 +197,8 @@ require_once(__DIR__ . '/php/shittalk_functions.php');
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
-            <legend>Rate Some More - <?php
-                $sql = "SELECT COUNT(*) AS `total` FROM shittalkDB;";
-                $result = mySqlQuery($sql);
-
-                if ($result->num_rows > 0) {
-                    while ($row = $result->fetch_assoc()) {
-                        echo '<small>' . $row['total'] . ' insults and counting</small>';
-                    }
-                }
-                ?> </legend>
+            <legend>Rate Some More
+                - <?php echo '<small>' . getTotalBindCount() . ' insults and counting</small>'; ?> </legend>
             <div class="table-responsive">
                 <table class="table">
 
@@ -211,7 +213,7 @@ require_once(__DIR__ . '/php/shittalk_functions.php');
                     if ($result->num_rows > 0) {
                         while ($row = $result->fetch_assoc()) {
                             $netVotes = $row['upvotes'] - $row['downvotes'];
-                            $tr = '<tr id="ratemoreid_' . $row['id'] . '"><td><span class="glyphicon glyphicon-arrow-up text-success" style="font-size:1.4em;" aria-hidden="true"> </span> <span class="glyphicon glyphicon-arrow-down text-danger" style="font-size:1.4em;" aria-hidden="true"></span></td><td>' . $row['text'] . '</td></tr>';
+                            $tr = '<tr id="ratemoreid_' . $row['id'] . '"><td><span class="glyphicon glyphicon-arrow-up text-success vote-arrow"  aria-hidden="true"> </span> <span class="glyphicon glyphicon-arrow-down text-danger vote-arrow" aria-hidden="true"></span></td><td>' . htmlspecialchars($row['text']) . '</td></tr>';
                             echo $tr;
                         }
                     }
@@ -231,13 +233,17 @@ require_once(__DIR__ . '/php/shittalk_functions.php');
             <div class="testimonials">
                 <div class="active item">
                     <blockquote><p>
-                            He finally found solice in a little thing, so simple, yet so sweet. Being
-                            mean to other individuals in the team fortress 2 community. This device
+                            He finally found solace in a little thing, so simple, yet so sweet.</p>
+
+                        <p> Being mean to other individuals in the Team Fortress 2 community. This device
                             which he has created has made it possible for others to share in his
-                            happiness. Laughter Is his Job, Tears Are his Game, creating this (I want to call it an
-                            app?) is his profession.
-                            This is who Davis is, this is the last thing that he wants from the TF2 community.
-                            ... Davis 2016.</p></blockquote>
+                            happiness.</p>
+
+                        <p>Laughter Is His Job, Tears Are His Game, creating this (I want to call it an
+                            app?) is his profession.</p>
+                        <p>This is who Davis is, this is the last thing that he wants from the TF2 community.
+                        </p>
+                        <p> Davis 2016.</p></blockquote>
                     <div class="carousel-info">
                         <img alt="" src="img/avatar_2x.png" class="pull-left">
                         <div class="pull-left">

@@ -35,6 +35,8 @@ if (!empty($trashcanBinds)) {
 
     echo $content;
 
+} else {
+    echo "Error: Not enough votes in the database. No insults have over 5 net votes.";
 }
 
 
@@ -71,14 +73,12 @@ function getUpvotedTextRowsForCfg($limit = 2000)
 {
     $response = [];
     $limit_escaped = mysql_escape_mimic($limit);
-    $sql = "SELECT *, `upvotes` - `downvotes` AS `netVotes` FROM shittalkDB WHERE upvotes > 0 ORDER by upvotes DESC LIMIT $limit_escaped;";
+    $sql = "SELECT *, `upvotes` - `downvotes` AS `netVotes` FROM shittalkDB WHERE (`upvotes` - `downvotes`) > 5 ORDER by upvotes DESC LIMIT $limit_escaped;";
     $result = mySqlQuery($sql);
 
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
-            if ($row['netVotes'] > 4) {
-                $response[] = $row['text'];
-            }
+            $response[] = $row['text'];
         }
     }
     return $response;

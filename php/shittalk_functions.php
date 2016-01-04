@@ -11,7 +11,38 @@
  * function mysql_escape_mimic($inp)
  * function returnResponse($response)
  *
+ * function getIncludedBindCount()
+ * function getTotalBindCount(){
  */
+
+
+function getIncludedBindCount()
+{
+    $response = [];
+    $sql = "SELECT COUNT(*) AS `count` FROM shittalkDB WHERE (`upvotes` - `downvotes`) > 5;";
+    $result = mySqlQuery($sql);
+
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $response = $row['count'];
+        }
+    }
+    return $response;
+}
+
+function getTotalBindCount()
+{
+    $response = '';
+    $sql = "SELECT COUNT(*) AS `count` FROM shittalkDB;";
+    $result = mySqlQuery($sql);
+
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $response = $row['count'];
+        }
+    }
+    return $response;
+}
 
 
 /*
