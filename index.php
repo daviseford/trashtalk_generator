@@ -105,8 +105,8 @@ require_once(__DIR__ . '/php/shittalk_functions.php');
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 hidden-xs">
 
+                <li class="list-group-item"><h3 class="text-center">Recent Insults</h3></li>
                 <ul class="list-group def-list-group-scroll" id="recent_listGroup">
-                    <li class="list-group-item"><h3 class="text-center">Recent Insults</h3></li>
                     <?php
                     $sql = "SELECT *, `upvotes`-`downvotes` AS `netVotes` FROM shittalkDB ORDER by `date_created` DESC LIMIT 30;";
                     $result = mySqlQuery($sql);
@@ -124,8 +124,8 @@ require_once(__DIR__ . '/php/shittalk_functions.php');
 
             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
 
+                <li class="list-group-item"><h3 class="text-center">Top Insults</h3></li>
                 <ul class="list-group def-list-group-scroll" id="top_listGroup">
-                    <li class="list-group-item"><h3 class="text-center">Top Insults</h3></li>
                     <?php
                     $sql = "SELECT *, `upvotes`-`downvotes` AS `netVotes` FROM shittalkDB ORDER by `netVotes` DESC LIMIT 30;";
                     $result = mySqlQuery($sql);
@@ -143,9 +143,8 @@ require_once(__DIR__ . '/php/shittalk_functions.php');
             </div>
 
             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 hidden-xs">
-
+                <li class="list-group-item"><h3 class="text-center">Random Insults</h3></li>
                 <ul class="list-group def-list-group-scroll" id="random_listGroup">
-                    <li class="list-group-item"><h3 class="text-center">Random Insults</h3></li>
                     <?php
                     $sql = "SELECT *, `upvotes`-`downvotes` AS `netVotes` FROM shittalkDB ORDER by rand() DESC LIMIT 30;";
                     $result = mySqlQuery($sql);

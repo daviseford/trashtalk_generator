@@ -83,7 +83,7 @@ Licensed under MIT
 }
 
 .vote-arrow {
-    font-size:1.7em;
+    font-size:1.8em;
 }
 
 .badge {
@@ -97,7 +97,15 @@ Licensed under MIT
     max-height: 800px;
     overflow-y:scroll;
 }
-
+.def-list-group-scroll::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 4px;
+}
+.def-list-group-scroll::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    background-color: lightgray;
+    -webkit-box-shadow: 0 0 1px rgba(255,255,255,.75);
+}
 
 
 /*==========  Mobile First Method  ==========*/
@@ -115,7 +123,7 @@ Licensed under MIT
 /* Extra Small Devices, Phones */
 @media only screen and (min-width : 480px) {
     .vote-arrow {
-        font-size: 5em;
+        font-size: 3em;
     }
     .badge {
         font-size: 1.7em
@@ -132,7 +140,7 @@ Licensed under MIT
 /* Medium Devices, Desktops */
 @media only screen and (min-width : 992px) {
     .vote-arrow {
-        font-size:1.7em;
+        font-size:1.8em;
     }
     .badge {
         font-size: 1em
