@@ -103,12 +103,12 @@ require_once(__DIR__ . '/php/shittalk_functions.php');
 
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 hidden-xs">
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 hidden-xs">
 
-                <ul class="list-group" id="recent_listGroup">
+                <ul class="list-group def-list-group-scroll" id="recent_listGroup">
                     <li class="list-group-item"><h3 class="text-center">Recent Insults</h3></li>
                     <?php
-                    $sql = "SELECT *, `upvotes`-`downvotes` AS `netVotes` FROM shittalkDB ORDER by `date_created` DESC LIMIT 12;";
+                    $sql = "SELECT *, `upvotes`-`downvotes` AS `netVotes` FROM shittalkDB ORDER by `date_created` DESC LIMIT 30;";
                     $result = mySqlQuery($sql);
 
                     if ($result->num_rows > 0) {
@@ -122,12 +122,12 @@ require_once(__DIR__ . '/php/shittalk_functions.php');
                 </ul>
             </div>
 
-            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
 
-                <ul class="list-group" id="top_listGroup">
+                <ul class="list-group def-list-group-scroll" id="top_listGroup">
                     <li class="list-group-item"><h3 class="text-center">Top Insults</h3></li>
                     <?php
-                    $sql = "SELECT *, `upvotes`-`downvotes` AS `netVotes` FROM shittalkDB ORDER by `netVotes` DESC LIMIT 12;";
+                    $sql = "SELECT *, `upvotes`-`downvotes` AS `netVotes` FROM shittalkDB ORDER by `netVotes` DESC LIMIT 30;";
                     $result = mySqlQuery($sql);
 
                     if ($result->num_rows > 0) {
@@ -142,58 +142,100 @@ require_once(__DIR__ . '/php/shittalk_functions.php');
                 </ul>
             </div>
 
-            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 hidden-xs">
 
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-                            <a href="php/build_cfg.php"
-                               class="btn btn-lg btn-block btn-success">
-                            <span class="glyphicon glyphicon-cloud-download" title="generated shittalk.cfg"
-                                  id="downloadBtn"></span> Download Current Build</a>
-                            <p class="small" style="padding-top: 2px;">Includes
-                                <strong><?php echo getIncludedBindCount(); ?></strong>
-                                top-rated insults</p>
-                        </div>
+                <ul class="list-group def-list-group-scroll" id="random_listGroup">
+                    <li class="list-group-item"><h3 class="text-center">Random Insults</h3></li>
+                    <?php
+                    $sql = "SELECT *, `upvotes`-`downvotes` AS `netVotes` FROM shittalkDB ORDER by rand() DESC LIMIT 30;";
+                    $result = mySqlQuery($sql);
 
-                        <div class="row clearfix"></div>
-
-                        <br/>
-                        <p>Download these binds to an easy-to-use Source script, which works in TF2,
-                            CS:GO, CS:Source, DoTA2, and all other Source Engine games.</p>
-                        <p><h4>Installation:</h4>
-                        <ul>
-                            <li>Drag shittalk.cfg to your game's cfg folder. For TF2: <code>\Steam\steamapps\common\Team
-                                    Fortress 2\tf\cfg</code>
-                            </li>
-                            <li>Add <code>exec shittalk.cfg</code> to your autoexec.cfg.</li>
-                            <li>Alternatively, add <code>+exec shittalk.cfg</code> to your game's launch options.</li>
-                            <li>By default, <code>TAB</code> cycles through the insults, and <code>X</code> sends the
-                                message to chat.
-                            </li>
-                            <li>You can modify these binds in the shittalk.cfg file.</li>
-                            <li>The more keys you can bind <code>cycle_both</code> to, the better. The
-                                <code>cycle_both</code> command is what
-                                provides the psuedo-randomness of the script.
-                            </li>
-                        </ul>
-                        </p>
-
-
-                        <div class="row clearfix"></div>
-                        <br/>
-                        <p class="small">Looking for the original shittalk.cfg? <br/>
-                            <a href="cfg/shittalkcfg.rar"
-                               class="btn btn-primary btn-block"
-                               title="shittalk.cfg by Davis Ford">
-                                <span class="glyphicon glyphicon-download-alt"></span> Download Shittalk Classic</a>
-                        </p>
-                    </div>
-                </div>
-
+                    if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                            $li = '<li class="list-group-item" id="randomid_' . $row['id'] . '"><span class="badge">' . $row['netVotes'] . '</span> ' . htmlspecialchars($row['text']) . '</li>';
+                            echo $li;
+                        }
+                    }
+                    ?>
+                </ul>
             </div>
+
         </div>
     </div>
+
+    <div class="row clearfix"></div>
+
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+
+                        <a href="php/build_cfg.php"
+                           class="btn btn-lg btn-success">
+                            <span class="glyphicon glyphicon-cloud-download" title="generated shittalk.cfg"
+                                  id="downloadBtn"></span> Download Current Build</a>
+                        <p class="small" style="padding-top: 2px;">Includes
+                            <strong><?php echo getIncludedBindCount(); ?></strong>
+                            top-rated insults</p>
+                    </div>
+
+                    <div class="row clearfix"></div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p>Download these binds to an easy-to-use Source script, which works in TF2,
+                                CS:GO, CS:Source, DoTA2, and all other Source Engine games.</p>
+                            <p><h4>Installation:</h4>
+
+                            <p>
+                                1.) Drag <code>shittalk.cfg</code> to your game's <code>cfg</code> folder. </p>
+                            <p>
+
+                                <strong>TF2 - </strong><code>\Steam\steamapps\common\Team Fortress 2\tf\cfg</code><br/>
+                                <strong>DoTA2 - </strong><code>\Steam\steamapps\common\dota 2
+                                    beta\game\dota\cfg</code><br/>
+                                <strong>CS:GO - </strong><code>\Steam\steamapps\common\Counter-Strike Global
+                                    Offensive\csgo\cfg</code>
+                            </p>
+
+                            <p>2.) Add <code>exec shittalk.cfg</code> to your <code>autoexec.cfg</code>.</p>
+                            <p>3.) Alternatively, add <code>+exec shittalk.cfg</code> to your game's launch options.</p>
+                            <p>4.) You can now launch your game. To ensure <code>shittalk.cfg</code> loaded correctly,
+                                open
+                                console and type <code>exec shittalk</code>.</p>
+                            <p>5.) By default, <kbd>TAB</kbd> cycles through the insults, and <kbd>X</kbd> sends the
+                                message
+                                to
+                                chat.
+                            </p>
+                            <p>You can modify these binds in the <code>shittalk.cfg</code> file.</p>
+                            <p>The more keys you can bind <code>cycle_both</code> to, the better. The
+                                <code>cycle_both</code> command is what
+                                provides the psuedo-randomness of the script.
+
+                            </p>
+                        </div>
+                    </div>
+
+
+                    <div class="row clearfix"></div>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <p class="small">Looking for the original shittalk.cfg? <br/>
+                                <a href="cfg/shittalkcfg.rar"
+                                   class="btn btn-primary btn-md"
+                                   title="shittalk.cfg by Davis Ford">
+                                    <span class="glyphicon glyphicon-download-alt"></span> Download Shittalk Classic</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
@@ -262,4 +304,5 @@ require_once(__DIR__ . '/php/shittalk_functions.php');
 
 <!-- Shittalk -->
 <script src="js/shittalk.js"></script>
+<!-- What is the odds? -->
 </html>

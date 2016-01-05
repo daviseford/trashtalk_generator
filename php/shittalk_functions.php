@@ -19,7 +19,7 @@
 function getIncludedBindCount()
 {
     $response = [];
-    $sql = "SELECT COUNT(*) AS `count` FROM shittalkDB WHERE (`upvotes` - `downvotes`) > 5;";
+    $sql = "SELECT COUNT(*) AS `count` FROM shittalkDB WHERE (`upvotes` - `downvotes`) > 3;";
     $result = mySqlQuery($sql);
 
     if ($result->num_rows > 0) {

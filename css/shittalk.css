@@ -93,13 +93,19 @@ Licensed under MIT
 .borderless tbody tr td, .borderless tbody tr th, .borderless thead tr th {
     border: none;
 }
+.def-list-group-scroll {
+    max-height: 800px;
+    overflow-y:scroll;
+}
+
+
 
 /*==========  Mobile First Method  ==========*/
 
 /* Custom, iPhone Retina */
 @media only screen and (min-width : 320px) {
     .vote-arrow {
-        font-size:3em;
+        font-size: 3.2em;
     }
     .badge {
         font-size: 1.7em
@@ -109,7 +115,7 @@ Licensed under MIT
 /* Extra Small Devices, Phones */
 @media only screen and (min-width : 480px) {
     .vote-arrow {
-        font-size:3em;
+        font-size: 5em;
     }
     .badge {
         font-size: 1.7em
