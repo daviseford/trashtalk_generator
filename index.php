@@ -108,7 +108,7 @@ require_once(__DIR__ . '/php/shittalk_functions.php');
                 <li class="list-group-item"><h3 class="text-center">Recent Insults</h3></li>
                 <ul class="list-group def-list-group-scroll" id="recent_listGroup">
                     <?php
-                    $sql = "SELECT *, `upvotes`-`downvotes` AS `netVotes` FROM shittalkDB ORDER by `date_created` DESC LIMIT 30;";
+                    $sql = "SELECT `id`, `text`, `upvotes`-`downvotes` AS `netVotes` FROM shittalkDB WHERE (`upvotes` - `downvotes`) > -5 ORDER by `date_created` DESC LIMIT 30;";
                     $result = mySqlQuery($sql);
 
                     if ($result->num_rows > 0) {
@@ -127,14 +127,12 @@ require_once(__DIR__ . '/php/shittalk_functions.php');
                 <li class="list-group-item"><h3 class="text-center">Top Insults</h3></li>
                 <ul class="list-group def-list-group-scroll" id="top_listGroup">
                     <?php
-                    $sql = "SELECT *, `upvotes`-`downvotes` AS `netVotes` FROM shittalkDB ORDER by `netVotes` DESC LIMIT 30;";
+                    $sql = "SELECT `id`, `text`, `upvotes`-`downvotes` AS `netVotes` FROM shittalkDB ORDER by `netVotes` DESC LIMIT 30;";
                     $result = mySqlQuery($sql);
 
                     if ($result->num_rows > 0) {
                         while ($row = $result->fetch_assoc()) {
                             $li = '<li class="list-group-item" id="topid_' . $row['id'] . '"><span class="badge">' . $row['netVotes'] . '</span> ' . htmlspecialchars($row['text']) . '</li>';
-                            //<span class="glyphicon glyphicon-arrow-up text-success" aria-hidden="true"> </span> <span class="glyphicon glyphicon-arrow-down text-danger" aria-hidden="true"></span>
-                            //<span class="badge">' . $row['netVotes'] . '</span>
                             echo $li;
                         }
                     }
@@ -146,7 +144,7 @@ require_once(__DIR__ . '/php/shittalk_functions.php');
                 <li class="list-group-item"><h3 class="text-center">Random Insults</h3></li>
                 <ul class="list-group def-list-group-scroll" id="random_listGroup">
                     <?php
-                    $sql = "SELECT *, `upvotes`-`downvotes` AS `netVotes` FROM shittalkDB ORDER by rand() DESC LIMIT 30;";
+                    $sql = "SELECT `id`, `text`, `upvotes`-`downvotes` AS `netVotes` FROM shittalkDB WHERE (`upvotes` - `downvotes`) > -5 ORDER by rand() DESC LIMIT 30;";
                     $result = mySqlQuery($sql);
 
                     if ($result->num_rows > 0) {
@@ -245,22 +243,20 @@ require_once(__DIR__ . '/php/shittalk_functions.php');
 
                     <tbody id="rate_more_tbody">
 
-
                     <?php
 
-                    $sql = "SELECT *, `upvotes` - `downvotes` AS `netVotes` FROM shittalkDB ORDER BY rand() LIMIT 25;";
+                    $sql = "SELECT `id`, `text`, `upvotes` - `downvotes` AS `netVotes` FROM shittalkDB WHERE (`upvotes` - `downvotes`) > -5 ORDER BY rand() LIMIT 25;";
                     $result = mySqlQuery($sql);
 
                     if ($result->num_rows > 0) {
                         while ($row = $result->fetch_assoc()) {
-                            $netVotes = $row['upvotes'] - $row['downvotes'];
                             $tr = '<tr id="ratemoreid_' . $row['id'] . '"><td><span class="glyphicon glyphicon-arrow-up text-success vote-arrow"  aria-hidden="true"> </span> <span class="glyphicon glyphicon-arrow-down text-danger vote-arrow" aria-hidden="true"></span></td><td>' . htmlspecialchars($row['text']) . '</td></tr>';
                             echo $tr;
                         }
                     }
 
-
                     ?>
+
                     </tbody>
                 </table>
             </div>
@@ -294,6 +290,21 @@ require_once(__DIR__ . '/php/shittalk_functions.php');
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <small>Copyright Davis Ford 2016 | What is the odds?</small>
+            <br/>
+            <br/>
         </div>
     </div>
 </div>

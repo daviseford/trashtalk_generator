@@ -86,9 +86,9 @@ function getRandomRows($limit)
     $randomInt = rand(0, 15);
 
     /* Let's try to target stuff without votes first */
-    if ($randomInt <= 7) { //let's not bias it too much in favor, but we do want to include some new stuff when possible
+    if ($randomInt <= 3) { //let's not bias it too much in favor, but we do want to include some new stuff when possible
 
-        $sql = "SELECT * FROM shittalkDB WHERE `upvotes` < 2 AND `downvotes` < 2 ORDER BY rand() LIMIT 1;";
+        $sql = "SELECT `id`, `text` FROM shittalkDB WHERE `upvotes` < 2 AND `downvotes` < 2 ORDER BY rand() LIMIT 1;";
         $result = mySqlQuery($sql);
 
         if ($result->num_rows > 0) {
@@ -102,7 +102,7 @@ function getRandomRows($limit)
         }
     }
 
-    $sql = "SELECT * FROM shittalkDB ORDER BY rand() LIMIT $limit_escaped;";
+    $sql = "SELECT `id`, `text` FROM shittalkDB WHERE (`upvotes` - `downvotes`) > -5 ORDER BY rand() LIMIT $limit_escaped;";
     $result = mySqlQuery($sql);
 
     if ($result->num_rows > 0) {

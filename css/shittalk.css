@@ -1,4 +1,3 @@
-
 /***
 User Profile Sidebar by @keenthemes
 A component of Metronic Theme - #1 Selling Bootstrap 3 Admin Theme in Themeforest: http://j.mp/metronictheme
@@ -83,7 +82,7 @@ Licensed under MIT
 }
 
 .vote-arrow {
-    font-size:1.8em;
+    font-size: 1.8em;
 }
 
 .badge {
@@ -93,65 +92,71 @@ Licensed under MIT
 .borderless tbody tr td, .borderless tbody tr th, .borderless thead tr th {
     border: none;
 }
+
 .def-list-group-scroll {
     max-height: 800px;
-    overflow-y:scroll;
+    overflow-y: scroll;
 }
+
 .def-list-group-scroll::-webkit-scrollbar {
     -webkit-appearance: none;
     width: 4px;
 }
+
 .def-list-group-scroll::-webkit-scrollbar-thumb {
     border-radius: 3px;
     background-color: lightgray;
-    -webkit-box-shadow: 0 0 1px rgba(255,255,255,.75);
+    -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .75);
 }
-
 
 /*==========  Mobile First Method  ==========*/
 
 /* Custom, iPhone Retina */
-@media only screen and (min-width : 320px) {
+@media only screen and (min-width: 320px) {
     .vote-arrow {
         font-size: 3.2em;
     }
+
     .badge {
         font-size: 1.7em
     }
 }
 
 /* Extra Small Devices, Phones */
-@media only screen and (min-width : 480px) {
+@media only screen and (min-width: 480px) {
     .vote-arrow {
         font-size: 3em;
     }
+
     .badge {
         font-size: 1.7em
     }
 }
 
 /* Small Devices, Tablets */
-@media only screen and (min-width : 768px) {
+@media only screen and (min-width: 768px) {
     .badge {
         font-size: 1.3em
     }
 }
 
 /* Medium Devices, Desktops */
-@media only screen and (min-width : 992px) {
+@media only screen and (min-width: 992px) {
     .vote-arrow {
-        font-size:1.8em;
+        font-size: 1.8em;
     }
+
     .badge {
         font-size: 1em
     }
 }
 
 /* Large Devices, Wide Screens */
-@media only screen and (min-width : 1200px) {
+@media only screen and (min-width: 1200px) {
     .vote-arrow {
-        font-size:1.7em;
+        font-size: 1.7em;
     }
+
     .badge {
         font-size: 1em
     }
