@@ -125,14 +125,29 @@ if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) ob_start('ob_gzhandl
                 <div class="panel-body">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
 
-                        <a href="php/build_cfg.php"
-                           class="btn btn-lg btn-success">
+                        <div class="form-group col-md-6">
+                            <a href="php/build_cfg.php"
+                               class="btn btn-lg btn-success">
                             <span class="glyphicon glyphicon-cloud-download" title="Crowd-sourced Shittalk.cfg"
                                   id="downloadBtn"></span> Download Current Build</a>
-                        <p class="small" style="padding-top: 2px;">Includes
+
+                        <span class="help-block">Includes
                             <strong><span id="IncludedBindCount"></span></strong>
                             top-rated insults
-                        </p>
+                        </span>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <a href="php/build_cfg_dota2.php"
+                               class="btn btn-lg btn-success">
+                            <span class="glyphicon glyphicon-cloud-download" title="Shittalk.cfg for DoTA2"
+                                  id="downloadBtn"></span> DoTA2 Build</a>
+                            <span class="help-block">Includes
+                            <strong>150</strong>
+                            top-rated insults<a href="#dota2"><strong>*</strong></a>
+                        </span>
+                        </div>
+
                     </div>
 
                     <div class="row clearfix"></div>
@@ -171,6 +186,8 @@ if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) ob_start('ob_gzhandl
                                 <code>cycle_both</code> command is what
                                 provides the psuedo-randomness of the script.
                             </p>
+                            <p id="dota2"><strong>DoTA2 will not load config files past a certain length. The DoTA2
+                                    config is therefore limited to 150 binds.</strong></p>
                         </div>
                     </div>
 
@@ -210,15 +227,18 @@ if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) ob_start('ob_gzhandl
     </div>
 </div>
 
+
 <div class="container">
     <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-            <br/>
-            <br/>
-            <br/>
-            <small>Copyright Davis Ford 2016 | What is the odds?</small>
-            <br/>
-            <br/>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center" style="padding-top: 3%">
+            <a href="mailto:shittalkgenerator+website@gmail.com" class="btn btn-default btn-lg">Contact Me   <span
+                    class="glyphicon glyphicon-envelope"> </span></a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center" style="padding-top: 3%; padding-bottom: 2%;">
+            <small>Copyright <a href="http://daviseford.com/" target="_blank">Davis Ford</a> 2016 |
+                <a href="https://www.youtube.com/watch?v=HW_IH0jipeU" target="_blank">What is the odds?</a></small>
         </div>
     </div>
 </div>
@@ -249,8 +269,8 @@ if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) ob_start('ob_gzhandl
     ga('require', 'linkid', 'linkid.js');
     ga('send', 'pageview');
     /*credit http://stackoverflow.com/questions/15901187/how-to-set-up-page-speed-logging-for-google-analytics-in-analytics-js
-    * https://developers.google.com/analytics/devguides/collection/analyticsjs/field-reference */
-    ga('create', 'UA-55820654-2', {'siteSpeedSampleRate': 25});
+     * https://developers.google.com/analytics/devguides/collection/analyticsjs/field-reference */
+    ga('create', 'UA-55820654-2', {'siteSpeedSampleRate': 75});
 
 </script>
 </body>
