@@ -123,6 +123,13 @@ $(document).ready(function () {
                     e.preventDefault();
 
                     if ($(this).is('[disabled=disabled]') !== true) {
+
+                        ga('send', 'event', {
+                            eventCategory: 'ratemore_action',
+                            eventAction: 'upvote',
+                            eventLabel: 'clicked'
+                        });
+
                         //console.log('upvoted!');
                         var parent = $(this).parent().parent();
 
@@ -149,6 +156,13 @@ $(document).ready(function () {
                 .click(function (e) {
                     e.preventDefault();
                     if ($(this).is('[disabled=disabled]') !== true) {
+
+                        ga('send', 'event', {
+                            eventCategory: 'ratemore_action',
+                            eventAction: 'downvote',
+                            eventLabel: 'clicked'
+                        });
+
                         //console.log('downvoted!');
                         var parent = $(this).parent().parent();
 
@@ -230,6 +244,11 @@ $(document).ready(function () {
                     e.preventDefault();
                     if ($(this).is('[disabled=disabled]') !== true) {
 
+                        ga('send', 'event', {
+                            eventCategory: 'jumbotron_action',
+                            eventAction: 'upvote',
+                            eventLabel: 'clicked'
+                        });
                         //console.log('upvoted!');
                         var parent = $(this).parent().parent();
 
@@ -258,6 +277,13 @@ $(document).ready(function () {
                 .click(function (e) {
                     e.preventDefault();
                     if ($(this).is('[disabled=disabled]') !== true) {
+
+                        ga('send', 'event', {
+                            eventCategory: 'jumbotron_action',
+                            eventAction: 'downvote',
+                            eventLabel: 'clicked'
+                        });
+
                         ////console.log('downvoted!');
                         var parent = $(this).parent().parent();
 

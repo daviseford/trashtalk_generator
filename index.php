@@ -127,7 +127,8 @@ if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) ob_start('ob_gzhandl
 
                         <div class="form-group col-md-6">
                             <a href="php/build_cfg.php"
-                               class="btn btn-lg btn-success">
+                               class="btn btn-lg btn-success"
+                               onClick="ga('send', 'event', { eventCategory: 'download', eventAction: 'download_latest_config', eventLabel: 'clicked'});">
                             <span class="glyphicon glyphicon-cloud-download" title="Crowd-sourced Shittalk.cfg"
                                   id="downloadBtn"></span> Download Current Build</a>
 
@@ -139,7 +140,8 @@ if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) ob_start('ob_gzhandl
 
                         <div class="form-group col-md-6">
                             <a href="php/build_cfg_dota2.php"
-                               class="btn btn-lg btn-success">
+                               class="btn btn-lg btn-success"
+                               onClick="ga('send', 'event', { eventCategory: 'download', eventAction: 'download_dota2_config', eventLabel: 'clicked'});">
                             <span class="glyphicon glyphicon-cloud-download" title="Shittalk.cfg for DoTA2"
                                   id="downloadBtn"></span> DoTA2 Build</a>
                             <span class="help-block">Includes
@@ -198,7 +200,8 @@ if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) ob_start('ob_gzhandl
                             <p class="small">Looking for the original shittalk.cfg? <br/>
                                 <a href="cfg/shittalkcfg.rar"
                                    class="btn btn-primary btn-md"
-                                   title="shittalk.cfg by Davis Ford">
+                                   title="shittalk.cfg by Davis Ford"
+                                   onClick="ga('send', 'event', { eventCategory: 'download', eventAction: 'download_classic_config', eventLabel: 'clicked'});">
                                     <span class="glyphicon glyphicon-download-alt"></span> Download Shittalk Classic</a>
                             </p>
                         </div>
@@ -231,14 +234,17 @@ if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) ob_start('ob_gzhandl
 <div class="container">
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center" style="padding-top: 3%">
-            <a href="mailto:shittalkgenerator+website@gmail.com" class="btn btn-default btn-lg">Contact Me   <span
-                    class="glyphicon glyphicon-envelope"> </span></a>
+            <a href="mailto:shittalkgenerator+website@gmail.com" class="btn btn-default btn-lg"
+               onClick="ga('send', 'event', { eventCategory: 'contact', eventAction: 'contact_button', eventLabel: 'clicked'});">
+                Contact Me <span class="glyphicon glyphicon-envelope"> </span></a>
         </div>
     </div>
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center" style="padding-top: 3%; padding-bottom: 2%;">
             <small>Copyright <a href="http://daviseford.com/" target="_blank">Davis Ford</a> 2016 |
-                <a href="https://www.youtube.com/watch?v=HW_IH0jipeU" target="_blank">What is the odds?</a></small>
+                <a href="https://www.youtube.com/watch?v=HW_IH0jipeU" target="_blank"
+                   onClick="ga('send', 'event', { eventCategory: 'footer_action', eventAction: 'youtube', eventLabel: 'clicked'});">
+                    What is the odds?</a></small>
         </div>
     </div>
 </div>
