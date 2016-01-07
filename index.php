@@ -46,7 +46,7 @@ if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) ob_start('ob_gzhandl
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-body">
-                    <div class="table-responsive">
+                    <div>
                         <table class="table borderless">
                             <tbody id="jumbotron_tbody">
                             </tbody>
@@ -64,17 +64,20 @@ if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) ob_start('ob_gzhandl
             <form class="form-horizontal" role="form">
 
                 <div class="form-group">
-                    <h3><label for="create_shittalk_Text" class="col-sm-3 col-xs-3 control-label">Create your
-                            own:</label>
-                    </h3>
-                    <div class="col-sm-6 col-xs-6">
-                        <input type="text" class="form-control" id="create_shittalk_Text" placeholder=""
+                    <div class="col-sm-3 col-md-3 col-lg-3">
+
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <input type="text" class="form-control" id="create_shittalk_Text" placeholder="Submit your own"
                                maxlength="128" aria-describedby="helpBlock">
                         <span id="helpBlock" class="help-block hidden">This insult already exists in our database</span>
                         <span id="helpBlock2" class="help-block hidden">Please do not submit websites.</span>
                         <span id="helpBlock3" class="help-block hidden">Be cool.</span>
                     </div>
-                    <div class="col-sm-3 col-xs-3">
+                    <div class="col-md-3 col-md-offset-0 col-sm-3 col-sm-offset-0 col-xs-4 col-xs-offset-4">
+                        <div class="visible-xs">
+                            <br/>
+                        </div>
                         <button type="submit" id="create_shittalk_Btn" class="btn btn-primary">Submit</button>
 
                     </div>
@@ -219,7 +222,7 @@ if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) ob_start('ob_gzhandl
                 <small><span id="TotalBindCount"></span> insults and counting</small>
             </legend>
 
-            <div class="table-responsive">
+            <div>
                 <table class="table">
                     <tbody id="rate_more_tbody">
 
