@@ -5,7 +5,7 @@
       <paths name="Davis NFS - Shittalk">
         <serverdata>
           <mappings>
-            <mapping deploy="/sites/default/files/shittalk_generator" local="$PROJECT_DIR$" web="/sites/default/files/shittalk_generator" />
+            <mapping deploy="/shittalk" local="$PROJECT_DIR$" web="shittalk" />
           </mappings>
         </serverdata>
       </paths>

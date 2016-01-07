@@ -1,20 +1,18 @@
 <?php
-//require_once(__DIR__ . '/php/shittalk_functions.php');
+require_once(__DIR__ . '/php/shittalk_functions.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
     <title>Shittalk Generator</title>
     <meta name="author" content="Davis Ford">
-    <meta name="description"
-          content="World-famous Shittalk Generator for TF2, DOTA2, CS:GO, and all Source Engine games. Crowd-sourced insults compiled into one easy config."/>
     <meta charset="UTF-8">
     <meta property="og:type" content="article"/>
     <meta property="og:url" content="http://daviseford.com/shittalk/"/>
     <meta property="og:title" content="Shittalk Generator"/>
     <meta property="og:image" content="http://daviseford.com/shittalk/img/shittalk_yelling_man.jpg"/>
     <meta property="og:description"
-          content="World-famous Shittalk Generator for TF2, DOTA2, CS:GO, and all Source Engine games. Crowd-sourced insults compiled into one easy config."/>
+          content="World-famous Insult Generator for TF2, DOTA2, CS:GO, and all Source Engine games. Crowd-sourced shittalk."/>
 
     <!-- jQuery -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
@@ -23,7 +21,7 @@
     <link rel="stylesheet" media="screen" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="css/shittalk.min.css">
+    <link rel="stylesheet" type="text/css" href="css/shittalk.css">
 
 </head>
 <body>
@@ -122,7 +120,7 @@
                             <span class="glyphicon glyphicon-cloud-download" title="generated shittalk.cfg"
                                   id="downloadBtn"></span> Download Current Build</a>
                         <p class="small" style="padding-top: 2px;">Includes
-                            <strong><span id="IncludedBindCount"></span></strong>
+                            <strong><?php echo getIncludedBindCount(); ?></strong>
                             top-rated insults</p>
                     </div>
 
@@ -184,16 +182,46 @@
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
-            <legend>Rate Some More -
-                <small><span id="TotalBindCount"></span> insults and counting</small>
-            </legend>
-
+            <legend>Rate Some More
+                - <?php echo '<small>' . getTotalBindCount() . ' insults and counting</small>'; ?> </legend>
             <div class="table-responsive">
                 <table class="table">
+
                     <tbody id="rate_more_tbody">
+
 
                     </tbody>
                 </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container content">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="testimonials">
+                <div class="active item">
+                    <blockquote><p>
+                            He finally found solace in a little thing, so simple, yet so sweet.</p>
+
+                        <p> Being mean to other individuals in the Team Fortress 2 community. This device
+                            which he has created has made it possible for others to share in his
+                            happiness.</p>
+
+                        <p>Laughter Is His Job, Tears Are His Game, creating this (I want to call it an
+                            app?) is his profession.</p>
+                        <p>This is who Davis is, this is the last thing that he wants from the TF2 community.
+                        </p>
+                        <p> Davis 2016.</p></blockquote>
+                    <div class="carousel-info">
+                        <img alt="" src="img/avatar_2x.png" class="pull-left">
+                        <div class="pull-left">
+                            <span class="testimonials-name">Dave__AC</span>
+                            <span class="testimonials-post">Professional Human</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -230,7 +258,7 @@
 
 
 <!-- Shittalk -->
-<script src="js/shittalk.min.js"></script>
+<script src="js/shittalk_test.js"></script>
 <!-- What is the odds? -->
 
 <!-- Google Analytics -->

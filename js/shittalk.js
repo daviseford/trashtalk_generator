@@ -3,23 +3,35 @@
  */
 $(document).ready(function () {
 
+    makeJumboRows(3);
+
+    makeRecentList();
+    makeTopList();
+    makeRandomList();
+
+    makeRateMoreTableRows();
+
+    makeIncludedBindCount(); //lastly, get our stats
+    makeTotalBindCount();
+
     $('#create_shittalk_Btn')
         .button()
         .click(function (e) {
             e.preventDefault();
             var that = this;
+            var parent = $(that).parent().parent();
 
             var shittalkText = $('#create_shittalk_Text').val();
             var shittalkText_LowerCase = shittalkText.toLowerCase();
 
-            if (S(shittalkText_LowerCase).contains('http://') || S(shittalkText_LowerCase).contains('www.') || S(shittalkText_LowerCase).contains('.com')) {
+            if (S(shittalkText_LowerCase).contains('http://') || S(shittalkText_LowerCase).contains('https://') || S(shittalkText_LowerCase).contains('www.') || S(shittalkText_LowerCase).contains('.com')) {
 
-                $(that).parent().parent().addClass('has-error');
+                parent.addClass('has-error');
                 $('#helpBlock2').removeClass('hidden');
 
-            } else if (S(shittalkText_LowerCase).contains('nigger')) {
+            } else if (S(shittalkText_LowerCase).contains('nigger') || S(shittalkText_LowerCase).contains('faggot')) {
 
-                $(that).parent().parent().addClass('has-error');
+                parent.addClass('has-error');
                 $('#helpBlock3').removeClass('hidden');
 
             } else {
@@ -31,8 +43,7 @@ $(document).ready(function () {
 
                 var duplicateRequest = queryController(form);
                 duplicateRequest.done(function (data) {
-                    console.log(data);
-                    var number = data + 0;
+                    //console.log(data);
 
                     if (data < 1) {
                         var form2 = {};
@@ -43,12 +54,12 @@ $(document).ready(function () {
                         request.done(function (data) {
                             //console.log(data);
                             if (data === true) {
-                                console.log('submission successful');
+                                console.log('Submission successful');
                                 location.reload();
                             }
                         });
                     } else {
-                        $(that).parent().parent().addClass('has-error');
+                        parent.addClass('has-error');
                         $('#helpBlock').removeClass('hidden');
                     }
 
@@ -56,7 +67,124 @@ $(document).ready(function () {
             }
         });
 
-    makeJumboRows(3);
+
+    function makeRecentList() {
+        var post = {};
+        post['query'] = 'get_RecentList';
+        var request = queryController(post);
+        request.done(function (data) {
+            var listRows = data.join('\n');
+            $('#recent_listGroup').html(listRows);
+            updateBadges();
+        });
+    }
+
+    function makeTopList() {
+        var post = {};
+        post['query'] = 'get_TopList';
+        var request = queryController(post);
+        request.done(function (data) {
+            var listRows = data.join('\n');
+            $('#top_listGroup').html(listRows);
+            updateBadges();
+        });
+    }
+
+    function makeRandomList() {
+        var post = {};
+        post['query'] = 'get_RandomList';
+        var request = queryController(post);
+        request.done(function (data) {
+            var listRows = data.join('\n');
+            $('#random_listGroup').html(listRows);
+            updateBadges();
+        });
+    }
+
+
+    function makeRateMoreTableRows() {
+        var post = {};
+        post['query'] = 'get_RateMoreTableRows';
+        var request = queryController(post);
+        request.done(function (data) {
+            var rate_more_tbody = $('#rate_more_tbody');
+            var tableRows = data.join('\n');
+            rate_more_tbody.html(tableRows);
+
+            rate_more_tbody.find('td .glyphicon-arrow-up')
+                .button()
+                .click(function (e) {
+                    e.preventDefault();
+
+                    if ($(this).is('[disabled=disabled]') !== true) {
+                        //console.log('upvoted!');
+                        var parent = $(this).parent().parent();
+
+                        $(this).attr('disabled', 'disabled');
+
+                        var query = {};
+                        var id = parent.attr('id');
+                        query['id'] = id.split('_')[1];
+                        query['query'] = 'upvote_Row';
+                        var request = queryController(query);
+                        request.done(function (data) {
+                            //console.log(data);
+                            parent.removeClass('bg-danger');
+                            parent.addClass('bg-success');
+                            checkIfRateMoreIsFull();
+                        })
+                    } else {
+                        console.log('Already upvoted');
+                    }
+                });
+
+            rate_more_tbody.find('td .glyphicon-arrow-down')
+                .button()
+                .click(function (e) {
+                    e.preventDefault();
+                    if ($(this).is('[disabled=disabled]') !== true) {
+                        //console.log('downvoted!');
+                        var parent = $(this).parent().parent();
+
+                        $(this).attr('disabled', 'disabled');
+
+                        var query = {};
+                        var id = parent.attr('id');
+                        query['id'] = id.split('_')[1];
+                        query['query'] = 'downvote_Row';
+                        var request = queryController(query);
+                        request.done(function (data) {
+                            //console.log(data);
+                            parent.addClass('bg-danger');
+                            checkIfRateMoreIsFull();
+                        });
+                    } else {
+                        console.log('Already downvoted');
+                    }
+                });
+            updateBadges();
+        });
+    }
+
+    function makeTotalBindCount() {
+        var post = {};
+        post['query'] = 'get_TotalBindCount';
+        var request = queryController(post);
+        request.done(function (data) {
+            var count = data;
+            $('#TotalBindCount').text(data);
+        });
+    }
+
+    function makeIncludedBindCount() {
+        var post = {};
+        post['query'] = 'get_IncludedBindCount';
+        var request = queryController(post);
+        request.done(function (data) {
+            var count = data;
+            $('#IncludedBindCount').text(count);
+        });
+    }
 
     function makeJumboRows(limit) {
         var post = {};
@@ -65,6 +193,7 @@ $(document).ready(function () {
         var request = queryController(post);
         request.done(function (data) {
             //console.log(data);
+            var jumbotron_tbody = $('#jumbotron_tbody');
             var rowHolder = [];
             for (var i = 0; i < data.length; i++) {
                 var currentRow = data[i];
@@ -85,27 +214,24 @@ $(document).ready(function () {
                 }
             }
             if (rowHolder !== '') {
-                $('#jumbotron_tbody').html(rowHolder);
+                jumbotron_tbody.html(rowHolder);
             }
 
 
-            $('#jumbotron_tbody').find('td .glyphicon-arrow-up')
+            jumbotron_tbody.find('td .glyphicon-arrow-up')
                 .button()
                 .click(function (e) {
                     e.preventDefault();
-
                     if ($(this).is('[disabled=disabled]') !== true) {
 
                         //console.log('upvoted!');
-                        var text = $(this).parent().next().text();
                         var parent = $(this).parent().parent();
-                        ////console.log(text);
 
                         $(this).attr('disabled', 'disabled');
-                        $(this).parent().parent().addClass('selected-st');
+                        parent.addClass('selected-st');
 
                         var query = {};
-                        var id = $(this).parent().parent().attr('id');
+                        var id = parent.attr('id');
                         query['id'] = id.split('_')[1];
                         query['query'] = 'upvote_Row';
                         var request = queryController(query);
@@ -116,26 +242,24 @@ $(document).ready(function () {
 
                         })
                     } else {
-                        console.log('already upvoted');
+                        console.log('Already upvoted');
                     }
                 });
 
 
-            $('#jumbotron_tbody').find('td .glyphicon-arrow-down')
+            jumbotron_tbody.find('td .glyphicon-arrow-down')
                 .button()
                 .click(function (e) {
                     e.preventDefault();
                     if ($(this).is('[disabled=disabled]') !== true) {
                         ////console.log('downvoted!');
-                        var text = $(this).parent().next().text();
                         var parent = $(this).parent().parent();
-                        //console.log(text);
 
                         $(this).attr('disabled', 'disabled');
-                        $(this).parent().parent().addClass('selected-st');
+                        parent.addClass('selected-st');
 
                         var query = {};
-                        var id = $(this).parent().parent().attr('id');
+                        var id = parent.attr('id');
                         query['id'] = id.split('_')[1];
                         query['query'] = 'downvote_Row';
                         var request = queryController(query);
@@ -145,7 +269,7 @@ $(document).ready(function () {
                             checkIfJumbotronIsFull();
                         });
                     } else {
-                        console.log('already downvoted');
+                        console.log('Already downvoted');
                     }
                 });
 
@@ -172,197 +296,18 @@ $(document).ready(function () {
         }
     }
 
-
-    $('#recent_listGroup').find('.glyphicon-arrow-up')
-        .button()
-        .click(function (e) {
-            e.preventDefault();
-
-            if ($(this).is('[disabled=disabled]') !== true) {
-
-                ////console.log('upvoted!');
-                var parent = $(this).parent();
-                var text = parent.text();
-
-                ////console.log(text);
-
-                $(this).attr('disabled', 'disabled');
-
-                var query = {};
-                var id = $(this).parent().attr('id');
-                query['id'] = id.split('_')[1];
-                query['query'] = 'upvote_Row';
-                var request = queryController(query);
-                request.done(function (data) {
-                    //console.log(data);
-                    //var origBadgeVal = parent.find('.badge').text();
-                    //parent.find('.badge').text(origBadgeVal+1);
-                    parent.removeClass('list-group-item-danger');
-                    parent.addClass('list-group-item-success');
-                })
-            } else {
-                console.log('already upvoted');
+    function updateBadges() {
+        $('.badge').each(function () {
+            var that = this;
+            var thisVal = $(this).text();
+            if (thisVal < 0) {
+                $(this).css("background-color", "#a94442");
+            } else if (thisVal > 0) {
+                $(this).css("background-color", "#3c763d");
             }
         });
+    }
 
-    $('#recent_listGroup').find('.glyphicon-arrow-down')
-        .button()
-        .click(function (e) {
-            e.preventDefault();
-
-            if ($(this).is('[disabled=disabled]') !== true) {
-
-                ////console.log('upvoted!');
-                var parent = $(this).parent();
-                var text = parent.text();
-
-                ////console.log(text);
-
-                $(this).attr('disabled', 'disabled');
-
-                var query = {};
-                var id = $(this).parent().attr('id');
-                query['id'] = id.split('_')[1];
-                query['query'] = 'downvote_Row';
-                var request = queryController(query);
-                request.done(function (data) {
-                    //console.log(data);
-                    parent.removeClass('list-group-item-success');
-                    parent.addClass('list-group-item-danger');
-                })
-            } else {
-                console.log('already downvoted');
-            }
-        });
-
-
-    $('#top_listGroup').find('.glyphicon-arrow-up')
-        .button()
-        .click(function (e) {
-            e.preventDefault();
-
-            if ($(this).is('[disabled=disabled]') !== true) {
-
-                ////console.log('upvoted!');
-                var parent = $(this).parent();
-                var text = parent.text();
-
-                ////console.log(text);
-
-                $(this).attr('disabled', 'disabled');
-
-                var query = {};
-                var id = $(this).parent().attr('id');
-                query['id'] = id.split('_')[1];
-                query['query'] = 'upvote_Row';
-                var request = queryController(query);
-                request.done(function (data) {
-                    //console.log(data);
-                    parent.removeClass('list-group-item-danger');
-                    parent.addClass('list-group-item-success');
-                })
-            } else {
-                console.log('already upvoted');
-            }
-        });
-
-    $('#top_listGroup').find('.glyphicon-arrow-down')
-        .button()
-        .click(function (e) {
-            e.preventDefault();
-
-            if ($(this).is('[disabled=disabled]') !== true) {
-
-                //console.log('downvoted!');
-                var parent = $(this).parent();
-                var text = parent.text();
-
-                ////console.log(text);
-
-                $(this).attr('disabled', 'disabled');
-
-                var query = {};
-                var id = $(this).parent().attr('id');
-                query['id'] = id.split('_')[1];
-                query['query'] = 'downvote_Row';
-                var request = queryController(query);
-                request.done(function (data) {
-                    //console.log(data);
-                    parent.removeClass('list-group-item-success');
-                    parent.addClass('list-group-item-danger');
-                })
-            } else {
-                console.log('already downvoted');
-            }
-        });
-
-
-    $('#rate_more_tbody').find('td .glyphicon-arrow-up')
-        .button()
-        .click(function (e) {
-            e.preventDefault();
-
-            if ($(this).is('[disabled=disabled]') !== true) {
-
-                //console.log('upvoted!');
-                var text = $(this).parent().next().text();
-                var parent = $(this).parent().parent();
-                //console.log(text);
-
-                $(this).attr('disabled', 'disabled');
-
-                var query = {};
-                var id = $(this).parent().parent().attr('id');
-                query['id'] = id.split('_')[1];
-                query['query'] = 'upvote_Row';
-                var request = queryController(query);
-                request.done(function (data) {
-                    //console.log(data);
-                    parent.removeClass('bg-danger');
-                    parent.addClass('bg-success');
-                    checkIfRateMoreIsFull();
-                })
-            } else {
-                console.log('already upvoted');
-            }
-        });
-
-    $('#rate_more_tbody').find('td .glyphicon-arrow-down')
-        .button()
-        .click(function (e) {
-            e.preventDefault();
-            if ($(this).is('[disabled=disabled]') !== true) {
-                //console.log('downvoted!');
-                var text = $(this).parent().next().text();
-                var parent = $(this).parent().parent();
-                //console.log(text);
-
-                $(this).attr('disabled', 'disabled');
-
-                var query = {};
-                var id = $(this).parent().parent().attr('id');
-                query['id'] = id.split('_')[1];
-                query['query'] = 'downvote_Row';
-                var request = queryController(query);
-                request.done(function (data) {
-                    //console.log(data);
-                    parent.addClass('bg-danger');
-                    checkIfRateMoreIsFull();
-                });
-            } else {
-                console.log('already downvoted');
-            }
-        });
-
-    $('.badge').each(function () {
-        var that = this;
-        var thisVal = $(this).text();
-        if (thisVal < 0) {
-            $(this).css("background-color", "#a94442");
-        } else if (thisVal > 0) {
-            $(this).css("background-color", "#3c763d");
-        }
-    });
 
     function queryController(query) {
         return $.ajax({

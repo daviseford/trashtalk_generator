@@ -57,12 +57,94 @@ if (isset($postdec['query'])) {
                     $response = checkIfDuplicate($postdec['create_shittalk_Text']); //returns true if successful, false otherwise
                 }
                 break;
+
+            case 'get_RateMoreTableRows':
+                $response = createRateMoreTableRows(); //returns an array of table rows
+                break;
+
+            case 'get_RandomList':
+                $response = getRandomList();
+                break;
+
+            case 'get_TopList':
+                $response = getTopList();
+                break;
+
+            case 'get_RecentList':
+                $response = getRecentList();
+                break;
+
+            case 'get_TotalBindCount':
+                $response = getTotalBindCount();
+                break;
+
+            case 'get_IncludedBindCount':
+                $response = getIncludedBindCount();
+                break;
+
         }
 
     }
     returnResponse($response); //sends back the message
 }
 
+
+function getRecentList()
+{
+    $sql = "SELECT `id`, `text`, `upvotes`-`downvotes` AS `netVotes` FROM shittalkDB WHERE (`upvotes` - `downvotes`) > -5 ORDER by `date_created` DESC LIMIT 30;";
+    $result = mySqlQuery($sql);
+    $response = [];
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $li = '<li class="list-group-item" id="recentid_' . $row['id'] . '"><span class="badge">' . $row['netVotes'] . '</span> ' . htmlspecialchars($row['text']) . '</li>';
+            $response[] = $li;
+        }
+    }
+    return $response;
+}
+
+function getTopList()
+{
+    $sql = "SELECT `id`, `text`, `upvotes`-`downvotes` AS `netVotes` FROM shittalkDB ORDER by `netVotes` DESC LIMIT 50;";
+    $result = mySqlQuery($sql);
+    $response = [];
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $li = '<li class="list-group-item" id="topid_' . $row['id'] . '"><span class="badge">' . $row['netVotes'] . '</span> ' . htmlspecialchars($row['text']) . '</li>';
+            $response[] = $li;
+        }
+    }
+    return $response;
+}
+
+function getRandomList()
+{
+    $sql = "SELECT `id`, `text`, `upvotes`-`downvotes` AS `netVotes` FROM shittalkDB WHERE (`upvotes` - `downvotes`) > -5 ORDER by rand() DESC LIMIT 30;";
+    $result = mySqlQuery($sql);
+    $response = [];
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $li = '<li class="list-group-item" id="randomid_' . $row['id'] . '"><span class="badge">' . $row['netVotes'] . '</span> ' . htmlspecialchars($row['text']) . '</li>';
+            $response[] = $li;
+        }
+    }
+    return $response;
+}
+
+function createRateMoreTableRows()
+{
+    $sql = "SELECT `id`, `text`, `upvotes` - `downvotes` AS `netVotes` FROM shittalkDB WHERE (`upvotes` - `downvotes`) > -5 ORDER BY rand() LIMIT 25;";
+    $result = mySqlQuery($sql);
+
+    $response = [];
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $tr = '<tr id="ratemoreid_' . $row['id'] . '"><td><span class="glyphicon glyphicon-arrow-up text-success vote-arrow"  aria-hidden="true"> </span> <span class="glyphicon glyphicon-arrow-down text-danger vote-arrow" aria-hidden="true"></span></td><td>' . htmlspecialchars($row['text']) . '</td></tr>';
+            $response[] = $tr;
+        }
+    }
+    return $response;
+}
 
 function checkIfDuplicate($text)
 {
@@ -88,7 +170,7 @@ function getRandomRows($limit)
     /* Let's try to target stuff without votes first */
     if ($randomInt <= 3) { //let's not bias it too much in favor, but we do want to include some new stuff when possible
 
-        $sql = "SELECT `id`, `text` FROM shittalkDB WHERE `upvotes` < 2 AND `downvotes` < 2 ORDER BY rand() LIMIT 1;";
+        $sql = "SELECT `id`, `text` FROM shittalkDB WHERE `upvotes` < 2 AND `downvotes` < 2 AND `text`<>'' ORDER BY rand() LIMIT 1;";
         $result = mySqlQuery($sql);
 
         if ($result->num_rows > 0) {
@@ -98,11 +180,13 @@ function getRandomRows($limit)
                 $row['biased'] = true;
                 $response[] = $row;
             }
-            $limit_escaped--; //decrement the limit, as it'll be used by the normal, all-encompassing query
+            if (!empty($response)) {
+                $limit_escaped--; //decrement the limit, as it'll be used by the normal, all-encompassing query
+            }
         }
     }
 
-    $sql = "SELECT `id`, `text` FROM shittalkDB WHERE (`upvotes` - `downvotes`) > -5 ORDER BY rand() LIMIT $limit_escaped;";
+    $sql = "SELECT `id`, `text` FROM shittalkDB WHERE (`upvotes` - `downvotes`) > -5 AND `text`<>'' ORDER BY rand() LIMIT $limit_escaped;";
     $result = mySqlQuery($sql);
 
     if ($result->num_rows > 0) {

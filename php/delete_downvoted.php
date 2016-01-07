@@ -7,19 +7,24 @@
  */
 require_once(__DIR__ . '/shittalk_functions.php');
 
-$rowsToDelete = getRowsForDeletion(); //an array of ids to delete
-$count = count($rowsToDelete);
+$getRows = getRowsForDeletion(); //an array of ids to delete
+$rowsToDelete = $getRows[0];
+$rowCount = count($rowsToDelete);
+$downvotes = $getRows[1];
+$upvotes = $getRows[2];
 
 if (!empty($rowsToDelete)) {
     deleteAllSelectedRows($rowsToDelete);
 } else {
     echo 'No rows suitable for deletion<br />';
 }
-timestampDeletion($count);
+timestampDeletion($rowCount, $downvotes, $upvotes);
 
 function getRowsForDeletion()
 {
-    $response = [];
+    $arrayOfIDs = [];
+    $downvotes = 0;
+    $upvotes = 0;
     $sql = "SELECT *, `upvotes` - `downvotes` AS `netVotes` FROM shittalkDB WHERE downvotes > 0;";
     $result = mySqlQuery($sql);
     if ($result->num_rows > 0) {
@@ -50,17 +55,23 @@ function getRowsForDeletion()
              */
             if ($totalVotes >= 70) { //only use threshold once it's large enough
                 if ($threshold <= $row['downvotes']) {
-                    $response[] = $row['id'];
+                    $downvotes += $row['downvotes'];
+                    $upvotes += $row['upvotes'];
+                    $arrayOfIDs[] = $row['id'];
                 }
             } else {
                 if ($row['netVotes'] <= -5) {
-                    $response[] = $row['id'];
+                    $downvotes += $row['downvotes'];
+                    $upvotes += $row['upvotes'];
+                    $arrayOfIDs[] = $row['id'];
                 }
             }
 
 
         }
     }
+
+    $response = array($arrayOfIDs, $downvotes, $upvotes);
     return $response;
 }
 
@@ -79,16 +90,20 @@ function deleteAllSelectedRows($arrayOfIDs)
 }
 
 
-function timestampDeletion($count = 0)
+function timestampDeletion($count = 0, $downvotes = 0, $upvotes = 0)
 {
     date_default_timezone_set('America/New_York');
     $timestamp = date('Y-m-d G:i:s');
     $count_escaped = mysql_escape_mimic($count);
+    $downvotes_escaped = mysql_escape_mimic($downvotes);
+    $upvotes_escaped = mysql_escape_mimic($upvotes);
 
     $sql = "UPDATE `timestamps`
             SET uses = uses + 1,
             last_use = '$timestamp',
-            num_deleted = num_deleted + '$count_escaped'
+            num_deleted = num_deleted + '$count_escaped',
+            downvotes_deleted = downvotes_deleted + '$downvotes_escaped',
+            upvotes_deleted = upvotes_deleted + '$upvotes_escaped'
             WHERE `action` = 'delete_Downvoted';";
     $result = mySqlQuery($sql);
 
