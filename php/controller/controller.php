@@ -46,15 +46,15 @@ if (isset($postdec['query'])) {
                 }
                 break;
 
-            case 'get_RandomRows':
-                if (!empty($postdec['limit'])) {
-                    $response = getRandomRows($postdec['limit']); //returns true if successful, false otherwise
-                }
-                break;
-
             case 'check_IfDuplicate':
                 if (!empty($postdec['create_shittalk_Text'])) {
                     $response = checkIfDuplicate($postdec['create_shittalk_Text']); //returns true if successful, false otherwise
+                }
+                break;
+
+            case 'get_RandomRows':
+                if (!empty($postdec['limit'])) {
+                    $response = getRandomRows($postdec['limit']); //returns true if successful, false otherwise
                 }
                 break;
 

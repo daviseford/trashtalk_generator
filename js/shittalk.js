@@ -9,10 +9,16 @@ $(document).ready(function () {
     makeTopList();
     makeRandomList();
 
-    makeRateMoreTableRows();
-
-    makeIncludedBindCount(); //lastly, get our stats
-    makeTotalBindCount();
+    /* None of these are viewable without scrolling */
+    $(window).ready(function () {
+        $(this).one('scroll', function () {
+            // scroll
+            makeIncludedBindCount();
+            makeTotalBindCount();
+            makeRateMoreTableRows();
+            //console.log('scrolled');
+        });
+    });
 
     $('#create_shittalk_Btn')
         .button()

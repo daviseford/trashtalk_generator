@@ -53,6 +53,7 @@ function getRowsForDeletion()
              * I'm going to guess it won't work very well at scale.
              * I'll probably need some fancier math to keep a consistent way of bridging the gap.
              */
+
             if ($totalVotes >= 70) { //only use threshold once it's large enough
                 if ($threshold <= $row['downvotes']) {
                     $downvotes += $row['downvotes'];

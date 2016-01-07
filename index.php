@@ -1,20 +1,31 @@
 <?php
-//require_once(__DIR__ . '/php/shittalk_functions.php');
+/* Credit: http://betterexplained.com/articles/how-to-optimize-your-site-with-gzip-compression/ */
+if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) ob_start('ob_gzhandler'); else ob_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
-    <title>Shittalk Generator</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Davis Ford">
     <meta name="description"
           content="World-famous Shittalk Generator for TF2, DOTA2, CS:GO, and all Source Engine games. Crowd-sourced insults compiled into one easy config."/>
-    <meta charset="UTF-8">
     <meta property="og:type" content="article"/>
     <meta property="og:url" content="http://daviseford.com/shittalk/"/>
     <meta property="og:title" content="Shittalk Generator"/>
     <meta property="og:image" content="http://daviseford.com/shittalk/img/shittalk_yelling_man.jpg"/>
     <meta property="og:description"
           content="World-famous Shittalk Generator for TF2, DOTA2, CS:GO, and all Source Engine games. Crowd-sourced insults compiled into one easy config."/>
+
+    <title>Shittalk Generator</title>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
     <!-- jQuery -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
@@ -43,11 +54,8 @@
                     </div>
                 </div>
             </div>
-
         </div>
-
     </div>
-
 </div>
 
 <div class="container">
@@ -119,11 +127,12 @@
 
                         <a href="php/build_cfg.php"
                            class="btn btn-lg btn-success">
-                            <span class="glyphicon glyphicon-cloud-download" title="generated shittalk.cfg"
+                            <span class="glyphicon glyphicon-cloud-download" title="Crowd-sourced Shittalk.cfg"
                                   id="downloadBtn"></span> Download Current Build</a>
                         <p class="small" style="padding-top: 2px;">Includes
                             <strong><span id="IncludedBindCount"></span></strong>
-                            top-rated insults</p>
+                            top-rated insults
+                        </p>
                     </div>
 
                     <div class="row clearfix"></div>
@@ -131,15 +140,17 @@
                         <div class="col-md-12">
                             <p>Download these binds to an easy-to-use Source script, which works in TF2,
                                 CS:GO, CS:Source, DoTA2, and all other Source Engine games.</p>
-                            <p><h4>Installation:</h4>
+                            <h4>Installation:</h4>
 
                             <p>
-                                1.) Drag <code>shittalk.cfg</code> to your game's <code>cfg</code> folder. </p>
+                                1.) Drag <code>shittalk.cfg</code> to your game's <code>cfg</code> folder.
+                            </p>
                             <p>
-
-                                <strong>TF2 - </strong><code>\Steam\steamapps\common\Team Fortress 2\tf\cfg</code><br/>
+                                <strong>TF2 - </strong><code>\Steam\steamapps\common\Team Fortress 2\tf\cfg</code>
+                                <br/>
                                 <strong>DoTA2 - </strong><code>\Steam\steamapps\common\dota 2
-                                    beta\game\dota\cfg</code><br/>
+                                    beta\game\dota\cfg</code>
+                                <br/>
                                 <strong>CS:GO - </strong><code>\Steam\steamapps\common\Counter-Strike Global
                                     Offensive\csgo\cfg</code>
                             </p>
@@ -148,7 +159,8 @@
                             <p>3.) Alternatively, add <code>+exec shittalk.cfg</code> to your game's launch options.</p>
                             <p>4.) You can now launch your game. To ensure <code>shittalk.cfg</code> loaded correctly,
                                 open
-                                console and type <code>exec shittalk</code>.</p>
+                                console and type <code>exec shittalk</code>.
+                            </p>
                             <p>5.) By default, <kbd>TAB</kbd> cycles through the insults, and <kbd>X</kbd> sends the
                                 message
                                 to
@@ -158,7 +170,6 @@
                             <p>The more keys you can bind <code>cycle_both</code> to, the better. The
                                 <code>cycle_both</code> command is what
                                 provides the psuedo-randomness of the script.
-
                             </p>
                         </div>
                     </div>
@@ -205,25 +216,12 @@
             <br/>
             <br/>
             <br/>
-            <br/>
-            <br/>
             <small>Copyright Davis Ford 2016 | What is the odds?</small>
             <br/>
             <br/>
         </div>
     </div>
 </div>
-
-
-</body>
-
-<!-- SweetAlert CSS and JS -->
-<!--    <link rel="stylesheet" type="text/css" href="js/libraries/sweetalert/css/sweetalert.css">-->
-<!--    <script src="js/libraries/sweetalert/js/sweetalert.min.js" type="text/javascript"></script>-->
-
-<!-- Bootstrap Select CSS and JS -->
-<!--    <link href='js/libraries/bootstrap-select/css/bootstrap-select.min.css' rel='stylesheet'/>-->
-<!--    <script src="js/libraries/bootstrap-select/js/bootstrap-select.min.js"></script>-->
 
 <!-- String -->
 <script src="js/libraries/string/string.min.js"></script>
@@ -250,7 +248,12 @@
     ga('create', 'UA-55820654-2', 'auto');
     ga('require', 'linkid', 'linkid.js');
     ga('send', 'pageview');
+    /*credit http://stackoverflow.com/questions/15901187/how-to-set-up-page-speed-logging-for-google-analytics-in-analytics-js
+    * https://developers.google.com/analytics/devguides/collection/analyticsjs/field-reference */
+    ga('create', 'UA-55820654-2', {'siteSpeedSampleRate': 25});
 
 </script>
+</body>
+
 
 </html>
