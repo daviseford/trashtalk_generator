@@ -15,6 +15,120 @@
  * function getTotalBindCount(){
  */
 
+function getTotalUpvotes()
+{
+    $inDB_count = 0;
+    $deleted_count = 0;
+    $sql = "SELECT sum(`upvotes`) AS `count` FROM shittalkDB;";
+    $result = mySqlQuery($sql);
+
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $inDB_count = $row['count'];
+        }
+    }
+
+    $sql = "SELECT sum(`upvotes_deleted`) AS `count` FROM timestamps;";
+    $result = mySqlQuery($sql);
+
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $deleted_count = $row['count'];
+        }
+    }
+
+    $totalUpvotes = $inDB_count + $deleted_count;
+
+
+    return $totalUpvotes;
+}
+
+function getTotalDownvotes()
+{
+    $inDB_count = 0;
+    $deleted_count = 0;
+    $sql = "SELECT sum(`downvotes`) AS `count` FROM shittalkDB;";
+    $result = mySqlQuery($sql);
+
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $inDB_count = $row['count'];
+        }
+    }
+
+    $sql = "SELECT sum(`downvotes_deleted`) AS `count` FROM timestamps;";
+    $result = mySqlQuery($sql);
+
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $deleted_count = $row['count'];
+        }
+    }
+
+    $totalDownvotes = $inDB_count + $deleted_count;
+
+
+    return $totalDownvotes;
+}
+
+function getAverageVotesForConfigInsults()
+{
+
+    $response = 0;
+    $sql = "SELECT sum(`upvotes`) + sum(`downvotes`) AS `totalVotes`, COUNT(*) AS `count` FROM shittalkDB WHERE (`upvotes` - `downvotes`) >= 5 ORDER by upvotes DESC LIMIT 1;";
+    $result = mySqlQuery($sql);
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $response = $row['totalVotes'] / $row['count'];
+        }
+    }
+    return $response;
+
+}
+
+function getTotalSubmissionCount()
+{
+    $response = [];
+    $sql = "SELECT MAX(id) AS `count` FROM shittalkDB ORDER BY id DESC LIMIT 1;";
+    $result = mySqlQuery($sql);
+
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $response = $row['count'];
+        }
+    }
+    return $response;
+}
+function getActiveVoteStats()
+{
+    $response = [];
+    $sql = "SELECT sum(`upvotes`) + sum(`downvotes`) AS `total`, sum(`upvotes`) AS `upvoteTotal`, sum(`downvotes`) AS `downvoteTotal` FROM shittalkDB ORDER BY id DESC LIMIT 1;";
+    $result = mySqlQuery($sql);
+
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $response['total'] = $row['total'];
+            $response['upvoteTotal'] = $row['upvoteTotal'];
+            $response['downvoteTotal'] = $row['downvoteTotal'];
+        }
+    }
+    return $response;
+}
+
+function getDeletedStats()
+{
+    $response = [];
+    $sql = "SELECT * FROM timestamps WHERE `action` = 'delete_Downvoted';";
+    $result = mySqlQuery($sql);
+
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $response = $row;
+        }
+    }
+    return $response;
+}
+
 
 function getIncludedBindCount()
 {
