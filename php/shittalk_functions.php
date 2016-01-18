@@ -43,6 +43,21 @@ function getTotalUpvotes()
     return $totalUpvotes;
 }
 
+function getTotalDownloads()
+{
+    $downloads = 0;
+    $sql = "SELECT `uses` AS `count` FROM timestamps WHERE `action` = 'download' LIMIT 1;";
+    $result = mySqlQuery($sql);
+
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $downloads = $row['count'];
+        }
+    }
+
+    return $downloads;
+}
+
 function getTotalDownvotes()
 {
     $inDB_count = 0;
@@ -99,6 +114,7 @@ function getTotalSubmissionCount()
     }
     return $response;
 }
+
 function getActiveVoteStats()
 {
     $response = [];

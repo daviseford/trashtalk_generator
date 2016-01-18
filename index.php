@@ -10,13 +10,13 @@ if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) ob_start('ob_gzhandl
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Davis Ford">
     <meta name="description"
-          content="World-famous Shittalk Generator for TF2, DOTA2, CS:GO, and all Source Engine games. Crowd-sourced insults compiled into one easy config."/>
+          content="Trash Talk Script for TF2, DOTA2, CS:GO, and all Source Engine games. Crowd-sourced insults compiled into one easy config"/>
     <meta property="og:type" content="article"/>
     <meta property="og:url" content="http://daviseford.com/shittalk/"/>
     <meta property="og:title" content="Shittalk Generator"/>
     <meta property="og:image" content="http://daviseford.com/shittalk/img/shittalk_yelling_man.jpg"/>
     <meta property="og:description"
-          content="World-famous Shittalk Generator for TF2, DOTA2, CS:GO, and all Source Engine games. Crowd-sourced insults compiled into one easy config."/>
+          content="Trash Talk Script for TF2, DOTA2, CS:GO, and all Source Engine games. Crowd-sourced insults compiled into one easy config"/>
 
     <title>Shittalk Generator</title>
 
@@ -247,7 +247,9 @@ if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) ob_start('ob_gzhandl
             <small>Copyright <a href="http://daviseford.com/" target="_blank">Davis Ford</a> 2016 |
                 <a href="https://www.youtube.com/watch?v=HW_IH0jipeU" target="_blank"
                    onClick="ga('send', 'event', { eventCategory: 'footer_action', eventAction: 'youtube', eventLabel: 'clicked'});">
-                    What is the odds?</a></small>
+                    What is the odds?</a> | <a href="stats.php" target="_blank"
+                                               onClick="ga('send', 'event', { eventCategory: 'footer_action', eventAction: 'stats', eventLabel: 'clicked'});">
+                    Stats</a></small>
         </div>
     </div>
 </div>

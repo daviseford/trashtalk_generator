@@ -25,7 +25,7 @@ $includedBindCount = getIncludedBindCount();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="Page Description">
+<!--    <meta name="description" content="Page Description">-->
     <meta name="author" content="Davis">
     <title>Stats</title>
 
@@ -47,9 +47,7 @@ $includedBindCount = getIncludedBindCount();
 <script src="js/bootstrap.min.js"></script>
 <div class="container">
     <div class="row">
-        <div class="col-md-4">
-
-
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
             <table class="table table-hover">
                 <thead>
                 <tr>
@@ -101,7 +99,7 @@ $includedBindCount = getIncludedBindCount();
             </table>
         </div>
 
-        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
             <table class="table table-hover">
                 <thead>
                 <tr>
@@ -132,7 +130,7 @@ $includedBindCount = getIncludedBindCount();
             </table>
         </div>
 
-        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
             <table class="table table-hover">
                 <thead>
                 <tr>
@@ -154,7 +152,12 @@ $includedBindCount = getIncludedBindCount();
                     </td>
                 </tr>
 
-
+                <tr>
+                    <td>Downloads</td>
+                    <td>
+                        <?php echo number_format(getTotalDownloads()); ?>
+                    </td>
+                </tr>
 
 
                 </tbody>
