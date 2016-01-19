@@ -51,7 +51,7 @@ $(document).ready(function () {
                 duplicateRequest.done(function (data) {
                     //console.log(data);
 
-                    if (data < 1) {
+                    if (data < 1) { // i.e. not a duplicate
                         var form2 = {};
                         form2['create_shittalk_Text'] = shittalkText;
                         form2['query'] = 'create_Shittalk';
@@ -124,12 +124,6 @@ $(document).ready(function () {
 
                     if ($(this).is('[disabled=disabled]') !== true) {
 
-                        ga('send', 'event', {
-                            eventCategory: 'ratemore_action',
-                            eventAction: 'upvote',
-                            eventLabel: 'clicked'
-                        });
-
                         //console.log('upvoted!');
                         var parent = $(this).parent().parent();
 
@@ -156,12 +150,6 @@ $(document).ready(function () {
                 .click(function (e) {
                     e.preventDefault();
                     if ($(this).is('[disabled=disabled]') !== true) {
-
-                        ga('send', 'event', {
-                            eventCategory: 'ratemore_action',
-                            eventAction: 'downvote',
-                            eventLabel: 'clicked'
-                        });
 
                         //console.log('downvoted!');
                         var parent = $(this).parent().parent();
@@ -244,11 +232,6 @@ $(document).ready(function () {
                     e.preventDefault();
                     if ($(this).is('[disabled=disabled]') !== true) {
 
-                        ga('send', 'event', {
-                            eventCategory: 'jumbotron_action',
-                            eventAction: 'upvote',
-                            eventLabel: 'clicked'
-                        });
                         //console.log('upvoted!');
                         var parent = $(this).parent().parent();
 
@@ -277,12 +260,6 @@ $(document).ready(function () {
                 .click(function (e) {
                     e.preventDefault();
                     if ($(this).is('[disabled=disabled]') !== true) {
-
-                        ga('send', 'event', {
-                            eventCategory: 'jumbotron_action',
-                            eventAction: 'downvote',
-                            eventLabel: 'clicked'
-                        });
 
                         ////console.log('downvoted!');
                         var parent = $(this).parent().parent();
@@ -353,6 +330,5 @@ $(document).ready(function () {
             }
         });
     }
-
 
 });

@@ -1,11 +1,3 @@
-.vote-arrow {
-    font-size: 1.8em;
-}
-
-.badge {
-    font-size: 1em
-}
-
 .borderless tbody tr td, .borderless tbody tr th, .borderless thead tr th {
     border: none;
 }

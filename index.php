@@ -23,18 +23,12 @@ if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) ob_start('ob_gzhandl
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <!-- jQuery -->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-
-    <!-- Latest compiled and minified CSS & JS -->
-    <link rel="stylesheet" media="screen" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
-    <link rel="stylesheet" type="text/css" href="css/shittalk.min.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" media="screen" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
 </head>
 <body>
@@ -79,7 +73,6 @@ if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) ob_start('ob_gzhandl
                             <br/>
                         </div>
                         <button type="submit" id="create_shittalk_Btn" class="btn btn-primary">Submit</button>
-
                     </div>
                 </div>
 
@@ -96,7 +89,6 @@ if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) ob_start('ob_gzhandl
 
                 <li class="list-group-item"><h3 class="text-center">Recent Insults</h3></li>
                 <ul class="list-group def-list-group-scroll" id="recent_listGroup">
-
                 </ul>
             </div>
 
@@ -104,15 +96,12 @@ if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) ob_start('ob_gzhandl
 
                 <li class="list-group-item"><h3 class="text-center">Top Insults</h3></li>
                 <ul class="list-group def-list-group-scroll" id="top_listGroup">
-
                 </ul>
             </div>
 
             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 hidden-xs">
                 <li class="list-group-item"><h3 class="text-center">Random Insults</h3></li>
                 <ul class="list-group def-list-group-scroll" id="random_listGroup">
-
-
                 </ul>
             </div>
 
@@ -225,7 +214,6 @@ if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) ob_start('ob_gzhandl
             <div>
                 <table class="table">
                     <tbody id="rate_more_tbody">
-
                     </tbody>
                 </table>
             </div>
@@ -254,13 +242,17 @@ if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) ob_start('ob_gzhandl
     </div>
 </div>
 
+<!-- jQuery -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+<!-- Bootstrap JS -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" async></script>
+
 <!-- String -->
-<script src="js/libraries/string/string.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/string.js/3.3.1/string.min.js" async></script>
 
-
-<!-- Shittalk -->
-<script src="js/shittalk.min.js"></script>
-<!-- What is the odds? -->
+<!-- Shittalk JS -->
+<script src="js/shittalk.min.js" async></script>
 
 <!-- Google Analytics -->
 <script>
@@ -279,12 +271,83 @@ if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) ob_start('ob_gzhandl
     ga('create', 'UA-55820654-2', 'auto');
     ga('require', 'linkid', 'linkid.js');
     ga('send', 'pageview');
-    /*credit http://stackoverflow.com/questions/15901187/how-to-set-up-page-speed-logging-for-google-analytics-in-analytics-js
+    /* credit http://stackoverflow.com/questions/15901187/how-to-set-up-page-speed-logging-for-google-analytics-in-analytics-js
      * https://developers.google.com/analytics/devguides/collection/analyticsjs/field-reference */
-    ga('create', 'UA-55820654-2', {'siteSpeedSampleRate': 75});
-
+    ga('create', 'UA-55820654-2', {'siteSpeedSampleRate': 50});
 </script>
+
+
+<!-- Shittalk CSS -->
+<script>
+    /*!
+     loadCSS: load a CSS file asynchronously.
+     [c]2015 @scottjehl, Filament Group, Inc.
+     Licensed MIT
+     */
+    (function (w) {
+        "use strict";
+        /* exported loadCSS */
+        var loadCSS = function (href, before, media) {
+            // Arguments explained:
+            // `href` [REQUIRED] is the URL for your CSS file.
+            // `before` [OPTIONAL] is the element the script should use as a reference for injecting our stylesheet <link> before
+            // By default, loadCSS attempts to inject the link after the last stylesheet or script in the DOM. However, you might desire a more specific location in your document.
+            // `media` [OPTIONAL] is the media type or query of the stylesheet. By default it will be 'all'
+            var doc = w.document;
+            var ss = doc.createElement("link");
+            var ref;
+            if (before) {
+                ref = before;
+            }
+            else {
+                var refs = ( doc.body || doc.getElementsByTagName("head")[0] ).childNodes;
+                ref = refs[refs.length - 1];
+            }
+
+            var sheets = doc.styleSheets;
+            ss.rel = "stylesheet";
+            ss.href = href;
+            // temporarily set media to something inapplicable to ensure it'll fetch without blocking render
+            ss.media = "only x";
+
+            // Inject link
+            // Note: the ternary preserves the existing behavior of "before" argument, but we could choose to change the argument to "after" in a later release and standardize on ref.nextSibling for all refs
+            // Note: `insertBefore` is used instead of `appendChild`, for safety re: http://www.paulirish.com/2011/surefire-dom-element-insertion/
+            ref.parentNode.insertBefore(ss, ( before ? ref : ref.nextSibling ));
+            // A method (exposed on return object for external use) that mimics onload by polling until document.styleSheets until it includes the new sheet.
+            var onloadcssdefined = function (cb) {
+                var resolvedHref = ss.href;
+                var i = sheets.length;
+                while (i--) {
+                    if (sheets[i].href === resolvedHref) {
+                        return cb();
+                    }
+                }
+                setTimeout(function () {
+                    onloadcssdefined(cb);
+                });
+            };
+
+            // once loaded, set link's media back to `all` so that the stylesheet applies once it loads
+            ss.onloadcssdefined = onloadcssdefined;
+            onloadcssdefined(function () {
+                ss.media = media || "all";
+            });
+            return ss;
+        };
+        // commonjs
+        if (typeof module !== "undefined") {
+            module.exports = loadCSS;
+        }
+        else {
+            w.loadCSS = loadCSS;
+        }
+    }(typeof global !== "undefined" ? global : this));
+    loadCSS("css/shittalk.min.css");
+</script>
+<noscript>
+    <link href="css/shittalk.min.css" rel="stylesheet">
+</noscript>
+
 </body>
-
-
 </html>
