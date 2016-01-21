@@ -91,7 +91,7 @@ if (isset($postdec['query'])) {
 
 function getRecentList()
 {
-    $sql = "SELECT `id`, `text`, `upvotes`-`downvotes` AS `netVotes` FROM shittalkDB WHERE (`upvotes` - `downvotes`) > -5 ORDER by `date_created` DESC LIMIT 25;";
+    $sql = "SELECT `id`, `text`, `upvotes`-`downvotes` AS `netVotes` FROM shittalkDB WHERE (`upvotes` - `downvotes`) > -5 ORDER by `date_created` DESC LIMIT 20;";
     $result = mySqlQuery($sql);
     $response = [];
     if ($result->num_rows > 0) {
@@ -119,7 +119,7 @@ function getTopList()
 
 function getRandomList()
 {
-    $sql = "SELECT `id`, `text`, `upvotes`-`downvotes` AS `netVotes` FROM shittalkDB WHERE (`upvotes` - `downvotes`) > -5 ORDER by rand() DESC LIMIT 25;";
+    $sql = "SELECT `id`, `text`, `upvotes`-`downvotes` AS `netVotes` FROM shittalkDB WHERE (`upvotes` - `downvotes`) > -5 ORDER by rand() DESC LIMIT 20;";
     $result = mySqlQuery($sql);
     $response = [];
     if ($result->num_rows > 0) {

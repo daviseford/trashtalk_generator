@@ -64,7 +64,8 @@ if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) ob_start('ob_gzhandl
                     <div class="col-md-6 col-sm-6 col-xs-12">
                         <input type="text" class="form-control" id="create_shittalk_Text" placeholder="Submit your own"
                                maxlength="128" aria-describedby="helpBlock">
-                        <span id="helpBlock" class="help-block hidden">This insult already exists in our database</span>
+                        <span id="helpBlock"
+                              class="help-block hidden">This insult already exists in our database.</span>
                         <span id="helpBlock2" class="help-block hidden">Please do not submit websites.</span>
                         <span id="helpBlock3" class="help-block hidden">Be cool.</span>
                     </div>
@@ -248,9 +249,6 @@ if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) ob_start('ob_gzhandl
 <!-- Bootstrap JS -->
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" async></script>
 
-<!-- String -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/string.js/3.3.1/string.min.js" async></script>
-
 <!-- Shittalk JS -->
 <script src="js/shittalk.min.js" async></script>
 
@@ -345,9 +343,6 @@ if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) ob_start('ob_gzhandl
     }(typeof global !== "undefined" ? global : this));
     loadCSS("css/shittalk.min.css");
 </script>
-<noscript>
-    <link href="css/shittalk.min.css" rel="stylesheet">
-</noscript>
 
 </body>
 </html>

@@ -30,12 +30,12 @@ $(document).ready(function () {
             var shittalkText = $('#create_shittalk_Text').val();
             var shittalkText_LowerCase = shittalkText.toLowerCase();
 
-            if (S(shittalkText_LowerCase).contains('http://') || S(shittalkText_LowerCase).contains('https://') || S(shittalkText_LowerCase).contains('www.') || S(shittalkText_LowerCase).contains('.com')) {
+            if (shittalkText_LowerCase.indexOf('http://') > -1 || shittalkText_LowerCase.indexOf('https://') > -1 || shittalkText_LowerCase.indexOf('www.') > -1 || shittalkText_LowerCase.indexOf('.com') > -1) {
 
                 parent.addClass('has-error');
                 $('#helpBlock2').removeClass('hidden');
 
-            } else if (S(shittalkText_LowerCase).contains('nigger') || S(shittalkText_LowerCase).contains('faggot')) {
+            } else if (shittalkText_LowerCase.indexOf('nigger') > -1 || shittalkText_LowerCase.indexOf('faggot') > -1) {
 
                 parent.addClass('has-error');
                 $('#helpBlock3').removeClass('hidden');
@@ -180,7 +180,7 @@ $(document).ready(function () {
         var request = queryController(post);
         request.done(function (data) {
             var count = data;
-            $('#TotalBindCount').text(data);
+            $('#TotalBindCount').text(count);
         });
     }
 
@@ -307,7 +307,6 @@ $(document).ready(function () {
 
     function updateBadges() {
         $('.badge').each(function () {
-            var that = this;
             var thisVal = $(this).text();
             if (thisVal < 0) {
                 $(this).css("background-color", "#a94442");

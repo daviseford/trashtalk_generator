@@ -16,10 +16,573 @@ if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) ob_start('ob_gzhandl
     <meta property="og:image" content="http://daviseford.com/shittalk/img/shittalk_yelling_man.jpg"/>
     <meta property="og:description"
           content="Trash Talk Script for TF2, DOTA2, CS:GO, and all Source Engine games. Crowd-sourced insults compiled into one easy config"/>
-    <title>Shittalk Generator</title><!--[if lt IE 9]>
-    <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
-    <link rel="stylesheet" media="screen" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <title>Shittalk Generator</title>
+    <style>
+        html {
+            font-family: sans-serif;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+        }
+
+        body {
+            margin: 0;
+        }
+
+        a {
+            background-color: transparent;
+        }
+
+        strong {
+            font-weight: 700;
+        }
+
+        h1 {
+            margin: .67em 0;
+            font-size: 2em;
+        }
+
+        code,
+        kbd {
+            font-family: monospace, monospace;
+            font-size: 1em;
+        }
+
+        button,
+        input {
+            margin: 0;
+            font: inherit;
+            color: inherit;
+        }
+
+        button {
+            overflow: visible;
+        }
+
+        button {
+            text-transform: none;
+        }
+
+        button {
+            -webkit-appearance: button;
+        }
+
+        button::-moz-focus-inner,
+        input::-moz-focus-inner {
+            padding: 0;
+            border: 0;
+        }
+
+        input {
+            line-height: normal;
+        }
+
+        table {
+            border-spacing: 0;
+            border-collapse: collapse;
+        }
+
+        @font-face {
+            font-family: 'Glyphicons Halflings';
+            src: url(../fonts/glyphicons-halflings-regular.eot);
+            src: url(../fonts/glyphicons-halflings-regular.eot?#iefix) format('embedded-opentype'), url(../fonts/glyphicons-halflings-regular.woff2) format('woff2'), url(../fonts/glyphicons-halflings-regular.woff) format('woff'), url(../fonts/glyphicons-halflings-regular.ttf) format('truetype'), url(../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular) format('svg');
+        }
+
+        .glyphicon {
+            position: relative;
+            top: 1px;
+            display: inline-block;
+            font-family: 'Glyphicons Halflings';
+            font-style: normal;
+            font-weight: 400;
+            line-height: 1;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .glyphicon-cloud-download:before {
+            content: "\e197";
+        }
+
+        * {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        :after,
+        :before {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 10px;
+        }
+
+        body {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            line-height: 1.42857143;
+            color: #333;
+            background-color: #fff;
+        }
+
+        button,
+        input {
+            font-family: inherit;
+            font-size: inherit;
+            line-height: inherit;
+        }
+
+        a {
+            color: #337ab7;
+            text-decoration: none;
+        }
+
+        h1,
+        h3,
+        h4 {
+            font-family: inherit;
+            font-weight: 500;
+            line-height: 1.1;
+            color: inherit;
+        }
+
+        h1,
+        h3 {
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        h4 {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-size: 36px;
+        }
+
+        h3 {
+            font-size: 24px;
+        }
+
+        h4 {
+            font-size: 18px;
+        }
+
+        p {
+            margin: 0 0 10px;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        ul {
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        code,
+        kbd {
+            font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+        }
+
+        code {
+            padding: 2px 4px;
+            font-size: 90%;
+            color: #c7254e;
+            background-color: #f9f2f4;
+            border-radius: 4px;
+        }
+
+        kbd {
+            padding: 2px 4px;
+            font-size: 90%;
+            color: #fff;
+            background-color: #333;
+            border-radius: 3px;
+            -webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .25);
+            box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .25);
+        }
+
+        .container {
+            padding-right: 15px;
+            padding-left: 15px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                width: 750px;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .container {
+                width: 970px;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .container {
+                width: 1170px;
+            }
+        }
+
+        .row {
+            margin-right: -15px;
+            margin-left: -15px;
+        }
+
+        .col-lg-12,
+        .col-lg-3,
+        .col-lg-4,
+        .col-md-12,
+        .col-md-3,
+        .col-md-4,
+        .col-md-6,
+        .col-md-8,
+        .col-sm-12,
+        .col-sm-3,
+        .col-sm-6,
+        .col-xs-12,
+        .col-xs-4 {
+            position: relative;
+            min-height: 1px;
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+
+        .col-xs-12,
+        .col-xs-4 {
+            float: left;
+        }
+
+        .col-xs-12 {
+            width: 100%;
+        }
+
+        .col-xs-4 {
+            width: 33.33333333%;
+        }
+
+        .col-xs-offset-4 {
+            margin-left: 33.33333333%;
+        }
+
+        @media (min-width: 768px) {
+            .col-sm-12,
+            .col-sm-3,
+            .col-sm-6 {
+                float: left;
+            }
+
+            .col-sm-12 {
+                width: 100%;
+            }
+
+            .col-sm-6 {
+                width: 50%;
+            }
+
+            .col-sm-3 {
+                width: 25%;
+            }
+
+            .col-sm-offset-0 {
+                margin-left: 0;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .col-md-12,
+            .col-md-3,
+            .col-md-4,
+            .col-md-6,
+            .col-md-8 {
+                float: left;
+            }
+
+            .col-md-12 {
+                width: 100%;
+            }
+
+            .col-md-8 {
+                width: 66.66666667%;
+            }
+
+            .col-md-6 {
+                width: 50%;
+            }
+
+            .col-md-4 {
+                width: 33.33333333%;
+            }
+
+            .col-md-3 {
+                width: 25%;
+            }
+
+            .col-md-offset-2 {
+                margin-left: 16.66666667%;
+            }
+
+            .col-md-offset-0 {
+                margin-left: 0;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .col-lg-12,
+            .col-lg-3,
+            .col-lg-4 {
+                float: left;
+            }
+
+            .col-lg-12 {
+                width: 100%;
+            }
+
+            .col-lg-4 {
+                width: 33.33333333%;
+            }
+
+            .col-lg-3 {
+                width: 25%;
+            }
+        }
+
+        table {
+            background-color: transparent;
+        }
+
+        .table {
+            width: 100%;
+            max-width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            display: block;
+            width: 100%;
+            height: 34px;
+            padding: 6px 12px;
+            font-size: 14px;
+            line-height: 1.42857143;
+            color: #555;
+            background-color: #fff;
+            background-image: none;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+        }
+
+        .form-control::-moz-placeholder {
+            color: #999;
+            opacity: 1;
+        }
+
+        .form-control:-ms-input-placeholder {
+            color: #999;
+        }
+
+        .form-control::-webkit-input-placeholder {
+            color: #999;
+        }
+
+        .form-control::-ms-expand {
+            background-color: transparent;
+            border: 0;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .help-block {
+            display: block;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            color: #737373;
+        }
+
+        .form-horizontal .form-group {
+            margin-right: -15px;
+            margin-left: -15px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 6px 12px;
+            margin-bottom: 0;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.42857143;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: middle;
+            -ms-touch-action: manipulation;
+            touch-action: manipulation;
+            background-image: none;
+            border: 1px solid transparent;
+            border-radius: 4px;
+        }
+
+        .btn-primary {
+            color: #fff;
+            background-color: #337ab7;
+            border-color: #2e6da4;
+        }
+
+        .btn-success {
+            color: #fff;
+            background-color: #5cb85c;
+            border-color: #4cae4c;
+        }
+
+        .btn-lg {
+            padding: 10px 16px;
+            font-size: 18px;
+            line-height: 1.3333333;
+            border-radius: 6px;
+        }
+
+        .jumbotron {
+            padding-top: 30px;
+            padding-bottom: 30px;
+            margin-bottom: 30px;
+            color: inherit;
+            background-color: #eee;
+        }
+
+        .jumbotron h1 {
+            color: inherit;
+        }
+
+        .jumbotron p {
+            margin-bottom: 15px;
+            font-size: 21px;
+            font-weight: 200;
+        }
+
+        .jumbotron .container {
+            max-width: 100%;
+        }
+
+        @media screen and (min-width: 768px) {
+            .jumbotron {
+                padding-top: 48px;
+                padding-bottom: 48px;
+            }
+
+            .jumbotron h1 {
+                font-size: 63px;
+            }
+        }
+
+        .list-group {
+            padding-left: 0;
+            margin-bottom: 20px;
+        }
+
+        .list-group-item {
+            position: relative;
+            display: block;
+            padding: 10px 15px;
+            margin-bottom: -1px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+        }
+
+        .list-group-item:first-child {
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+        }
+
+        .panel {
+            margin-bottom: 20px;
+            background-color: #fff;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+            box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+        }
+
+        .panel-body {
+            padding: 15px;
+        }
+
+        .panel-default {
+            border-color: #ddd;
+        }
+
+        .clearfix:after,
+        .clearfix:before,
+        .container:after,
+        .container:before,
+        .form-horizontal .form-group:after,
+        .form-horizontal .form-group:before,
+        .panel-body:after,
+        .panel-body:before,
+        .row:after,
+        .row:before {
+            display: table;
+            content: " ";
+        }
+
+        .clearfix:after,
+        .container:after,
+        .form-horizontal .form-group:after,
+        .panel-body:after,
+        .row:after {
+            clear: both;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        @-ms-viewport {
+            width: device-width;
+        }
+
+        .visible-xs {
+            display: none !important;
+        }
+
+        @media (max-width: 767px) {
+            .visible-xs {
+                display: block !important;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .hidden-xs {
+                display: none !important;
+            }
+        }
+
+        .def-list-group-scroll {
+            max-height: 800px;
+            overflow-y: scroll;
+        }
+
+        .def-list-group-scroll::-webkit-scrollbar {
+            -webkit-appearance: none;
+            width: 4px;
+        }
+
+        .def-list-group-scroll::-webkit-scrollbar-thumb {
+            border-radius: 3px;
+            background-color: lightgray;
+            -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .75);
+        }
+    </style>
 </head>
 <body>
 <div class="jumbotron">
@@ -48,7 +611,7 @@ if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) ob_start('ob_gzhandl
                                                                     id="create_shittalk_Text"
                                                                     placeholder="Submit your own" maxlength="128"
                                                                     aria-describedby="helpBlock"> <span id="helpBlock"
-                                                                                                        class="help-block hidden">This insult already exists in our database</span>
+                                                                                                        class="help-block hidden">This insult already exists in our database.</span>
                         <span id="helpBlock2" class="help-block hidden">Please do not submit websites.</span> <span
                             id="helpBlock3" class="help-block hidden">Be cool.</span></div>
                     <div class="col-md-3 col-md-offset-0 col-sm-3 col-sm-offset-0 col-xs-4 col-xs-offset-4">
@@ -164,8 +727,6 @@ if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) ob_start('ob_gzhandl
 </div>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" async></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/string.js/3.3.1/string.min.js" async></script>
-<link rel="stylesheet" href="css/shittalk.min.css">
 <script src="js/shittalk.min.js" async></script>
 <script>(function (i, s, o, g, r, a, m) {
         i['GoogleAnalyticsObject'] = r;
@@ -181,5 +742,52 @@ if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) ob_start('ob_gzhandl
     ga('require', 'linkid', 'linkid.js');
     ga('send', 'pageview');
     ga('create', 'UA-55820654-2', {'siteSpeedSampleRate': 50});</script>
+<script>/*! loadCSS: load a CSS file asynchronously. [c]2015 @scottjehl, Filament Group, Inc. Licensed MIT */
+    (function (w) {
+        "use strict";
+        /* exported loadCSS */
+        var loadCSS = function (href, before, media) {
+            var doc = w.document;
+            var ss = doc.createElement("link");
+            var ref;
+            if (before) {
+                ref = before;
+            } else {
+                var refs = ( doc.body || doc.getElementsByTagName("head")[0] ).childNodes;
+                ref = refs[refs.length - 1];
+            }
+            var sheets = doc.styleSheets;
+            ss.rel = "stylesheet";
+            ss.href = href;
+            ss.media = "only x";
+            ref.parentNode.insertBefore(ss, ( before ? ref : ref.nextSibling ));
+            var onloadcssdefined = function (cb) {
+                var resolvedHref = ss.href;
+                var i = sheets.length;
+                while (i--) {
+                    if (sheets[i].href === resolvedHref) {
+                        return cb();
+                    }
+                }
+                setTimeout(function () {
+                    onloadcssdefined(cb);
+                });
+            };
+            ss.onloadcssdefined = onloadcssdefined;
+            onloadcssdefined(function () {
+                ss.media = media || "all";
+            });
+            return ss;
+        };
+        if (typeof module !== "undefined") {
+            module.exports = loadCSS;
+        } else {
+            w.loadCSS = loadCSS;
+        }
+    }(typeof global !== "undefined" ? global : this));
+    loadCSS("css/shittalk.min.css");
+    loadCSS("css/bootstrap.min.css");
+</script>
+
 </body>
 </html>

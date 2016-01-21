@@ -5,7 +5,7 @@
  * Date: 1/2/2016
  * Time: 5:39 PM
  */
-require_once(__DIR__ . '/php/shittalk_functions.php');
+require_once(__DIR__ . '/shittalk_functions.php');
 
 $file = "cfg/shittalk.cfg";
 $myfile = fopen($file, "r") or die("Unable to open file!");
