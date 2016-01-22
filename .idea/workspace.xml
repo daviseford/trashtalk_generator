@@ -3,9 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="e71ba388-5453-4657-bab2-4131080d390b" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/shittalk.css" afterPath="$PROJECT_DIR$/css/shittalk.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/shittalk.min.css" afterPath="$PROJECT_DIR$/css/shittalk.min.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index_test.php" afterPath="$PROJECT_DIR$/index_test.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/shittalk.js" afterPath="$PROJECT_DIR$/js/shittalk.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/shittalk.min.js" afterPath="$PROJECT_DIR$/js/shittalk.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/php/controller/controller.php" afterPath="$PROJECT_DIR$/php/controller/controller.php" />
     </list>
     <ignored path="shittalk_generator.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -37,47 +39,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.26998842">
-              <caret line="247" column="82" selection-start-line="247" selection-start-column="82" selection-end-line="247" selection-end-column="82" />
+            <state vertical-scroll-proportion="-1.9454546">
+              <caret line="279" column="19" selection-start-line="279" selection-start-column="19" selection-end-line="279" selection-end-column="19" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="import_old.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/php/import_old.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.6153846">
-              <caret line="11" column="0" selection-start-line="10" selection-start-column="59" selection-end-line="11" selection-end-column="0" />
-              <folding>
-                <marker date="1453414261681" expanded="true" signature="941:1062" placeholder="INSERT INTO `shittalkDB`... " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="stats.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/stats.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.576923">
-              <caret line="114" column="49" selection-start-line="114" selection-start-column="49" selection-end-line="114" selection-end-column="49" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="shittalk.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/shittalk.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-22.586206">
-              <caret line="325" column="40" selection-start-line="325" selection-start-column="40" selection-end-line="325" selection-end-column="40" />
-              <folding>
-                <marker date="1453414309075" expanded="true" signature="7482:7498" placeholder="..." />
-                <marker date="1453414309075" expanded="true" signature="7622:7638" placeholder="..." />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -101,6 +68,97 @@
                 <marker date="1453050217643" expanded="true" signature="3310:3370" placeholder="SELECT * FRO... timestamps" />
                 <marker date="1453050217643" expanded="true" signature="3626:3705" placeholder="SELECT COUNT... shittalkDB" />
                 <marker date="1453050217643" expanded="true" signature="3966:4008" placeholder="SELECT COUNT... shittalkDB" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="import_old.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/php/import_old.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-18.692308">
+              <caret line="27" column="3" selection-start-line="27" selection-start-column="3" selection-end-line="27" selection-end-column="3" />
+              <folding>
+                <marker date="1453414261681" expanded="true" signature="941:1062" placeholder="INSERT INTO `shittalkDB`... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="stats.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/stats.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-6.576923">
+              <caret line="114" column="49" selection-start-line="114" selection-start-column="49" selection-end-line="114" selection-end-column="49" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="controller.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/php/controller/controller.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="10.038462">
+              <caret line="177" column="0" selection-start-line="177" selection-start-column="0" selection-end-line="177" selection-end-column="0" />
+              <folding>
+                <element signature="e#6#90#0#PHP" expanded="true" />
+                <marker date="1453419537497" expanded="true" signature="2678:2823" placeholder="SELECT `id`,... shittalkDB" />
+                <marker date="1453419537497" expanded="true" signature="2678:2825" placeholder="SELECT `id`,... shittalkDB" />
+                <marker date="1453419537497" expanded="true" signature="3238:3344" placeholder="SELECT `id`,... shittalkDB" />
+                <marker date="1453419537497" expanded="true" signature="3760:3897" placeholder="SELECT `id`,... shittalkDB" />
+                <marker date="1453419537497" expanded="true" signature="3760:3899" placeholder="SELECT `id`,... shittalkDB" />
+                <marker date="1453419537497" expanded="true" signature="4325:4461" placeholder="SELECT `id`,... shittalkDB" />
+                <marker date="1453419537497" expanded="true" signature="5096:5153" placeholder="SELECT COUNT... shittalkDB" />
+                <marker date="1453419537497" expanded="true" signature="5096:5169" placeholder="SELECT COUNT... shittalkDB" />
+                <marker date="1453419537497" expanded="true" signature="5679:5792" placeholder="SELECT * FRO... shittalkDB" />
+                <marker date="1453419537497" expanded="true" signature="5679:5793" placeholder="SELECT * FRO... shittalkDB" />
+                <marker date="1453419537497" expanded="true" signature="6259:6369" placeholder="SELECT * FRO... shittalkDB" />
+                <marker date="1453419537497" expanded="true" signature="6259:6370" placeholder="SELECT * FRO... shittalkDB" />
+                <marker date="1453419537497" expanded="true" signature="7039:7160" placeholder="INSERT INTO `shittalk_generator`.`shittalkDB`... " />
+                <marker date="1453419537497" expanded="true" signature="7301:7351" placeholder="UPDATE shitt... " />
+                <marker date="1453419537497" expanded="true" signature="7301:7358" placeholder="UPDATE shitt... " />
+                <marker date="1453419537497" expanded="true" signature="7301:7369" placeholder="UPDATE shitt... " />
+                <marker date="1453419537497" expanded="true" signature="7512:7573" placeholder="UPDATE shitt... " />
+                <marker date="1453419537497" expanded="true" signature="7512:7574" placeholder="UPDATE shitt... " />
+                <marker date="1453419537497" expanded="true" signature="7512:7584" placeholder="UPDATE shitt... " />
+                <marker date="1453419537497" expanded="true" signature="7512:7585" placeholder="UPDATE shitt... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="shittalk.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/js/shittalk.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.21034871">
+              <caret line="217" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="345" selection-end-column="3" />
+              <folding>
+                <marker date="1453419537512" expanded="true" signature="8739:8755" placeholder="..." />
+                <marker date="1453419537512" expanded="true" signature="8879:8895" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index_test.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index_test.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-11.461538">
+              <caret line="254" column="0" selection-start-line="254" selection-start-column="0" selection-end-line="254" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="shittalk.min.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/shittalk.min.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+              <folding>
+                <marker date="1453419538537" expanded="true" signature="1084:1216" placeholder="{...}" />
+                <marker date="1453419538537" expanded="true" signature="1147:1216" placeholder="{...}" />
+                <marker date="1453419538537" expanded="true" signature="4158:4634" placeholder="{...}" />
               </folding>
             </state>
           </provider>
@@ -136,7 +194,6 @@
         <option value="$PROJECT_DIR$/js/shittalk.min.js" />
         <option value="$PROJECT_DIR$/js/shittalk_test.js" />
         <option value="$PROJECT_DIR$/php/delete_downvoted.php" />
-        <option value="$PROJECT_DIR$/index_test.php" />
         <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch_5" />
         <option value="$PROJECT_DIR$/cfg/build_test.cfg" />
         <option value="$PROJECT_DIR$/php/build_cfg_test.php" />
@@ -145,12 +202,14 @@
         <option value="$PROJECT_DIR$/stats.html" />
         <option value="$PROJECT_DIR$/php/shittalk_functions.php" />
         <option value="$PROJECT_DIR$/index_minified.php" />
-        <option value="$PROJECT_DIR$/php/controller/controller.php" />
         <option value="$PROJECT_DIR$/css/bootstrap.css" />
         <option value="$PROJECT_DIR$/stats.php" />
         <option value="$PROJECT_DIR$/php/import_old.php" />
-        <option value="$PROJECT_DIR$/js/shittalk.js" />
         <option value="$PROJECT_DIR$/css/shittalk.css" />
+        <option value="$PROJECT_DIR$/index_test.php" />
+        <option value="$PROJECT_DIR$/.htaccess" />
+        <option value="$PROJECT_DIR$/js/shittalk.js" />
+        <option value="$PROJECT_DIR$/php/controller/controller.php" />
         <option value="$PROJECT_DIR$/index.php" />
       </list>
     </option>
@@ -212,38 +271,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="shittalk_generator" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="shittalk_generator" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="shittalk_generator" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="php" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="shittalk_generator" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="shittalk_generator" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="php" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controller" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -468,26 +495,26 @@
           <caret line="103" column="48" selection-start-line="103" selection-start-column="48" selection-end-line="103" selection-end-column="48" />
           <folding>
             <element signature="e#6#90#0#PHP" expanded="true" />
-            <marker date="1453413322317" expanded="true" signature="2678:2823" placeholder="SELECT `id`,... shittalkDB" />
-            <marker date="1453413322317" expanded="true" signature="2678:2825" placeholder="SELECT `id`,... shittalkDB" />
-            <marker date="1453413322317" expanded="true" signature="3248:3354" placeholder="SELECT `id`,... shittalkDB" />
-            <marker date="1453413322317" expanded="true" signature="3777:3914" placeholder="SELECT `id`,... shittalkDB" />
-            <marker date="1453413322317" expanded="true" signature="3777:3916" placeholder="SELECT `id`,... shittalkDB" />
-            <marker date="1453413322317" expanded="true" signature="4352:4488" placeholder="SELECT `id`,... shittalkDB" />
-            <marker date="1453413322317" expanded="true" signature="5123:5180" placeholder="SELECT COUNT... shittalkDB" />
-            <marker date="1453413322317" expanded="true" signature="5123:5196" placeholder="SELECT COUNT... shittalkDB" />
-            <marker date="1453413322317" expanded="true" signature="5706:5819" placeholder="SELECT * FRO... shittalkDB" />
-            <marker date="1453413322317" expanded="true" signature="5706:5820" placeholder="SELECT * FRO... shittalkDB" />
-            <marker date="1453413322317" expanded="true" signature="6325:6435" placeholder="SELECT * FRO... shittalkDB" />
-            <marker date="1453413322317" expanded="true" signature="6325:6436" placeholder="SELECT * FRO... shittalkDB" />
-            <marker date="1453413322317" expanded="true" signature="7105:7226" placeholder="INSERT INTO `shittalk_generator`.`shittalkDB`... " />
-            <marker date="1453413322317" expanded="true" signature="7367:7417" placeholder="UPDATE shitt... " />
-            <marker date="1453413322317" expanded="true" signature="7367:7424" placeholder="UPDATE shitt... " />
-            <marker date="1453413322317" expanded="true" signature="7367:7435" placeholder="UPDATE shitt... " />
-            <marker date="1453413322317" expanded="true" signature="7578:7639" placeholder="UPDATE shitt... " />
-            <marker date="1453413322317" expanded="true" signature="7578:7640" placeholder="UPDATE shitt... " />
-            <marker date="1453413322317" expanded="true" signature="7578:7650" placeholder="UPDATE shitt... " />
-            <marker date="1453413322317" expanded="true" signature="7578:7651" placeholder="UPDATE shitt... " />
+            <marker date="1453419537497" expanded="true" signature="2678:2823" placeholder="SELECT `id`,... shittalkDB" />
+            <marker date="1453419537497" expanded="true" signature="2678:2825" placeholder="SELECT `id`,... shittalkDB" />
+            <marker date="1453419537497" expanded="true" signature="3238:3344" placeholder="SELECT `id`,... shittalkDB" />
+            <marker date="1453419537497" expanded="true" signature="3760:3897" placeholder="SELECT `id`,... shittalkDB" />
+            <marker date="1453419537497" expanded="true" signature="3760:3899" placeholder="SELECT `id`,... shittalkDB" />
+            <marker date="1453419537497" expanded="true" signature="4325:4461" placeholder="SELECT `id`,... shittalkDB" />
+            <marker date="1453419537497" expanded="true" signature="5096:5153" placeholder="SELECT COUNT... shittalkDB" />
+            <marker date="1453419537497" expanded="true" signature="5096:5169" placeholder="SELECT COUNT... shittalkDB" />
+            <marker date="1453419537497" expanded="true" signature="5679:5792" placeholder="SELECT * FRO... shittalkDB" />
+            <marker date="1453419537497" expanded="true" signature="5679:5793" placeholder="SELECT * FRO... shittalkDB" />
+            <marker date="1453419537497" expanded="true" signature="6259:6369" placeholder="SELECT * FRO... shittalkDB" />
+            <marker date="1453419537497" expanded="true" signature="6259:6370" placeholder="SELECT * FRO... shittalkDB" />
+            <marker date="1453419537497" expanded="true" signature="7039:7160" placeholder="INSERT INTO `shittalk_generator`.`shittalkDB`... " />
+            <marker date="1453419537497" expanded="true" signature="7301:7351" placeholder="UPDATE shitt... " />
+            <marker date="1453419537497" expanded="true" signature="7301:7358" placeholder="UPDATE shitt... " />
+            <marker date="1453419537497" expanded="true" signature="7301:7369" placeholder="UPDATE shitt... " />
+            <marker date="1453419537497" expanded="true" signature="7512:7573" placeholder="UPDATE shitt... " />
+            <marker date="1453419537497" expanded="true" signature="7512:7574" placeholder="UPDATE shitt... " />
+            <marker date="1453419537497" expanded="true" signature="7512:7584" placeholder="UPDATE shitt... " />
+            <marker date="1453419537497" expanded="true" signature="7512:7585" placeholder="UPDATE shitt... " />
           </folding>
         </state>
       </provider>
@@ -547,26 +574,26 @@
           <caret line="103" column="48" selection-start-line="103" selection-start-column="48" selection-end-line="103" selection-end-column="48" />
           <folding>
             <element signature="e#6#90#0#PHP" expanded="true" />
-            <marker date="1453413322317" expanded="true" signature="2678:2823" placeholder="SELECT `id`,... shittalkDB" />
-            <marker date="1453413322317" expanded="true" signature="2678:2825" placeholder="SELECT `id`,... shittalkDB" />
-            <marker date="1453413322317" expanded="true" signature="3248:3354" placeholder="SELECT `id`,... shittalkDB" />
-            <marker date="1453413322317" expanded="true" signature="3777:3914" placeholder="SELECT `id`,... shittalkDB" />
-            <marker date="1453413322317" expanded="true" signature="3777:3916" placeholder="SELECT `id`,... shittalkDB" />
-            <marker date="1453413322317" expanded="true" signature="4352:4488" placeholder="SELECT `id`,... shittalkDB" />
-            <marker date="1453413322317" expanded="true" signature="5123:5180" placeholder="SELECT COUNT... shittalkDB" />
-            <marker date="1453413322317" expanded="true" signature="5123:5196" placeholder="SELECT COUNT... shittalkDB" />
-            <marker date="1453413322317" expanded="true" signature="5706:5819" placeholder="SELECT * FRO... shittalkDB" />
-            <marker date="1453413322317" expanded="true" signature="5706:5820" placeholder="SELECT * FRO... shittalkDB" />
-            <marker date="1453413322317" expanded="true" signature="6325:6435" placeholder="SELECT * FRO... shittalkDB" />
-            <marker date="1453413322317" expanded="true" signature="6325:6436" placeholder="SELECT * FRO... shittalkDB" />
-            <marker date="1453413322317" expanded="true" signature="7105:7226" placeholder="INSERT INTO `shittalk_generator`.`shittalkDB`... " />
-            <marker date="1453413322317" expanded="true" signature="7367:7417" placeholder="UPDATE shitt... " />
-            <marker date="1453413322317" expanded="true" signature="7367:7424" placeholder="UPDATE shitt... " />
-            <marker date="1453413322317" expanded="true" signature="7367:7435" placeholder="UPDATE shitt... " />
-            <marker date="1453413322317" expanded="true" signature="7578:7639" placeholder="UPDATE shitt... " />
-            <marker date="1453413322317" expanded="true" signature="7578:7640" placeholder="UPDATE shitt... " />
-            <marker date="1453413322317" expanded="true" signature="7578:7650" placeholder="UPDATE shitt... " />
-            <marker date="1453413322317" expanded="true" signature="7578:7651" placeholder="UPDATE shitt... " />
+            <marker date="1453419537497" expanded="true" signature="2678:2823" placeholder="SELECT `id`,... shittalkDB" />
+            <marker date="1453419537497" expanded="true" signature="2678:2825" placeholder="SELECT `id`,... shittalkDB" />
+            <marker date="1453419537497" expanded="true" signature="3238:3344" placeholder="SELECT `id`,... shittalkDB" />
+            <marker date="1453419537497" expanded="true" signature="3760:3897" placeholder="SELECT `id`,... shittalkDB" />
+            <marker date="1453419537497" expanded="true" signature="3760:3899" placeholder="SELECT `id`,... shittalkDB" />
+            <marker date="1453419537497" expanded="true" signature="4325:4461" placeholder="SELECT `id`,... shittalkDB" />
+            <marker date="1453419537497" expanded="true" signature="5096:5153" placeholder="SELECT COUNT... shittalkDB" />
+            <marker date="1453419537497" expanded="true" signature="5096:5169" placeholder="SELECT COUNT... shittalkDB" />
+            <marker date="1453419537497" expanded="true" signature="5679:5792" placeholder="SELECT * FRO... shittalkDB" />
+            <marker date="1453419537497" expanded="true" signature="5679:5793" placeholder="SELECT * FRO... shittalkDB" />
+            <marker date="1453419537497" expanded="true" signature="6259:6369" placeholder="SELECT * FRO... shittalkDB" />
+            <marker date="1453419537497" expanded="true" signature="6259:6370" placeholder="SELECT * FRO... shittalkDB" />
+            <marker date="1453419537497" expanded="true" signature="7039:7160" placeholder="INSERT INTO `shittalk_generator`.`shittalkDB`... " />
+            <marker date="1453419537497" expanded="true" signature="7301:7351" placeholder="UPDATE shitt... " />
+            <marker date="1453419537497" expanded="true" signature="7301:7358" placeholder="UPDATE shitt... " />
+            <marker date="1453419537497" expanded="true" signature="7301:7369" placeholder="UPDATE shitt... " />
+            <marker date="1453419537497" expanded="true" signature="7512:7573" placeholder="UPDATE shitt... " />
+            <marker date="1453419537497" expanded="true" signature="7512:7574" placeholder="UPDATE shitt... " />
+            <marker date="1453419537497" expanded="true" signature="7512:7584" placeholder="UPDATE shitt... " />
+            <marker date="1453419537497" expanded="true" signature="7512:7585" placeholder="UPDATE shitt... " />
           </folding>
         </state>
       </provider>
@@ -626,26 +653,26 @@
           <caret line="103" column="48" selection-start-line="103" selection-start-column="48" selection-end-line="103" selection-end-column="48" />
           <folding>
             <element signature="e#6#90#0#PHP" expanded="true" />
-            <marker date="1453413322317" expanded="true" signature="2678:2823" placeholder="SELECT `id`,... shittalkDB" />
-            <marker date="1453413322317" expanded="true" signature="2678:2825" placeholder="SELECT `id`,... shittalkDB" />
-            <marker date="1453413322317" expanded="true" signature="3248:3354" placeholder="SELECT `id`,... shittalkDB" />
-            <marker date="1453413322317" expanded="true" signature="3777:3914" placeholder="SELECT `id`,... shittalkDB" />
-            <marker date="1453413322317" expanded="true" signature="3777:3916" placeholder="SELECT `id`,... shittalkDB" />
-            <marker date="1453413322317" expanded="true" signature="4352:4488" placeholder="SELECT `id`,... shittalkDB" />
-            <marker date="1453413322317" expanded="true" signature="5123:5180" placeholder="SELECT COUNT... shittalkDB" />
-            <marker date="1453413322317" expanded="true" signature="5123:5196" placeholder="SELECT COUNT... shittalkDB" />
-            <marker date="1453413322317" expanded="true" signature="5706:5819" placeholder="SELECT * FRO... shittalkDB" />
-            <marker date="1453413322317" expanded="true" signature="5706:5820" placeholder="SELECT * FRO... shittalkDB" />
-            <marker date="1453413322317" expanded="true" signature="6325:6435" placeholder="SELECT * FRO... shittalkDB" />
-            <marker date="1453413322317" expanded="true" signature="6325:6436" placeholder="SELECT * FRO... shittalkDB" />
-            <marker date="1453413322317" expanded="true" signature="7105:7226" placeholder="INSERT INTO `shittalk_generator`.`shittalkDB`... " />
-            <marker date="1453413322317" expanded="true" signature="7367:7417" placeholder="UPDATE shitt... " />
-            <marker date="1453413322317" expanded="true" signature="7367:7424" placeholder="UPDATE shitt... " />
-            <marker date="1453413322317" expanded="true" signature="7367:7435" placeholder="UPDATE shitt... " />
-            <marker date="1453413322317" expanded="true" signature="7578:7639" placeholder="UPDATE shitt... " />
-            <marker date="1453413322317" expanded="true" signature="7578:7640" placeholder="UPDATE shitt... " />
-            <marker date="1453413322317" expanded="true" signature="7578:7650" placeholder="UPDATE shitt... " />
-            <marker date="1453413322317" expanded="true" signature="7578:7651" placeholder="UPDATE shitt... " />
+            <marker date="1453419537497" expanded="true" signature="2678:2823" placeholder="SELECT `id`,... shittalkDB" />
+            <marker date="1453419537497" expanded="true" signature="2678:2825" placeholder="SELECT `id`,... shittalkDB" />
+            <marker date="1453419537497" expanded="true" signature="3238:3344" placeholder="SELECT `id`,... shittalkDB" />
+            <marker date="1453419537497" expanded="true" signature="3760:3897" placeholder="SELECT `id`,... shittalkDB" />
+            <marker date="1453419537497" expanded="true" signature="3760:3899" placeholder="SELECT `id`,... shittalkDB" />
+            <marker date="1453419537497" expanded="true" signature="4325:4461" placeholder="SELECT `id`,... shittalkDB" />
+            <marker date="1453419537497" expanded="true" signature="5096:5153" placeholder="SELECT COUNT... shittalkDB" />
+            <marker date="1453419537497" expanded="true" signature="5096:5169" placeholder="SELECT COUNT... shittalkDB" />
+            <marker date="1453419537497" expanded="true" signature="5679:5792" placeholder="SELECT * FRO... shittalkDB" />
+            <marker date="1453419537497" expanded="true" signature="5679:5793" placeholder="SELECT * FRO... shittalkDB" />
+            <marker date="1453419537497" expanded="true" signature="6259:6369" placeholder="SELECT * FRO... shittalkDB" />
+            <marker date="1453419537497" expanded="true" signature="6259:6370" placeholder="SELECT * FRO... shittalkDB" />
+            <marker date="1453419537497" expanded="true" signature="7039:7160" placeholder="INSERT INTO `shittalk_generator`.`shittalkDB`... " />
+            <marker date="1453419537497" expanded="true" signature="7301:7351" placeholder="UPDATE shitt... " />
+            <marker date="1453419537497" expanded="true" signature="7301:7358" placeholder="UPDATE shitt... " />
+            <marker date="1453419537497" expanded="true" signature="7301:7369" placeholder="UPDATE shitt... " />
+            <marker date="1453419537497" expanded="true" signature="7512:7573" placeholder="UPDATE shitt... " />
+            <marker date="1453419537497" expanded="true" signature="7512:7574" placeholder="UPDATE shitt... " />
+            <marker date="1453419537497" expanded="true" signature="7512:7584" placeholder="UPDATE shitt... " />
+            <marker date="1453419537497" expanded="true" signature="7512:7585" placeholder="UPDATE shitt... " />
           </folding>
         </state>
       </provider>
@@ -677,26 +704,26 @@
           <caret line="53" column="57" selection-start-line="53" selection-start-column="57" selection-end-line="53" selection-end-column="57" />
           <folding>
             <element signature="e#6#90#0#PHP" expanded="true" />
-            <marker date="1453413322317" expanded="true" signature="2678:2823" placeholder="SELECT `id`,... shittalkDB" />
-            <marker date="1453413322317" expanded="true" signature="2678:2825" placeholder="SELECT `id`,... shittalkDB" />
-            <marker date="1453413322317" expanded="true" signature="3248:3354" placeholder="SELECT `id`,... shittalkDB" />
-            <marker date="1453413322317" expanded="true" signature="3777:3914" placeholder="SELECT `id`,... shittalkDB" />
-            <marker date="1453413322317" expanded="true" signature="3777:3916" placeholder="SELECT `id`,... shittalkDB" />
-            <marker date="1453413322317" expanded="true" signature="4352:4488" placeholder="SELECT `id`,... shittalkDB" />
-            <marker date="1453413322317" expanded="true" signature="5123:5180" placeholder="SELECT COUNT... shittalkDB" />
-            <marker date="1453413322317" expanded="true" signature="5123:5196" placeholder="SELECT COUNT... shittalkDB" />
-            <marker date="1453413322317" expanded="true" signature="5706:5819" placeholder="SELECT * FRO... shittalkDB" />
-            <marker date="1453413322317" expanded="true" signature="5706:5820" placeholder="SELECT * FRO... shittalkDB" />
-            <marker date="1453413322317" expanded="true" signature="6325:6435" placeholder="SELECT * FRO... shittalkDB" />
-            <marker date="1453413322317" expanded="true" signature="6325:6436" placeholder="SELECT * FRO... shittalkDB" />
-            <marker date="1453413322317" expanded="true" signature="7105:7226" placeholder="INSERT INTO `shittalk_generator`.`shittalkDB`... " />
-            <marker date="1453413322317" expanded="true" signature="7367:7417" placeholder="UPDATE shitt... " />
-            <marker date="1453413322317" expanded="true" signature="7367:7424" placeholder="UPDATE shitt... " />
-            <marker date="1453413322317" expanded="true" signature="7367:7435" placeholder="UPDATE shitt... " />
-            <marker date="1453413322317" expanded="true" signature="7578:7639" placeholder="UPDATE shitt... " />
-            <marker date="1453413322317" expanded="true" signature="7578:7640" placeholder="UPDATE shitt... " />
-            <marker date="1453413322317" expanded="true" signature="7578:7650" placeholder="UPDATE shitt... " />
-            <marker date="1453413322317" expanded="true" signature="7578:7651" placeholder="UPDATE shitt... " />
+            <marker date="1453419537497" expanded="true" signature="2678:2823" placeholder="SELECT `id`,... shittalkDB" />
+            <marker date="1453419537497" expanded="true" signature="2678:2825" placeholder="SELECT `id`,... shittalkDB" />
+            <marker date="1453419537497" expanded="true" signature="3238:3344" placeholder="SELECT `id`,... shittalkDB" />
+            <marker date="1453419537497" expanded="true" signature="3760:3897" placeholder="SELECT `id`,... shittalkDB" />
+            <marker date="1453419537497" expanded="true" signature="3760:3899" placeholder="SELECT `id`,... shittalkDB" />
+            <marker date="1453419537497" expanded="true" signature="4325:4461" placeholder="SELECT `id`,... shittalkDB" />
+            <marker date="1453419537497" expanded="true" signature="5096:5153" placeholder="SELECT COUNT... shittalkDB" />
+            <marker date="1453419537497" expanded="true" signature="5096:5169" placeholder="SELECT COUNT... shittalkDB" />
+            <marker date="1453419537497" expanded="true" signature="5679:5792" placeholder="SELECT * FRO... shittalkDB" />
+            <marker date="1453419537497" expanded="true" signature="5679:5793" placeholder="SELECT * FRO... shittalkDB" />
+            <marker date="1453419537497" expanded="true" signature="6259:6369" placeholder="SELECT * FRO... shittalkDB" />
+            <marker date="1453419537497" expanded="true" signature="6259:6370" placeholder="SELECT * FRO... shittalkDB" />
+            <marker date="1453419537497" expanded="true" signature="7039:7160" placeholder="INSERT INTO `shittalk_generator`.`shittalkDB`... " />
+            <marker date="1453419537497" expanded="true" signature="7301:7351" placeholder="UPDATE shitt... " />
+            <marker date="1453419537497" expanded="true" signature="7301:7358" placeholder="UPDATE shitt... " />
+            <marker date="1453419537497" expanded="true" signature="7301:7369" placeholder="UPDATE shitt... " />
+            <marker date="1453419537497" expanded="true" signature="7512:7573" placeholder="UPDATE shitt... " />
+            <marker date="1453419537497" expanded="true" signature="7512:7574" placeholder="UPDATE shitt... " />
+            <marker date="1453419537497" expanded="true" signature="7512:7584" placeholder="UPDATE shitt... " />
+            <marker date="1453419537497" expanded="true" signature="7512:7585" placeholder="UPDATE shitt... " />
           </folding>
         </state>
       </provider>
@@ -778,13 +805,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index_test.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="102" selection-start-line="2" selection-start-column="102" selection-end-line="2" selection-end-column="102" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cfg/build.cfg">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -846,33 +866,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/php/controller/controller.php">
+    <entry file="file://$PROJECT_DIR$/css/shittalk.min.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.09922179">
-          <caret line="94" column="18" selection-start-line="94" selection-start-column="18" selection-end-line="94" selection-end-column="18" />
-          <folding>
-            <element signature="e#6#90#0#PHP" expanded="true" />
-            <marker date="1453413322317" expanded="true" signature="2678:2823" placeholder="SELECT `id`,... shittalkDB" />
-            <marker date="1453413322317" expanded="true" signature="2678:2825" placeholder="SELECT `id`,... shittalkDB" />
-            <marker date="1453413322317" expanded="true" signature="3248:3354" placeholder="SELECT `id`,... shittalkDB" />
-            <marker date="1453413322317" expanded="true" signature="3777:3914" placeholder="SELECT `id`,... shittalkDB" />
-            <marker date="1453413322317" expanded="true" signature="3777:3916" placeholder="SELECT `id`,... shittalkDB" />
-            <marker date="1453413322317" expanded="true" signature="4352:4488" placeholder="SELECT `id`,... shittalkDB" />
-            <marker date="1453413322317" expanded="true" signature="5123:5180" placeholder="SELECT COUNT... shittalkDB" />
-            <marker date="1453413322317" expanded="true" signature="5123:5196" placeholder="SELECT COUNT... shittalkDB" />
-            <marker date="1453413322317" expanded="true" signature="5706:5819" placeholder="SELECT * FRO... shittalkDB" />
-            <marker date="1453413322317" expanded="true" signature="5706:5820" placeholder="SELECT * FRO... shittalkDB" />
-            <marker date="1453413322317" expanded="true" signature="6325:6435" placeholder="SELECT * FRO... shittalkDB" />
-            <marker date="1453413322317" expanded="true" signature="6325:6436" placeholder="SELECT * FRO... shittalkDB" />
-            <marker date="1453413322317" expanded="true" signature="7105:7226" placeholder="INSERT INTO `shittalk_generator`.`shittalkDB`... " />
-            <marker date="1453413322317" expanded="true" signature="7367:7417" placeholder="UPDATE shitt... " />
-            <marker date="1453413322317" expanded="true" signature="7367:7424" placeholder="UPDATE shitt... " />
-            <marker date="1453413322317" expanded="true" signature="7367:7435" placeholder="UPDATE shitt... " />
-            <marker date="1453413322317" expanded="true" signature="7578:7639" placeholder="UPDATE shitt... " />
-            <marker date="1453413322317" expanded="true" signature="7578:7640" placeholder="UPDATE shitt... " />
-            <marker date="1453413322317" expanded="true" signature="7578:7650" placeholder="UPDATE shitt... " />
-            <marker date="1453413322317" expanded="true" signature="7578:7651" placeholder="UPDATE shitt... " />
-          </folding>
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="63" selection-start-line="0" selection-start-column="63" selection-end-line="0" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/shittalk.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-42.23077">
+          <caret line="61" column="17" selection-start-line="61" selection-start-column="17" selection-end-line="61" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index_test.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.461538">
+          <caret line="254" column="0" selection-start-line="254" selection-start-column="0" selection-end-line="254" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -898,16 +912,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/php/import_old.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.6153846">
-          <caret line="11" column="0" selection-start-line="10" selection-start-column="59" selection-end-line="11" selection-end-column="0" />
-          <folding>
-            <marker date="1453414261681" expanded="true" signature="941:1062" placeholder="INSERT INTO `shittalkDB`... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/stats.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-6.576923">
@@ -916,38 +920,74 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/shittalk.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-42.23077">
-          <caret line="61" column="17" selection-start-line="61" selection-start-column="17" selection-end-line="61" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/shittalk.min.css">
+    <entry file="file://$PROJECT_DIR$/js/shittalk.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="63" selection-start-line="0" selection-start-column="63" selection-end-line="0" selection-end-column="63" />
-          <folding />
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding>
+            <marker date="1453419538537" expanded="true" signature="1084:1216" placeholder="{...}" />
+            <marker date="1453419538537" expanded="true" signature="1147:1216" placeholder="{...}" />
+            <marker date="1453419538537" expanded="true" signature="4158:4634" placeholder="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/shittalk.js">
+    <entry file="file://$PROJECT_DIR$/php/import_old.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-22.586206">
-          <caret line="325" column="40" selection-start-line="325" selection-start-column="40" selection-end-line="325" selection-end-column="40" />
+        <state vertical-scroll-proportion="-18.692308">
+          <caret line="27" column="3" selection-start-line="27" selection-start-column="3" selection-end-line="27" selection-end-column="3" />
           <folding>
-            <marker date="1453414309075" expanded="true" signature="7482:7498" placeholder="..." />
-            <marker date="1453414309075" expanded="true" signature="7622:7638" placeholder="..." />
+            <marker date="1453414261681" expanded="true" signature="941:1062" placeholder="INSERT INTO `shittalkDB`... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/controller/controller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="10.038462">
+          <caret line="177" column="0" selection-start-line="177" selection-start-column="0" selection-end-line="177" selection-end-column="0" />
+          <folding>
+            <element signature="e#6#90#0#PHP" expanded="true" />
+            <marker date="1453419537497" expanded="true" signature="2678:2823" placeholder="SELECT `id`,... shittalkDB" />
+            <marker date="1453419537497" expanded="true" signature="2678:2825" placeholder="SELECT `id`,... shittalkDB" />
+            <marker date="1453419537497" expanded="true" signature="3238:3344" placeholder="SELECT `id`,... shittalkDB" />
+            <marker date="1453419537497" expanded="true" signature="3760:3897" placeholder="SELECT `id`,... shittalkDB" />
+            <marker date="1453419537497" expanded="true" signature="3760:3899" placeholder="SELECT `id`,... shittalkDB" />
+            <marker date="1453419537497" expanded="true" signature="4325:4461" placeholder="SELECT `id`,... shittalkDB" />
+            <marker date="1453419537497" expanded="true" signature="5096:5153" placeholder="SELECT COUNT... shittalkDB" />
+            <marker date="1453419537497" expanded="true" signature="5096:5169" placeholder="SELECT COUNT... shittalkDB" />
+            <marker date="1453419537497" expanded="true" signature="5679:5792" placeholder="SELECT * FRO... shittalkDB" />
+            <marker date="1453419537497" expanded="true" signature="5679:5793" placeholder="SELECT * FRO... shittalkDB" />
+            <marker date="1453419537497" expanded="true" signature="6259:6369" placeholder="SELECT * FRO... shittalkDB" />
+            <marker date="1453419537497" expanded="true" signature="6259:6370" placeholder="SELECT * FRO... shittalkDB" />
+            <marker date="1453419537497" expanded="true" signature="7039:7160" placeholder="INSERT INTO `shittalk_generator`.`shittalkDB`... " />
+            <marker date="1453419537497" expanded="true" signature="7301:7351" placeholder="UPDATE shitt... " />
+            <marker date="1453419537497" expanded="true" signature="7301:7358" placeholder="UPDATE shitt... " />
+            <marker date="1453419537497" expanded="true" signature="7301:7369" placeholder="UPDATE shitt... " />
+            <marker date="1453419537497" expanded="true" signature="7512:7573" placeholder="UPDATE shitt... " />
+            <marker date="1453419537497" expanded="true" signature="7512:7574" placeholder="UPDATE shitt... " />
+            <marker date="1453419537497" expanded="true" signature="7512:7584" placeholder="UPDATE shitt... " />
+            <marker date="1453419537497" expanded="true" signature="7512:7585" placeholder="UPDATE shitt... " />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.26998842">
-          <caret line="247" column="82" selection-start-line="247" selection-start-column="82" selection-end-line="247" selection-end-column="82" />
+        <state vertical-scroll-proportion="-1.9454546">
+          <caret line="279" column="19" selection-start-line="279" selection-start-column="19" selection-end-line="279" selection-end-column="19" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/shittalk.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.21034871">
+          <caret line="217" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="345" selection-end-column="3" />
+          <folding>
+            <marker date="1453419537512" expanded="true" signature="8739:8755" placeholder="..." />
+            <marker date="1453419537512" expanded="true" signature="8879:8895" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>

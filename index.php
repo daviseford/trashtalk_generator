@@ -9,8 +9,6 @@ if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) ob_start('ob_gzhandl
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Davis Ford">
-    <meta name="description"
-          content="Trash Talk Script for TF2, DOTA2, CS:GO, and all Source Engine games. Crowd-sourced insults compiled into one easy config"/>
     <meta property="og:type" content="article"/>
     <meta property="og:url" content="http://daviseford.com/shittalk/"/>
     <meta property="og:title" content="Shittalk Generator"/>
@@ -121,8 +119,7 @@ if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) ob_start('ob_gzhandl
 
                         <div class="form-group col-md-6">
                             <a href="php/build_cfg.php"
-                               class="btn btn-lg btn-success"
-                               onClick="ga('send', 'event', { eventCategory: 'download', eventAction: 'download_latest_config', eventLabel: 'clicked'});">
+                               class="btn btn-lg btn-success">
                             <span class="glyphicon glyphicon-cloud-download" title="Crowd-sourced Shittalk.cfg"
                                   id="downloadBtn"></span> Download Current Build</a>
 
@@ -134,8 +131,7 @@ if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) ob_start('ob_gzhandl
 
                         <div class="form-group col-md-6">
                             <a href="php/build_cfg_dota2.php"
-                               class="btn btn-lg btn-success"
-                               onClick="ga('send', 'event', { eventCategory: 'download', eventAction: 'download_dota2_config', eventLabel: 'clicked'});">
+                               class="btn btn-lg btn-success">
                             <span class="glyphicon glyphicon-cloud-download" title="Shittalk.cfg for DoTA2"
                                   id="downloadBtn"></span> DoTA2 Build</a>
                             <span class="help-block">Includes
@@ -194,8 +190,7 @@ if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) ob_start('ob_gzhandl
                             <p class="small">Looking for the original shittalk.cfg? <br/>
                                 <a href="cfg/shittalkcfg.rar"
                                    class="btn btn-primary btn-md"
-                                   title="shittalk.cfg by Davis Ford"
-                                   onClick="ga('send', 'event', { eventCategory: 'download', eventAction: 'download_classic_config', eventLabel: 'clicked'});">
+                                   title="shittalk.cfg by Davis Ford">
                                     <span class="glyphicon glyphicon-download-alt"></span> Download Shittalk Classic</a>
                             </p>
                         </div>
@@ -270,8 +265,7 @@ if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) ob_start('ob_gzhandl
     ga('create', 'UA-55820654-2', 'auto');
     ga('require', 'linkid', 'linkid.js');
     ga('send', 'pageview');
-    /* credit http://stackoverflow.com/questions/15901187/how-to-set-up-page-speed-logging-for-google-analytics-in-analytics-js
-     * https://developers.google.com/analytics/devguides/collection/analyticsjs/field-reference */
+    /* credit http://stackoverflow.com/questions/15901187/how-to-set-up-page-speed-logging-for-google-analytics-in-analytics-js */
     ga('create', 'UA-55820654-2', {'siteSpeedSampleRate': 50});
 </script>
 

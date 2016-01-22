@@ -96,8 +96,11 @@ function getRecentList()
     $response = [];
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
-            $li = '<li class="list-group-item" id="recentid_' . $row['id'] . '"><span class="badge">' . $row['netVotes'] . '</span> ' . htmlspecialchars($row['text']) . '</li>';
-            $response[] = $li;
+            $response[] = array(
+                'id'       => $row['id'],
+                'netVotes' => $row['netVotes'],
+                'text'     => htmlspecialchars($row['text'])
+            );
         }
     }
     return $response;
@@ -110,8 +113,11 @@ function getTopList()
     $response = [];
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
-            $li = '<li class="list-group-item" id="topid_' . $row['id'] . '"><span class="badge">' . $row['netVotes'] . '</span> ' . htmlspecialchars($row['text']) . '</li>';
-            $response[] = $li;
+            $response[] = array(
+                'id'       => $row['id'],
+                'netVotes' => $row['netVotes'],
+                'text'     => htmlspecialchars($row['text'])
+            );
         }
     }
     return $response;
@@ -124,8 +130,11 @@ function getRandomList()
     $response = [];
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
-            $li = '<li class="list-group-item" id="randomid_' . $row['id'] . '"><span class="badge">' . $row['netVotes'] . '</span> ' . htmlspecialchars($row['text']) . '</li>';
-            $response[] = $li;
+            $response[] = array(
+                'id'       => $row['id'],
+                'netVotes' => $row['netVotes'],
+                'text'     => htmlspecialchars($row['text'])
+            );
         }
     }
     return $response;
@@ -177,7 +186,6 @@ function getRandomRows($limit)
             while ($row = $result->fetch_assoc()) {
                 $text = $row['text'];
                 $row['text'] = htmlspecialchars($text);
-                $row['biased'] = true;
                 $response[] = $row;
             }
             if (!empty($response)) {

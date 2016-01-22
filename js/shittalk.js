@@ -12,11 +12,9 @@ $(document).ready(function () {
     /* None of these are viewable without scrolling */
     $(window).ready(function () {
         $(this).one('scroll', function () {
-            // scroll
             makeIncludedBindCount();
             makeTotalBindCount();
             makeRateMoreTableRows();
-            //console.log('scrolled');
         });
     });
 
@@ -49,7 +47,6 @@ $(document).ready(function () {
 
                 var duplicateRequest = queryController(form);
                 duplicateRequest.done(function (data) {
-                    //console.log(data);
 
                     if (data < 1) { // i.e. not a duplicate
                         var form2 = {};
@@ -58,7 +55,6 @@ $(document).ready(function () {
 
                         var request = queryController(form2);
                         request.done(function (data) {
-                            //console.log(data);
                             if (data === true) {
                                 console.log('Submission successful');
                                 location.reload();
@@ -73,14 +69,24 @@ $(document).ready(function () {
             }
         });
 
-
     function makeRecentList() {
         var post = {};
         post['query'] = 'get_RecentList';
         var request = queryController(post);
         request.done(function (data) {
-            var listRows = data.join('\n');
-            $('#recent_listGroup').html(listRows);
+            var listRowHolder = [];
+            for (var i = 0; i < data.length; i++) {
+                var listObject = data[i];
+                var id = listObject['id'] || '';
+                var netVotes = listObject['netVotes'] || '';
+                var text = listObject['text'] || '';
+                if (id !== '' && netVotes !== '' && text !== '') {
+                    var listRow = '<li class="list-group-item" id="recentid_' + id + '"><span class="badge">' + netVotes + '</span> ' + text + '</li>';
+                    listRowHolder.push(listRow);
+                }
+            }
+            var listRowsJoined = listRowHolder.join('\n');
+            $('#recent_listGroup').html(listRowsJoined);
             updateBadges();
         });
     }
@@ -90,8 +96,19 @@ $(document).ready(function () {
         post['query'] = 'get_TopList';
         var request = queryController(post);
         request.done(function (data) {
-            var listRows = data.join('\n');
-            $('#top_listGroup').html(listRows);
+            var listRowHolder = [];
+            for (var i = 0; i < data.length; i++) {
+                var listObject = data[i];
+                var id = listObject['id'] || '';
+                var netVotes = listObject['netVotes'] || '';
+                var text = listObject['text'] || '';
+                if (id !== '' && netVotes !== '' && text !== '') {
+                    var listRow = '<li class="list-group-item" id="topid_' + id + '"><span class="badge">' + netVotes + '</span> ' + text + '</li>';
+                    listRowHolder.push(listRow);
+                }
+            }
+            var listRowsJoined = listRowHolder.join('\n');
+            $('#top_listGroup').html(listRowsJoined);
             updateBadges();
         });
     }
@@ -101,8 +118,19 @@ $(document).ready(function () {
         post['query'] = 'get_RandomList';
         var request = queryController(post);
         request.done(function (data) {
-            var listRows = data.join('\n');
-            $('#random_listGroup').html(listRows);
+            var listRowHolder = [];
+            for (var i = 0; i < data.length; i++) {
+                var listObject = data[i];
+                var id = listObject['id'] || '';
+                var netVotes = listObject['netVotes'] || '';
+                var text = listObject['text'] || '';
+                if (id !== '' && netVotes !== '' && text !== '') {
+                    var listRow = '<li class="list-group-item" id="randomid_' + id + '"><span class="badge">' + netVotes + '</span> ' + text + '</li>';
+                    listRowHolder.push(listRow);
+                }
+            }
+            var listRowsJoined = listRowHolder.join('\n');
+            $('#random_listGroup').html(listRowsJoined);
             updateBadges();
         });
     }
@@ -124,7 +152,6 @@ $(document).ready(function () {
 
                     if ($(this).is('[disabled=disabled]') !== true) {
 
-                        //console.log('upvoted!');
                         var parent = $(this).parent().parent();
 
                         $(this).attr('disabled', 'disabled');
@@ -134,8 +161,7 @@ $(document).ready(function () {
                         query['id'] = id.split('_')[1];
                         query['query'] = 'upvote_Row';
                         var request = queryController(query);
-                        request.done(function (data) {
-                            //console.log(data);
+                        request.done(function () {
                             parent.removeClass('bg-danger');
                             parent.addClass('bg-success');
                             checkIfRateMoreIsFull();
@@ -151,7 +177,6 @@ $(document).ready(function () {
                     e.preventDefault();
                     if ($(this).is('[disabled=disabled]') !== true) {
 
-                        //console.log('downvoted!');
                         var parent = $(this).parent().parent();
 
                         $(this).attr('disabled', 'disabled');
@@ -161,8 +186,7 @@ $(document).ready(function () {
                         query['id'] = id.split('_')[1];
                         query['query'] = 'downvote_Row';
                         var request = queryController(query);
-                        request.done(function (data) {
-                            //console.log(data);
+                        request.done(function () {
                             parent.addClass('bg-danger');
                             checkIfRateMoreIsFull();
                         });
@@ -179,8 +203,7 @@ $(document).ready(function () {
         post['query'] = 'get_TotalBindCount';
         var request = queryController(post);
         request.done(function (data) {
-            var count = data;
-            $('#TotalBindCount').text(count);
+            $('#TotalBindCount').text(data);
         });
     }
 
@@ -189,8 +212,7 @@ $(document).ready(function () {
         post['query'] = 'get_IncludedBindCount';
         var request = queryController(post);
         request.done(function (data) {
-            var count = data;
-            $('#IncludedBindCount').text(count);
+            $('#IncludedBindCount').text(data);
         });
     }
 
@@ -205,11 +227,6 @@ $(document).ready(function () {
             var rowHolder = [];
             for (var i = 0; i < data.length; i++) {
                 var currentRow = data[i];
-
-                var biased = currentRow['biased'] || '';
-                if (biased === true) {
-                    console.log('Biased');
-                }
 
                 var rowText = currentRow['text'] || '';
                 if (rowText !== '') {
@@ -232,7 +249,6 @@ $(document).ready(function () {
                     e.preventDefault();
                     if ($(this).is('[disabled=disabled]') !== true) {
 
-                        //console.log('upvoted!');
                         var parent = $(this).parent().parent();
 
                         $(this).attr('disabled', 'disabled');
@@ -243,8 +259,7 @@ $(document).ready(function () {
                         query['id'] = id.split('_')[1];
                         query['query'] = 'upvote_Row';
                         var request = queryController(query);
-                        request.done(function (data) {
-                            //console.log(data);
+                        request.done(function () {
                             parent.addClass('bg-success');
                             checkIfJumbotronIsFull();
 
@@ -261,7 +276,6 @@ $(document).ready(function () {
                     e.preventDefault();
                     if ($(this).is('[disabled=disabled]') !== true) {
 
-                        ////console.log('downvoted!');
                         var parent = $(this).parent().parent();
 
                         $(this).attr('disabled', 'disabled');
@@ -272,8 +286,7 @@ $(document).ready(function () {
                         query['id'] = id.split('_')[1];
                         query['query'] = 'downvote_Row';
                         var request = queryController(query);
-                        request.done(function (data) {
-                            //console.log(data);
+                        request.done(function () {
                             parent.addClass('bg-danger');
                             checkIfJumbotronIsFull();
                         });

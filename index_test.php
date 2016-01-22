@@ -1,28 +1,35 @@
 <?php
-require_once(__DIR__ . '/php/shittalk_functions.php');
+/* Credit: http://betterexplained.com/articles/how-to-optimize-your-site-with-gzip-compression/ */
 if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) ob_start('ob_gzhandler'); else ob_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
-    <title>Shittalk Generator</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Davis Ford">
-    <meta charset="UTF-8">
+    <meta name="description"
+          content="Trash Talk Script for TF2, DOTA2, CS:GO, and all Source Engine games. Crowd-sourced insults compiled into one easy config"/>
     <meta property="og:type" content="article"/>
     <meta property="og:url" content="http://daviseford.com/shittalk/"/>
     <meta property="og:title" content="Shittalk Generator"/>
     <meta property="og:image" content="http://daviseford.com/shittalk/img/shittalk_yelling_man.jpg"/>
     <meta property="og:description"
-          content="World-famous Insult Generator for TF2, DOTA2, CS:GO, and all Source Engine games. Crowd-sourced shittalk."/>
+          content="Trash Talk Script for TF2, DOTA2, CS:GO, and all Source Engine games. Crowd-sourced insults compiled into one easy config"/>
 
-    <!-- jQuery -->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <title>Shittalk Generator</title>
 
-    <!-- Latest compiled and minified CSS & JS -->
-    <link rel="stylesheet" media="screen" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
-    <link rel="stylesheet" type="text/css" href="css/shittalk.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" media="screen"
+          href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
 
 </head>
 <body>
@@ -34,7 +41,7 @@ if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) ob_start('ob_gzhandl
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-body">
-                    <div class="table-responsive">
+                    <div>
                         <table class="table borderless">
                             <tbody id="jumbotron_tbody">
                             </tbody>
@@ -42,11 +49,8 @@ if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) ob_start('ob_gzhandl
                     </div>
                 </div>
             </div>
-
         </div>
-
     </div>
-
 </div>
 
 <div class="container">
@@ -55,19 +59,22 @@ if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) ob_start('ob_gzhandl
             <form class="form-horizontal" role="form">
 
                 <div class="form-group">
-                    <h3><label for="create_shittalk_Text" class="col-sm-3 col-xs-3 control-label">Create your
-                            own:</label>
-                    </h3>
-                    <div class="col-sm-6 col-xs-6">
-                        <input type="text" class="form-control" id="create_shittalk_Text" placeholder=""
+                    <div class="col-sm-3 col-md-3 col-lg-3">
+
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <input type="text" class="form-control" id="create_shittalk_Text" placeholder="Submit your own"
                                maxlength="128" aria-describedby="helpBlock">
-                        <span id="helpBlock" class="help-block hidden">This insult already exists in our database</span>
+                        <span id="helpBlock"
+                              class="help-block hidden">This insult already exists in our database.</span>
                         <span id="helpBlock2" class="help-block hidden">Please do not submit websites.</span>
                         <span id="helpBlock3" class="help-block hidden">Be cool.</span>
                     </div>
-                    <div class="col-sm-3 col-xs-3">
+                    <div class="col-md-3 col-md-offset-0 col-sm-3 col-sm-offset-0 col-xs-4 col-xs-offset-4">
+                        <div class="visible-xs">
+                            <br/>
+                        </div>
                         <button type="submit" id="create_shittalk_Btn" class="btn btn-primary">Submit</button>
-
                     </div>
                 </div>
 
@@ -84,7 +91,6 @@ if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) ob_start('ob_gzhandl
 
                 <li class="list-group-item"><h3 class="text-center">Recent Insults</h3></li>
                 <ul class="list-group def-list-group-scroll" id="recent_listGroup">
-
                 </ul>
             </div>
 
@@ -92,15 +98,12 @@ if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) ob_start('ob_gzhandl
 
                 <li class="list-group-item"><h3 class="text-center">Top Insults</h3></li>
                 <ul class="list-group def-list-group-scroll" id="top_listGroup">
-
                 </ul>
             </div>
 
             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 hidden-xs">
                 <li class="list-group-item"><h3 class="text-center">Random Insults</h3></li>
                 <ul class="list-group def-list-group-scroll" id="random_listGroup">
-
-
                 </ul>
             </div>
 
@@ -116,13 +119,31 @@ if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) ob_start('ob_gzhandl
                 <div class="panel-body">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
 
-                        <a href="php/build_cfg.php"
-                           class="btn btn-lg btn-success">
-                            <span class="glyphicon glyphicon-cloud-download" title="generated shittalk.cfg"
+                        <div class="form-group col-md-6">
+                            <a href="php/build_cfg.php"
+                               class="btn btn-lg btn-success"
+                               onClick="ga('send', 'event', { eventCategory: 'download', eventAction: 'download_latest_config', eventLabel: 'clicked'});">
+                            <span class="glyphicon glyphicon-cloud-download" title="Crowd-sourced Shittalk.cfg"
                                   id="downloadBtn"></span> Download Current Build</a>
-                        <p class="small" style="padding-top: 2px;">Includes
-                            <strong><?php echo getIncludedBindCount(); ?></strong>
-                            top-rated insults</p>
+
+                        <span class="help-block">Includes
+                            <strong><span id="IncludedBindCount"></span></strong>
+                            top-rated insults
+                        </span>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <a href="php/build_cfg_dota2.php"
+                               class="btn btn-lg btn-success"
+                               onClick="ga('send', 'event', { eventCategory: 'download', eventAction: 'download_dota2_config', eventLabel: 'clicked'});">
+                            <span class="glyphicon glyphicon-cloud-download" title="Shittalk.cfg for DoTA2"
+                                  id="downloadBtn"></span> DoTA2 Build</a>
+                            <span class="help-block">Includes
+                            <strong>150</strong>
+                            top-rated insults<a href="#dota2"><strong>*</strong></a>
+                        </span>
+                        </div>
+
                     </div>
 
                     <div class="row clearfix"></div>
@@ -130,15 +151,17 @@ if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) ob_start('ob_gzhandl
                         <div class="col-md-12">
                             <p>Download these binds to an easy-to-use Source script, which works in TF2,
                                 CS:GO, CS:Source, DoTA2, and all other Source Engine games.</p>
-                            <p><h4>Installation:</h4>
+                            <h4>Installation:</h4>
 
                             <p>
-                                1.) Drag <code>shittalk.cfg</code> to your game's <code>cfg</code> folder. </p>
+                                1.) Drag <code>shittalk.cfg</code> to your game's <code>cfg</code> folder.
+                            </p>
                             <p>
-
-                                <strong>TF2 - </strong><code>\Steam\steamapps\common\Team Fortress 2\tf\cfg</code><br/>
+                                <strong>TF2 - </strong><code>\Steam\steamapps\common\Team Fortress 2\tf\cfg</code>
+                                <br/>
                                 <strong>DoTA2 - </strong><code>\Steam\steamapps\common\dota 2
-                                    beta\game\dota\cfg</code><br/>
+                                    beta\game\dota\cfg</code>
+                                <br/>
                                 <strong>CS:GO - </strong><code>\Steam\steamapps\common\Counter-Strike Global
                                     Offensive\csgo\cfg</code>
                             </p>
@@ -147,7 +170,8 @@ if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) ob_start('ob_gzhandl
                             <p>3.) Alternatively, add <code>+exec shittalk.cfg</code> to your game's launch options.</p>
                             <p>4.) You can now launch your game. To ensure <code>shittalk.cfg</code> loaded correctly,
                                 open
-                                console and type <code>exec shittalk</code>.</p>
+                                console and type <code>exec shittalk</code>.
+                            </p>
                             <p>5.) By default, <kbd>TAB</kbd> cycles through the insults, and <kbd>X</kbd> sends the
                                 message
                                 to
@@ -157,8 +181,9 @@ if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) ob_start('ob_gzhandl
                             <p>The more keys you can bind <code>cycle_both</code> to, the better. The
                                 <code>cycle_both</code> command is what
                                 provides the psuedo-randomness of the script.
-
                             </p>
+                            <p id="dota2"><strong>DoTA2 will not load config files past a certain length. The DoTA2
+                                    config is therefore limited to 150 binds.</strong></p>
                         </div>
                     </div>
 
@@ -169,7 +194,8 @@ if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) ob_start('ob_gzhandl
                             <p class="small">Looking for the original shittalk.cfg? <br/>
                                 <a href="cfg/shittalkcfg.rar"
                                    class="btn btn-primary btn-md"
-                                   title="shittalk.cfg by Davis Ford">
+                                   title="shittalk.cfg by Davis Ford"
+                                   onClick="ga('send', 'event', { eventCategory: 'download', eventAction: 'download_classic_config', eventLabel: 'clicked'});">
                                     <span class="glyphicon glyphicon-download-alt"></span> Download Shittalk Classic</a>
                             </p>
                         </div>
@@ -183,14 +209,13 @@ if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) ob_start('ob_gzhandl
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
-            <legend>Rate Some More
-                - <?php echo '<small>' . getTotalBindCount() . ' insults and counting</small>'; ?> </legend>
-            <div class="table-responsive">
+            <legend>Rate Some More -
+                <small><span id="TotalBindCount"></span> insults and counting</small>
+            </legend>
+
+            <div>
                 <table class="table">
-
                     <tbody id="rate_more_tbody">
-
-
                     </tbody>
                 </table>
             </div>
@@ -198,69 +223,35 @@ if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) ob_start('ob_gzhandl
     </div>
 </div>
 
-<div class="container content">
-    <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-            <div class="testimonials">
-                <div class="active item">
-                    <blockquote><p>
-                            He finally found solace in a little thing, so simple, yet so sweet.</p>
-
-                        <p> Being mean to other individuals in the Team Fortress 2 community. This device
-                            which he has created has made it possible for others to share in his
-                            happiness.</p>
-
-                        <p>Laughter Is His Job, Tears Are His Game, creating this (I want to call it an
-                            app?) is his profession.</p>
-                        <p>This is who Davis is, this is the last thing that he wants from the TF2 community.
-                        </p>
-                        <p> Davis 2016.</p></blockquote>
-                    <div class="carousel-info">
-                        <img alt="" src="img/avatar_2x.png" class="pull-left">
-                        <div class="pull-left">
-                            <span class="testimonials-name">Dave__AC</span>
-                            <span class="testimonials-post">Professional Human</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
 <div class="container">
     <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <small>Copyright Davis Ford 2016 | What is the odds?</small>
-            <br/>
-            <br/>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center" style="padding-top: 3%">
+            <a href="mailto:shittalkgenerator+website@gmail.com" class="btn btn-default btn-lg"
+               onClick="ga('send', 'event', { eventCategory: 'contact', eventAction: 'contact_button', eventLabel: 'clicked'});">
+                Contact Me <span class="glyphicon glyphicon-envelope"> </span></a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center" style="padding-top: 3%; padding-bottom: 2%;">
+            <small>Copyright <a href="http://daviseford.com/" target="_blank">Davis Ford</a> 2016 |
+                <a href="https://www.youtube.com/watch?v=HW_IH0jipeU" target="_blank"
+                   onClick="ga('send', 'event', { eventCategory: 'footer_action', eventAction: 'youtube', eventLabel: 'clicked'});">
+                    What is the odds?</a> | <a href="stats.php" target="_blank"
+                                               onClick="ga('send', 'event', { eventCategory: 'footer_action', eventAction: 'stats', eventLabel: 'clicked'});">
+                    Stats</a></small>
         </div>
     </div>
 </div>
 
+<!-- jQuery -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
-</body>
+<!-- Bootstrap JS -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" async></script>
 
-<!-- SweetAlert CSS and JS -->
-<!--    <link rel="stylesheet" type="text/css" href="js/libraries/sweetalert/css/sweetalert.css">-->
-<!--    <script src="js/libraries/sweetalert/js/sweetalert.min.js" type="text/javascript"></script>-->
-
-<!-- Bootstrap Select CSS and JS -->
-<!--    <link href='js/libraries/bootstrap-select/css/bootstrap-select.min.css' rel='stylesheet'/>-->
-<!--    <script src="js/libraries/bootstrap-select/js/bootstrap-select.min.js"></script>-->
-
-<!-- String -->
-<script src="js/libraries/string/string.min.js"></script>
-
-
-<!-- Shittalk -->
-<script src="js/shittalk_test.js"></script>
-<!-- What is the odds? -->
+<!-- Shittalk JS -->
+<script src="js/shittalk.js" async></script>
 
 <!-- Google Analytics -->
 <script>
@@ -279,7 +270,80 @@ if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) ob_start('ob_gzhandl
     ga('create', 'UA-55820654-2', 'auto');
     ga('require', 'linkid', 'linkid.js');
     ga('send', 'pageview');
-
+    /* credit http://stackoverflow.com/questions/15901187/how-to-set-up-page-speed-logging-for-google-analytics-in-analytics-js
+     * https://developers.google.com/analytics/devguides/collection/analyticsjs/field-reference */
+    ga('create', 'UA-55820654-2', {'siteSpeedSampleRate': 50});
 </script>
 
+
+<!-- Shittalk CSS -->
+<script>
+    /*!
+     loadCSS: load a CSS file asynchronously.
+     [c]2015 @scottjehl, Filament Group, Inc.
+     Licensed MIT
+     */
+    (function (w) {
+        "use strict";
+        /* exported loadCSS */
+        var loadCSS = function (href, before, media) {
+            // Arguments explained:
+            // `href` [REQUIRED] is the URL for your CSS file.
+            // `before` [OPTIONAL] is the element the script should use as a reference for injecting our stylesheet <link> before
+            // By default, loadCSS attempts to inject the link after the last stylesheet or script in the DOM. However, you might desire a more specific location in your document.
+            // `media` [OPTIONAL] is the media type or query of the stylesheet. By default it will be 'all'
+            var doc = w.document;
+            var ss = doc.createElement("link");
+            var ref;
+            if (before) {
+                ref = before;
+            }
+            else {
+                var refs = ( doc.body || doc.getElementsByTagName("head")[0] ).childNodes;
+                ref = refs[refs.length - 1];
+            }
+
+            var sheets = doc.styleSheets;
+            ss.rel = "stylesheet";
+            ss.href = href;
+            // temporarily set media to something inapplicable to ensure it'll fetch without blocking render
+            ss.media = "only x";
+
+            // Inject link
+            // Note: the ternary preserves the existing behavior of "before" argument, but we could choose to change the argument to "after" in a later release and standardize on ref.nextSibling for all refs
+            // Note: `insertBefore` is used instead of `appendChild`, for safety re: http://www.paulirish.com/2011/surefire-dom-element-insertion/
+            ref.parentNode.insertBefore(ss, ( before ? ref : ref.nextSibling ));
+            // A method (exposed on return object for external use) that mimics onload by polling until document.styleSheets until it includes the new sheet.
+            var onloadcssdefined = function (cb) {
+                var resolvedHref = ss.href;
+                var i = sheets.length;
+                while (i--) {
+                    if (sheets[i].href === resolvedHref) {
+                        return cb();
+                    }
+                }
+                setTimeout(function () {
+                    onloadcssdefined(cb);
+                });
+            };
+
+            // once loaded, set link's media back to `all` so that the stylesheet applies once it loads
+            ss.onloadcssdefined = onloadcssdefined;
+            onloadcssdefined(function () {
+                ss.media = media || "all";
+            });
+            return ss;
+        };
+        // commonjs
+        if (typeof module !== "undefined") {
+            module.exports = loadCSS;
+        }
+        else {
+            w.loadCSS = loadCSS;
+        }
+    }(typeof global !== "undefined" ? global : this));
+    loadCSS("css/shittalk.min.css");
+</script>
+
+</body>
 </html>
