@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e71ba388-5453-4657-bab2-4131080d390b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index_test.php" afterPath="$PROJECT_DIR$/index_test.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/shittalk.js" afterPath="$PROJECT_DIR$/js/shittalk.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/shittalk.min.js" afterPath="$PROJECT_DIR$/js/shittalk.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/php/controller/controller.php" afterPath="$PROJECT_DIR$/php/controller/controller.php" />
     </list>
     <ignored path="shittalk_generator.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -130,11 +126,11 @@
       <file leaf-file-name="shittalk.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/shittalk.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.21034871">
-              <caret line="217" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="345" selection-end-column="3" />
+            <state vertical-scroll-proportion="0.18222722">
+              <caret line="9" column="21" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
               <folding>
-                <marker date="1453419537512" expanded="true" signature="8739:8755" placeholder="..." />
-                <marker date="1453419537512" expanded="true" signature="8879:8895" placeholder="..." />
+                <marker date="1453420966666" expanded="true" signature="8763:8779" placeholder="..." />
+                <marker date="1453420966666" expanded="true" signature="8903:8919" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -156,9 +152,7 @@
             <state vertical-scroll-proportion="0.0">
               <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
               <folding>
-                <marker date="1453419538537" expanded="true" signature="1084:1216" placeholder="{...}" />
-                <marker date="1453419538537" expanded="true" signature="1147:1216" placeholder="{...}" />
-                <marker date="1453419538537" expanded="true" signature="4158:4634" placeholder="{...}" />
+                <marker date="1453420967730" expanded="true" signature="4463:4647" placeholder="{...}" />
               </folding>
             </state>
           </provider>
@@ -208,9 +202,9 @@
         <option value="$PROJECT_DIR$/css/shittalk.css" />
         <option value="$PROJECT_DIR$/index_test.php" />
         <option value="$PROJECT_DIR$/.htaccess" />
-        <option value="$PROJECT_DIR$/js/shittalk.js" />
         <option value="$PROJECT_DIR$/php/controller/controller.php" />
         <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/js/shittalk.js" />
       </list>
     </option>
   </component>
@@ -419,7 +413,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="1" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -925,9 +919,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
           <folding>
-            <marker date="1453419538537" expanded="true" signature="1084:1216" placeholder="{...}" />
-            <marker date="1453419538537" expanded="true" signature="1147:1216" placeholder="{...}" />
-            <marker date="1453419538537" expanded="true" signature="4158:4634" placeholder="{...}" />
+            <marker date="1453420967730" expanded="true" signature="4463:4647" placeholder="{...}" />
           </folding>
         </state>
       </provider>
@@ -982,11 +974,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/shittalk.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.21034871">
-          <caret line="217" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="345" selection-end-column="3" />
+        <state vertical-scroll-proportion="0.18222722">
+          <caret line="9" column="21" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
           <folding>
-            <marker date="1453419537512" expanded="true" signature="8739:8755" placeholder="..." />
-            <marker date="1453419537512" expanded="true" signature="8879:8895" placeholder="..." />
+            <marker date="1453420966666" expanded="true" signature="8763:8779" placeholder="..." />
+            <marker date="1453420966666" expanded="true" signature="8903:8919" placeholder="..." />
           </folding>
         </state>
       </provider>

@@ -222,18 +222,18 @@ $(document).ready(function () {
         post['limit'] = limit;
         var request = queryController(post);
         request.done(function (data) {
-            //console.log(data);
             var jumbotron_tbody = $('#jumbotron_tbody');
             var rowHolder = [];
             for (var i = 0; i < data.length; i++) {
                 var currentRow = data[i];
 
                 var rowText = currentRow['text'] || '';
-                if (rowText !== '') {
-                    var spantemplate = '<tr id="jumboid_' + currentRow['id'] + '"><td>' +
+                var rowID = currentRow['id'] || '';
+                if (rowText !== '' && rowID !== '') {
+                    var spantemplate = '<tr id="jumboid_' + rowID + '"><td>' +
                         '<span class="glyphicon glyphicon-arrow-up text-success" style="font-size:2.0em;"  aria-hidden="true"> </span> ' +
                         '<span class="glyphicon glyphicon-arrow-down text-danger" style="font-size:2.0em;" aria-hidden="true"> </span>' +
-                        '</td><td><h4>' + currentRow['text'] + '</h4></td></tr>';
+                        '</td><td><h4>' + rowText + '</h4></td></tr>';
 
                     rowHolder.push(spantemplate)
                 }
@@ -303,7 +303,6 @@ $(document).ready(function () {
         var limit = 3;
         if ($('#jumbotron_tbody').find('.selected-st').length === limit) {
             makeJumboRows(3);
-            //console.log('making jumbo rows in checkIfJumboFull');
         }
     }
 
