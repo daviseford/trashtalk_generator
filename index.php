@@ -239,14 +239,11 @@ if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) ob_start('ob_gzhandl
     </div>
 </div>
 
-<!-- jQuery -->
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-
-<!-- Bootstrap JS -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" async></script>
+<!-- Zepto (lightweight jQuery replacement -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/zepto/1.1.6/zepto.min.js"></script>
 
 <!-- Shittalk JS -->
-<script src="js/shittalk.min.js" async></script>
+<script src="js/shittalk_v2.min.js" async></script>
 
 <!-- Google Analytics -->
 <script>

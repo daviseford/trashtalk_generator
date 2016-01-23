@@ -445,18 +445,4 @@ $(document).ready(function () {
         });
     }
 
-
-    function queryController(query) {
-        return $.ajax({
-            url: "php/controller/controller.php",
-            contentType: "application/json; charset=utf-8",
-            type: "POST",
-            dataType: 'json',
-            data: JSON.stringify(query),
-            error: function (data) {
-                console.log(data);
-            }
-        });
-    }
-
 });

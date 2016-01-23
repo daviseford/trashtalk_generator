@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="JavaScriptLibraryMappings">
-    <file url="PROJECT" libraries="{04761ed2a5778c505527, bootstrap, html5shiv, jquery, jquery-ui, respond, string}" />
+    <file url="PROJECT" libraries="{04761ed2a5778c505527, bootstrap, html5shiv, jquery, jquery-ui, respond, string, zepto}" />
   </component>
 </project>
