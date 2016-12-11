@@ -22,8 +22,6 @@ if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) {
 
     <title>Shittalk Generator</title>
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
     <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -32,7 +30,6 @@ if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) {
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" media="screen"
           href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
-
 </head>
 <body>
 
@@ -59,7 +56,6 @@ if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) {
     <div class="row">
         <div class="col-md-12">
             <form class="form-horizontal" role="form">
-
                 <div class="form-group">
                     <div class="col-sm-3 col-md-3 col-lg-3">
 
@@ -79,8 +75,6 @@ if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) {
                         <button type="submit" id="create_shittalk_Btn" class="btn btn-primary">Submit</button>
                     </div>
                 </div>
-
-
             </form>
         </div>
     </div>
@@ -90,14 +84,12 @@ if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) {
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 hidden-xs">
-
                 <li class="list-group-item"><h3 class="text-center">Recent Insults</h3></li>
                 <ul class="list-group def-list-group-scroll" id="recent_listGroup">
                 </ul>
             </div>
 
             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-
                 <li class="list-group-item"><h3 class="text-center">Top Insults</h3></li>
                 <ul class="list-group def-list-group-scroll" id="top_listGroup">
                 </ul>
@@ -116,14 +108,11 @@ if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) {
 
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-
             <div class="panel panel-default">
                 <div class="panel-body">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-
-                        <div class="form-group col-md-6">
-                            <a href="php/build_cfg.php"
-                               class="btn btn-lg btn-success">
+                        <a href="php/build_cfg.php"
+                           class="btn btn-lg btn-success">
                             <span class="glyphicon glyphicon-cloud-download" title="Crowd-sourced Shittalk.cfg"
                                   id="downloadBtn"></span> Download Current Build</a>
 
@@ -131,25 +120,13 @@ if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) {
                             <strong><span id="IncludedBindCount"></span></strong>
                             top-rated insults
                         </span>
-                        </div>
-
-                        <div class="form-group col-md-6">
-                            <a href="php/build_cfg_dota2.php"
-                               class="btn btn-lg btn-success disabled">
-                            <span class="glyphicon glyphicon-cloud-download" title="Shittalk.cfg for DoTA2"
-                                  id="downloadBtn"></span> DoTA2 Build</a>
-                            <span class="help-block">Due to <a href="http://store.steampowered.com/news/22017/" target="_blank">Valve's recent changes</a>,
-                                <br />the DoTA2 script no longer works :(
-                            </span>
-                        </div>
-
                     </div>
 
                     <div class="row clearfix"></div>
                     <div class="row">
                         <div class="col-md-12">
                             <p>Download these binds to an easy-to-use Source script, which works in TF2,
-                                CS:GO, CS:Source, DoTA2, and all other Source Engine games.</p>
+                                CS:GO, CS:Source, and all other Source Engine games.</p>
                             <h4>Installation:</h4>
 
                             <p>
@@ -160,6 +137,11 @@ if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) {
                                 <br/>
                                 <strong>CS:GO - </strong><code>\Steam\steamapps\common\Counter-Strike Global
                                     Offensive\csgo\cfg</code>
+                                <br/>
+                                <strong>
+                                    Due to <a href="http://store.steampowered.com/news/22017/" target="_blank">
+                                        Valve's recent changes</a>, the DoTA2 script no longer works :(
+                                </strong>
                             </p>
 
                             <p>2.) Add <code>exec shittalk.cfg</code> to your <code>autoexec.cfg</code>.</p>
@@ -169,10 +151,7 @@ if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) {
                                 console and type <code>exec shittalk</code>.
                             </p>
                             <p>5.) By default, <kbd>TAB</kbd> cycles through the insults, and <kbd>X</kbd> sends the
-                                message
-                                to
-                                chat.
-                            </p>
+                                message to chat. </p>
                             <p>You can modify these binds in the <code>shittalk.cfg</code> file.</p>
                             <p>The more keys you can bind <code>cycle_both</code> to, the better. The
                                 <code>cycle_both</code> command is what
@@ -201,11 +180,9 @@ if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) {
 
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-
             <legend>Rate Some More -
                 <small><span id="TotalBindCount"></span> insults and counting</small>
             </legend>
-
             <div>
                 <table class="table">
                     <tbody id="rate_more_tbody">
@@ -215,7 +192,6 @@ if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) {
         </div>
     </div>
 </div>
-
 
 <div class="container">
     <div class="row">
@@ -271,11 +247,6 @@ if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) {
         "use strict";
         /* exported loadCSS */
         var loadCSS = function (href, before, media) {
-            // Arguments explained:
-            // `href` [REQUIRED] is the URL for your CSS file.
-            // `before` [OPTIONAL] is the element the script should use as a reference for injecting our stylesheet <link> before
-            // By default, loadCSS attempts to inject the link after the last stylesheet or script in the DOM. However, you might desire a more specific location in your document.
-            // `media` [OPTIONAL] is the media type or query of the stylesheet. By default it will be 'all'
             var doc = w.document;
             var ss = doc.createElement("link");
             var ref;
@@ -290,14 +261,8 @@ if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) {
             var sheets = doc.styleSheets;
             ss.rel = "stylesheet";
             ss.href = href;
-            // temporarily set media to something inapplicable to ensure it'll fetch without blocking render
             ss.media = "only x";
-
-            // Inject link
-            // Note: the ternary preserves the existing behavior of "before" argument, but we could choose to change the argument to "after" in a later release and standardize on ref.nextSibling for all refs
-            // Note: `insertBefore` is used instead of `appendChild`, for safety re: http://www.paulirish.com/2011/surefire-dom-element-insertion/
             ref.parentNode.insertBefore(ss, ( before ? ref : ref.nextSibling ));
-            // A method (exposed on return object for external use) that mimics onload by polling until document.styleSheets until it includes the new sheet.
             var onloadcssdefined = function (cb) {
                 var resolvedHref = ss.href;
                 var i = sheets.length;
@@ -311,20 +276,13 @@ if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) {
                 });
             };
 
-            // once loaded, set link's media back to `all` so that the stylesheet applies once it loads
             ss.onloadcssdefined = onloadcssdefined;
             onloadcssdefined(function () {
                 ss.media = media || "all";
             });
             return ss;
         };
-        // commonjs
-        if (typeof module !== "undefined") {
-            module.exports = loadCSS;
-        }
-        else {
-            w.loadCSS = loadCSS;
-        }
+        w.loadCSS = loadCSS;
     }(typeof global !== "undefined" ? global : this));
     loadCSS("css/shittalk.min.css");
 </script>
