@@ -4,7 +4,6 @@
 $(document).ready(function () {
 
   makeJumboRows(3);
-
   makeRecentList();
   makeTopList();
   makeRandomList();
@@ -28,18 +27,12 @@ $(document).ready(function () {
       var shittalkText_LowerCase = shittalkText.toLowerCase();
 
       if (shittalkText_LowerCase.indexOf('http://') > -1 || shittalkText_LowerCase.indexOf('https://') > -1 || shittalkText_LowerCase.indexOf('www.') > -1 || shittalkText_LowerCase.indexOf('.com') > -1) {
-
         parent.addClass('has-error');
         $('#helpBlock2').removeClass('hidden');
-
       } else if (shittalkText_LowerCase.indexOf('nigger') > -1 || shittalkText_LowerCase.indexOf('faggot') > -1) {
-
         parent.addClass('has-error');
         $('#helpBlock3').removeClass('hidden');
-
       } else {
-
-
         var form = {};
         form['create_shittalk_Text'] = shittalkText;
         form['query'] = 'check_IfDuplicate';
@@ -64,7 +57,6 @@ $(document).ready(function () {
                 data: JSON.stringify(form2),
                 success: function (data) {
                   if (data === true) {
-                    console.log('Submission successful');
                     location.reload();
                   }
                 },
@@ -195,15 +187,15 @@ $(document).ready(function () {
         rate_more_tbody.find('td .glyphicon-arrow-up')
           .click(function (e) {
             e.preventDefault();
-            var send = sendRateMoreVote.bind(this);
-            send(true);
+            var send = sendVote.bind(this);
+            send(true, false);
           });
 
         rate_more_tbody.find('td .glyphicon-arrow-down')
           .click(function (e) {
             e.preventDefault();
-            var send = sendRateMoreVote.bind(this);
-            send(false);
+            var send = sendVote.bind(this);
+            send(false, false);
           });
         updateBadges();
       },
@@ -211,32 +203,6 @@ $(document).ready(function () {
         console.log(data);
       }
     });
-  }
-
-  function sendRateMoreVote(isUpvote) {
-    if ($(this).is('[disabled=disabled]') !== true) {
-      var parent = $(this).parent().parent();
-      $(this).attr('disabled', 'disabled');
-
-      var query = {};
-      var id = parent.attr('id');
-      query['id'] = id.split('_')[1];
-      query['query'] = isUpvote ? 'upvote_Row' : 'downvote_Row';
-      $.ajax({
-        url: "php/controller/controller.php",
-        contentType: "application/json; charset=utf-8",
-        type: "POST",
-        dataType: 'json',
-        data: JSON.stringify(query),
-        success: function () {
-          parent.addClass(isUpvote ? 'bg-success' : 'bg-danger');
-          checkIfRateMoreIsFull();
-        },
-        error: function (data) {
-          console.log(data);
-        }
-      });
-    }
   }
 
   function makeTotalBindCount() {
@@ -316,24 +282,26 @@ $(document).ready(function () {
     jumbotron_tbody.find('td .glyphicon-arrow-up')
       .click(function (e) {
         e.preventDefault();
-        var send = sendJumboVote.bind(this);
-        send(true);
+        var send = sendVote.bind(this);
+        send(true, true);
       });
 
 
     jumbotron_tbody.find('td .glyphicon-arrow-down')
       .click(function (e) {
         e.preventDefault();
-        var send = sendJumboVote.bind(this);
-        send(false);
+        var send = sendVote.bind(this);
+        send(false, true);
       });
   }
 
-  function sendJumboVote(isUpvote) {
+  function sendVote(isUpvote, isJumbo) {
     if ($(this).is('[disabled=disabled]') !== true) {
       var parent = $(this).parent().parent();
       $(this).attr('disabled', 'disabled');
-      parent.addClass('selected-st');
+      if (isJumbo) {
+        parent.addClass('selected-st');
+      }
 
       var query = {};
       var id = parent.attr('id');
@@ -348,7 +316,11 @@ $(document).ready(function () {
         data: JSON.stringify(query),
         success: function () {
           parent.addClass(isUpvote ? 'bg-success' : 'bg-danger');
-          checkIfJumbotronIsFull();
+          if (isJumbo) {
+            checkIfJumbotronIsFull();
+          } else {
+            checkIfRateMoreIsFull();
+          }
         },
         error: function (data) {
           console.log(data);
