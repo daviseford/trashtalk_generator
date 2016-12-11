@@ -45,7 +45,8 @@ function makeTrashCanBinds()
     $text_to_insert = getUpvotedTextRowsForCfg();
     $response = [];
     if (!empty($text_to_insert)) {
-        for ($i = 0; $i < count($text_to_insert); $i++) {
+        $max = count($text_to_insert);
+        for ($i = 0; $i < $max; $i++) {
             $textString = $text_to_insert[$i];
             $bind = 'alias "trashcan' . $i . '" "say ' . $textString . '"';
             $response[] = $bind;
@@ -68,7 +69,6 @@ function makeTrashCanAliases($limit)
 }
 
 
-//echo $fileContents;
 function getUpvotedTextRowsForCfg($limit = 2000)
 {
     $response = [];

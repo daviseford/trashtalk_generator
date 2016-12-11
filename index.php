@@ -1,6 +1,10 @@
 <?php
 /* Credit: http://betterexplained.com/articles/how-to-optimize-your-site-with-gzip-compression/ */
-if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) ob_start('ob_gzhandler'); else ob_start();
+if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) {
+    ob_start('ob_gzhandler');
+} else {
+    ob_start();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -131,13 +135,12 @@ if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) ob_start('ob_gzhandl
 
                         <div class="form-group col-md-6">
                             <a href="php/build_cfg_dota2.php"
-                               class="btn btn-lg btn-success">
+                               class="btn btn-lg btn-success disabled">
                             <span class="glyphicon glyphicon-cloud-download" title="Shittalk.cfg for DoTA2"
                                   id="downloadBtn"></span> DoTA2 Build</a>
-                            <span class="help-block">Includes
-                            <strong>150</strong>
-                            top-rated insults<a href="#dota2"><strong>*</strong></a>
-                        </span>
+                            <span class="help-block">Due to <a href="http://store.steampowered.com/news/22017/" target="_blank">Valve's recent changes</a>,
+                                <br />the DoTA2 script no longer works :(
+                            </span>
                         </div>
 
                     </div>
@@ -154,9 +157,6 @@ if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) ob_start('ob_gzhandl
                             </p>
                             <p>
                                 <strong>TF2 - </strong><code>\Steam\steamapps\common\Team Fortress 2\tf\cfg</code>
-                                <br/>
-                                <strong>DoTA2 - </strong><code>\Steam\steamapps\common\dota 2
-                                    beta\game\dota\cfg</code>
                                 <br/>
                                 <strong>CS:GO - </strong><code>\Steam\steamapps\common\Counter-Strike Global
                                     Offensive\csgo\cfg</code>
@@ -178,8 +178,6 @@ if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) ob_start('ob_gzhandl
                                 <code>cycle_both</code> command is what
                                 provides the psuedo-randomness of the script.
                             </p>
-                            <p id="dota2"><strong>DoTA2 will not load config files past a certain length. The DoTA2
-                                    config is therefore limited to 150 binds.</strong></p>
                         </div>
                     </div>
 
@@ -222,18 +220,15 @@ if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) ob_start('ob_gzhandl
 <div class="container">
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center" style="padding-top: 3%">
-            <a href="mailto:shittalkgenerator+website@gmail.com" class="btn btn-default btn-lg"
-               onClick="ga('send', 'event', { eventCategory: 'contact', eventAction: 'contact_button', eventLabel: 'clicked'});">
+            <a href="mailto:shittalkgenerator+website@gmail.com" class="btn btn-default btn-lg">
                 Contact Me <span class="glyphicon glyphicon-envelope"> </span></a>
         </div>
     </div>
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center" style="padding-top: 3%; padding-bottom: 2%;">
             <small>Copyright <a href="http://daviseford.com/" target="_blank">Davis Ford</a> 2016 |
-                <a href="https://www.youtube.com/watch?v=HW_IH0jipeU" target="_blank"
-                   onClick="ga('send', 'event', { eventCategory: 'footer_action', eventAction: 'youtube', eventLabel: 'clicked'});">
-                    What is the odds?</a> | <a href="stats.php" target="_blank"
-                                               onClick="ga('send', 'event', { eventCategory: 'footer_action', eventAction: 'stats', eventLabel: 'clicked'});">
+                <a href="https://www.youtube.com/watch?v=HW_IH0jipeU" target="_blank">
+                    What is the odds?</a> | <a href="stats.php" target="_blank">
                     Stats</a></small>
         </div>
     </div>
@@ -262,8 +257,6 @@ if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) ob_start('ob_gzhandl
     ga('create', 'UA-55820654-2', 'auto');
     ga('require', 'linkid', 'linkid.js');
     ga('send', 'pageview');
-    /* credit http://stackoverflow.com/questions/15901187/how-to-set-up-page-speed-logging-for-google-analytics-in-analytics-js */
-    ga('create', 'UA-55820654-2', {'siteSpeedSampleRate': 50});
 </script>
 
 

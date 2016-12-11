@@ -23,18 +23,18 @@ function createSchema()
 function createShittalkDB()
 {
     $sql = "CREATE TABLE `shittalk_generator`.`shittalkDB` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `text` TEXT NULL,
-  `category` TEXT NULL,
-  `downloads` INT NULL,
-  `views` INT NULL,
-  `upvotes` INT NULL,
-  `downvotes` INT NULL,
-  `highlight` TINYINT NULL,
-  `date_created` DATETIME NULL,
-  `custom` TINYINT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE INDEX `id_UNIQUE` (`id` ASC));";
+      `id` INT NOT NULL AUTO_INCREMENT,
+      `text` TEXT NULL,
+      `category` TEXT NULL,
+      `downloads` INT NULL,
+      `views` INT NULL,
+      `upvotes` INT NULL,
+      `downvotes` INT NULL,
+      `highlight` TINYINT NULL,
+      `date_created` DATETIME NULL,
+      `custom` TINYINT NULL,
+      PRIMARY KEY (`id`),
+      UNIQUE INDEX `id_UNIQUE` (`id` ASC));";
     $result = mySqlQuery($sql);
     return $result;
 }

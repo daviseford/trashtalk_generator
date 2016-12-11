@@ -78,7 +78,8 @@ function getRowsForDeletion()
 
 function deleteAllSelectedRows($arrayOfIDs)
 {
-    for ($i = 0; $i < count($arrayOfIDs); $i++) {
+    $max = count($arrayOfIDs);
+    for ($i = 0; $i < $max; $i++) {
         $id = $arrayOfIDs[$i];
         $sql = "DELETE FROM shittalkDB WHERE `id` = $id;";
         $result = mySqlQuery($sql);
