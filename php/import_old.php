@@ -5,27 +5,30 @@
  * Date: 1/2/2016
  * Time: 5:39 PM
  */
-require_once(__DIR__ . '/shittalk_functions.php');
+require_once('shittalk_functions.php');
 
 $file = "cfg/shittalk.cfg";
-$myfile = fopen($file, "r") or die("Unable to open file!");
+$myfile = fopen($file, "r") or die("Unable to open file! Make sure you're running this as sudo on the server itself, not through the web");
 
 $fileContents = fread($myfile, filesize($file));
 fclose($myfile);
 
 $del = convert_smart_quotes(get_delimited($fileContents)); //an array of everything between quote marks. need to parse this
 
-//UNCOMMENT FOR THIS TO RUN - IMPORTS OLD BINDS
+// UNCOMMENT FOR THIS TO RUN - IMPORTS OLD BINDS
+// P.S. run me on the server as sudo!
 //if (!empty($del)) {
 //    for ($i = 0; $i < count($del); $i++) {
 //
 //        if (strpos($del[$i], 'say ') !== false) { //if "say " is the first part of the string
 //            $fixedBind = str_replace('say ', '', $del[$i]);
 //            createShittalkRow($fixedBind);
+//            echo "created row " . $fixedBind . "\n";
 //
 //        }
 //    }
 //}
+echo "Done";
 
 function createShittalkRow($text)
 {

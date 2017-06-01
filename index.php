@@ -44,6 +44,11 @@ if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) {
                 </div>
             </div>
         </div>
+        <div class="alert alert-info">Hey there! I've decided to reset the votes as of June 1st, 2017, as a way of
+            freshening up the config. It's been a year and a half since I first launched this page, and millions of
+            visitors have voted on insults. I figured I'd take away the incumbent advantage and hopefully open some
+            space for new, fresh insults. :)
+        </div>
     </div>
 </div>
 
@@ -213,21 +218,21 @@ if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) {
 
 <!-- Google Analytics -->
 <script>
-    (function (i, s, o, g, r, a, m) {
-        i['GoogleAnalyticsObject'] = r;
-        i[r] = i[r] || function () {
-                (i[r].q = i[r].q || []).push(arguments)
-            }, i[r].l = 1 * new Date();
-        a = s.createElement(o),
-            m = s.getElementsByTagName(o)[0];
-        a.async = 1;
-        a.src = g;
-        m.parentNode.insertBefore(a, m)
-    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+  (function (i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r;
+    i[r] = i[r] || function () {
+          (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+    a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+    a.async = 1;
+    a.src = g;
+    m.parentNode.insertBefore(a, m)
+  })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
-    ga('create', 'UA-55820654-2', 'auto');
-    ga('require', 'linkid', 'linkid.js');
-    ga('send', 'pageview');
+  ga('create', 'UA-55820654-2', 'auto');
+  ga('require', 'linkid', 'linkid.js');
+  ga('send', 'pageview');
 </script>
 
 
@@ -239,45 +244,45 @@ if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) {
      Licensed MIT
      */
     (function (w) {
-        "use strict";
+      "use strict";
         /* exported loadCSS */
-        var loadCSS = function (href, before, media) {
-            var doc = w.document;
-            var ss = doc.createElement("link");
-            var ref;
-            if (before) {
-                ref = before;
-            }
-            else {
-                var refs = ( doc.body || doc.getElementsByTagName("head")[0] ).childNodes;
-                ref = refs[refs.length - 1];
-            }
+      var loadCSS = function (href, before, media) {
+        var doc = w.document;
+        var ss = doc.createElement("link");
+        var ref;
+        if (before) {
+          ref = before;
+        }
+        else {
+          var refs = ( doc.body || doc.getElementsByTagName("head")[0] ).childNodes;
+          ref = refs[refs.length - 1];
+        }
 
-            var sheets = doc.styleSheets;
-            ss.rel = "stylesheet";
-            ss.href = href;
-            ss.media = "only x";
-            ref.parentNode.insertBefore(ss, ( before ? ref : ref.nextSibling ));
-            var onloadcssdefined = function (cb) {
-                var resolvedHref = ss.href;
-                var i = sheets.length;
-                while (i--) {
-                    if (sheets[i].href === resolvedHref) {
-                        return cb();
-                    }
-                }
-                setTimeout(function () {
-                    onloadcssdefined(cb);
-                });
-            };
-
-            ss.onloadcssdefined = onloadcssdefined;
-            onloadcssdefined(function () {
-                ss.media = media || "all";
-            });
-            return ss;
+        var sheets = doc.styleSheets;
+        ss.rel = "stylesheet";
+        ss.href = href;
+        ss.media = "only x";
+        ref.parentNode.insertBefore(ss, ( before ? ref : ref.nextSibling ));
+        var onloadcssdefined = function (cb) {
+          var resolvedHref = ss.href;
+          var i = sheets.length;
+          while (i--) {
+            if (sheets[i].href === resolvedHref) {
+              return cb();
+            }
+          }
+          setTimeout(function () {
+            onloadcssdefined(cb);
+          });
         };
-        w.loadCSS = loadCSS;
+
+        ss.onloadcssdefined = onloadcssdefined;
+        onloadcssdefined(function () {
+          ss.media = media || "all";
+        });
+        return ss;
+      };
+      w.loadCSS = loadCSS;
     }(typeof global !== "undefined" ? global : this));
     loadCSS("css/shittalk.min.css");
 </script>
