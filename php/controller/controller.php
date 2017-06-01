@@ -6,8 +6,8 @@
  * Time: 12:44 AM
  */
 
-require_once(__DIR__ . '/../shittalk_functions.php');
-require_once(__DIR__ . '/../lib/forceutf8/Encoding.php');
+require_once('../shittalk_functions.php');
+require_once('../lib/forceutf8/Encoding.php');
 use ForceUTF8\Encoding;  // It's namespaced now.
 
 $post = file_get_contents('php://input');    //workaround for $_POST, this data arrives in the form of a URL
@@ -81,15 +81,18 @@ if (isset($postdec['query'])) {
 
 function getRecentList()
 {
-    $sql = "SELECT `id`, `text`, `upvotes`-`downvotes` AS `netVotes` FROM shittalk WHERE (`upvotes` - `downvotes`) > -5 ORDER by `date_created` DESC LIMIT 20;";
+    $sql = "SELECT `id`, `text`, `upvotes`-`downvotes` 
+            AS `netVotes` FROM shittalk 
+            WHERE (`upvotes` - `downvotes`) > -5 
+            ORDER by `date_created` DESC LIMIT 20;";
     $result = mySqlQuery($sql);
-    $response = [];
+    $response = array();
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
             $response[] = array(
-                'id'       => $row['id'],
+                'id' => $row['id'],
                 'netVotes' => $row['netVotes'],
-                'text'     => htmlspecialchars($row['text'])
+                'text' => htmlspecialchars($row['text'])
             );
         }
     }
@@ -98,15 +101,19 @@ function getRecentList()
 
 function getTopList()
 {
-    $sql = "SELECT `id`, `text`, `upvotes`-`downvotes` AS `netVotes` FROM shittalk ORDER by `netVotes` DESC LIMIT 50;";
+    $sql = "SELECT `id`, `text`, `upvotes`-`downvotes` 
+            AS `netVotes` 
+            FROM shittalk
+            ORDER by `netVotes` 
+            DESC LIMIT 50;";
     $result = mySqlQuery($sql);
-    $response = [];
+    $response = array();
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
             $response[] = array(
-                'id'       => $row['id'],
+                'id' => $row['id'],
                 'netVotes' => $row['netVotes'],
-                'text'     => htmlspecialchars($row['text'])
+                'text' => htmlspecialchars($row['text'])
             );
         }
     }
@@ -115,15 +122,18 @@ function getTopList()
 
 function getRandomList()
 {
-    $sql = "SELECT `id`, `text`, `upvotes`-`downvotes` AS `netVotes` FROM shittalk WHERE (`upvotes` - `downvotes`) > -5 ORDER by rand() DESC LIMIT 20;";
+    $sql = "SELECT `id`, `text`, `upvotes`-`downvotes` 
+            AS `netVotes` FROM shittalk
+            WHERE (`upvotes` - `downvotes`) > -5
+            ORDER by rand() DESC LIMIT 20;";
     $result = mySqlQuery($sql);
-    $response = [];
+    $response = array();
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
             $response[] = array(
-                'id'       => $row['id'],
+                'id' => $row['id'],
                 'netVotes' => $row['netVotes'],
-                'text'     => htmlspecialchars($row['text'])
+                'text' => htmlspecialchars($row['text'])
             );
         }
     }
@@ -132,7 +142,10 @@ function getRandomList()
 
 function createRateMoreTableRows()
 {
-    $sql = "SELECT `id`, `text`, `upvotes` - `downvotes` AS `netVotes` FROM shittalk WHERE (`upvotes` - `downvotes`) > -5 ORDER BY rand() LIMIT 25;";
+    $sql = "SELECT `id`, `text`, `upvotes` - `downvotes` 
+            AS `netVotes` FROM shittalk 
+            WHERE (`upvotes` - `downvotes`) > -5  
+            ORDER BY rand() LIMIT 25;";
     $result = mySqlQuery($sql);
 
     $response = [];
@@ -162,14 +175,17 @@ function checkIfDuplicate($text)
 
 function getRandomRows($limit)
 {
-    $response = [];
+    $response = array();
     $limit_escaped = (int)$limit;
     $randomInt = rand(0, 15);
 
     /* Let's try to target stuff without votes first */
     if ($randomInt <= 3) { //let's not bias it too much in favor, but we do want to include some new stuff when possible
 
-        $sql = "SELECT `id`, `text` FROM shittalk WHERE `upvotes` < 2 AND `downvotes` < 2 AND `text`<>'' ORDER BY rand() LIMIT 1;";
+        $sql = "SELECT `id`, `text` 
+                FROM shittalk 
+                WHERE `upvotes` < 2 AND `downvotes` < 2 AND `text`<>'' 
+                ORDER BY rand() LIMIT 1;";
         $result = mySqlQuery($sql);
 
         if ($result->num_rows > 0) {
@@ -184,7 +200,9 @@ function getRandomRows($limit)
         }
     }
 
-    $sql = "SELECT `id`, `text` FROM shittalk WHERE (`upvotes` - `downvotes`) > -5 AND `text`<>'' ORDER BY rand() LIMIT $limit_escaped;";
+    $sql = "SELECT `id`, `text` FROM shittalk 
+            WHERE (`upvotes` - `downvotes`) > -5 
+            AND `text`<>'' ORDER BY rand() LIMIT $limit_escaped;";
     $result = mySqlQuery($sql);
 
     if ($result->num_rows > 0) {

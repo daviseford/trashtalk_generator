@@ -6,35 +6,11 @@
  * Time: 12:30 AM
  */
 
-ini_set('display_errors', true);
-error_reporting(E_ALL);
-if(is_readable('../shittalk_functions.php')) {
-    echo('ok!');
-}
-include('../shittalk_functions.php');
+require('../shittalk_functions.php');
 
 createshittalk();
-echo "hey";
+echo "Created shittalk table";
 
-//function mySqlQuery($query)
-//{
-//    $servername = 'shittalk.cinwj67fm5hu.us-east-1.rds.amazonaws.com';
-//    $username = "shittalk";
-//    $password = "shittalk";
-//    $dbname = "shittalk";
-//
-//    $conn = new mysqli($servername, $username, $password, $dbname);
-//
-//    // Check connection
-//    if ($conn->connect_error) {
-//        die("Connection failed: " . $conn->connect_error);
-//    }
-//    $result = $conn->query($query);
-//
-//    $conn->close();
-//
-//    return $result;
-//}
 
 function createSchema()
 {
@@ -51,8 +27,8 @@ function createshittalk()
       `category` TEXT NULL,
       `downloads` INT NULL,
       `views` INT NULL,
-      `upvotes` INT NULL,
-      `downvotes` INT NULL,
+      `upvotes` INT NOT NULL DEFAULT 0,
+      `downvotes` INT NOT NULL DEFAULT 0,
       `highlight` TINYINT NULL,
       `date_created` DATETIME NULL,
       `custom` TINYINT NULL,

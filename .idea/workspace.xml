@@ -2,18 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e71ba388-5453-4657-bab2-4131080d390b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/php/connect.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/shittalk_generator.iml" afterPath="$PROJECT_DIR$/.idea/shittalk_generator.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/php/build_cfg.php" afterPath="$PROJECT_DIR$/php/build_cfg.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/php/build_cfg_dota2.php" afterPath="$PROJECT_DIR$/php/build_cfg_dota2.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/php/connect.php" afterPath="$PROJECT_DIR$/php/connect.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/php/controller/controller.php" afterPath="$PROJECT_DIR$/php/controller/controller.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/php/delete_downvoted.php" afterPath="$PROJECT_DIR$/php/delete_downvoted.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/php/import_old.php" afterPath="$PROJECT_DIR$/php/import_old.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/php/setup/setup.php" afterPath="$PROJECT_DIR$/php/setup/setup.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/php/shittalk_functions.php" afterPath="$PROJECT_DIR$/php/shittalk_functions.php" />
     </list>
     <ignored path="shittalk_generator.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -37,24 +30,34 @@
       <file leaf-file-name="shittalk_v2.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/shittalk_v2.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="244">
-              <caret line="55" column="33" lean-forward="false" selection-start-line="55" selection-start-column="33" selection-end-line="55" selection-end-column="33" />
+            <state relative-caret-position="150">
+              <caret line="179" column="6" lean-forward="false" selection-start-line="179" selection-start-column="6" selection-end-line="179" selection-end-column="6" />
               <folding>
-                <marker date="1496149528000" expanded="true" signature="8415:8431" ph="..." />
-                <marker date="1496149528000" expanded="true" signature="8541:8557" ph="..." />
+                <marker date="1496357563000" expanded="true" signature="8415:8431" ph="..." />
+                <marker date="1496357563000" expanded="true" signature="8541:8557" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="setup.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="197">
+              <caret line="211" column="51" lean-forward="false" selection-start-line="211" selection-start-column="51" selection-end-line="211" selection-end-column="51" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="setup.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/php/setup/setup.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="13" column="9" lean-forward="false" selection-start-line="13" selection-start-column="9" selection-end-line="13" selection-end-column="9" />
+            <state relative-caret-position="120">
+              <caret line="11" column="28" lean-forward="false" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
               <folding>
-                <marker date="1496352611000" expanded="true" signature="980:1380" ph="CREATE TABLE... shittalk" />
-                <marker date="1496352611000" expanded="true" signature="1013:1380" ph="CREATE TABLE... shittalkDB" />
+                <marker date="1496357875000" expanded="true" signature="384:812" ph="CREATE TABLE... shittalk" />
+                <marker date="1496357875000" expanded="true" signature="417:812" ph="CREATE TABLE... shittalkDB" />
               </folding>
             </state>
           </provider>
@@ -63,8 +66,8 @@
       <file leaf-file-name="connect.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/php/connect.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="291">
-              <caret line="19" column="27" lean-forward="false" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
+            <state relative-caret-position="280">
+              <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -73,30 +76,45 @@
       <file leaf-file-name="shittalk_functions.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/php/shittalk_functions.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
-              <caret line="155" column="22" lean-forward="false" selection-start-line="155" selection-start-column="22" selection-end-line="155" selection-end-column="22" />
+            <state relative-caret-position="2060">
+              <caret line="108" column="0" lean-forward="false" selection-start-line="108" selection-start-column="0" selection-end-line="108" selection-end-column="0" />
               <folding>
-                <marker date="1496349128000" expanded="true" signature="363:409" ph="SELECT sum(`... shittalk" />
-                <marker date="1496349128000" expanded="true" signature="597:653" ph="SELECT sum(`... timestamps" />
-                <marker date="1496349128000" expanded="true" signature="976:1052" ph="SELECT `uses... timestamps" />
-                <marker date="1496349128000" expanded="true" signature="1341:1389" ph="SELECT sum(`... shittalk" />
-                <marker date="1496349128000" expanded="true" signature="1577:1635" ph="SELECT sum(`... timestamps" />
-                <marker date="1496349128000" expanded="true" signature="1976:2134" ph="SELECT sum(`... shittalk" />
-                <marker date="1496349128000" expanded="true" signature="2422:2486" ph="SELECT MAX(i... shittalk" />
-                <marker date="1496349128000" expanded="true" signature="2748:2908" ph="SELECT sum(`... shittalk" />
-                <marker date="1496349128000" expanded="true" signature="3300:3360" ph="SELECT * FRO... timestamps" />
-                <marker date="1496349128000" expanded="true" signature="3616:3693" ph="SELECT COUNT... shittalk" />
-                <marker date="1496349128000" expanded="true" signature="3954:3994" ph="SELECT COUNT... shittalk" />
+                <marker date="1496357831000" expanded="true" signature="363:409" ph="SELECT sum(`... shittalk" />
+                <marker date="1496357831000" expanded="true" signature="597:653" ph="SELECT sum(`... timestamps" />
+                <marker date="1496357831000" expanded="true" signature="976:1052" ph="SELECT `uses... timestamps" />
+                <marker date="1496357831000" expanded="true" signature="1341:1389" ph="SELECT sum(`... shittalk" />
+                <marker date="1496357831000" expanded="true" signature="1577:1635" ph="SELECT sum(`... timestamps" />
+                <marker date="1496357831000" expanded="true" signature="1976:2134" ph="SELECT sum(`... shittalk" />
+                <marker date="1496357831000" expanded="true" signature="2387:2406" ph="{...}" />
+                <marker date="1496357831000" expanded="true" signature="3602:3889" ph="{...}" />
+                <marker date="1496357831000" expanded="true" signature="3616:3693" ph="SELECT COUNT... shittalk" />
+                <marker date="1496357831000" expanded="true" signature="3762:3864" ph="..." />
+                <marker date="1496357831000" expanded="true" signature="3810:3858" ph="..." />
+                <marker date="1496357831000" expanded="true" signature="3919:4190" ph="{...}" />
+                <marker date="1496357831000" expanded="true" signature="3954:3994" ph="SELECT COUNT... shittalk" />
+                <marker date="1496357831000" expanded="true" signature="4063:4165" ph="..." />
+                <marker date="1496357831000" expanded="true" signature="4111:4159" ph="..." />
+                <marker date="1496357831000" expanded="true" signature="4195:4270" ph="..." />
+                <marker date="1496357831000" expanded="true" signature="4300:4726" ph="{...}" />
+                <marker date="1496357831000" expanded="true" signature="4581:4645" ph="..." />
+                <marker date="1496357831000" expanded="true" signature="4761:5041" ph="{...}" />
+                <marker date="1496357831000" expanded="true" signature="4875:5020" ph="..." />
+                <marker date="1496357831000" expanded="true" signature="5126:5306" ph="{...}" />
+                <marker date="1496357831000" expanded="true" signature="5218:5260" ph="..." />
+                <marker date="1496357831000" expanded="true" signature="5268:5303" ph="..." />
+                <marker date="1496357831000" expanded="true" signature="5346:6012" ph="{...}" />
+                <marker date="1496357831000" expanded="true" signature="5369:5682" ph="..." />
+                <marker date="1496357831000" expanded="true" signature="5707:5955" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="48" column="6" lean-forward="true" selection-start-line="48" selection-start-column="6" selection-end-line="48" selection-end-column="6" />
+            <state relative-caret-position="359">
+              <caret line="48" column="6" lean-forward="false" selection-start-line="48" selection-start-column="6" selection-end-line="48" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -105,64 +123,24 @@
       <file leaf-file-name="controller.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/php/controller/controller.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="8" column="37" lean-forward="false" selection-start-line="8" selection-start-column="37" selection-end-line="8" selection-end-column="37" />
+            <state relative-caret-position="4960">
+              <caret line="248" column="16" lean-forward="false" selection-start-line="248" selection-start-column="16" selection-end-line="248" selection-end-column="16" />
               <folding>
                 <element signature="e#6#90#0#PHP" expanded="true" />
-                <marker date="1496349128000" expanded="true" signature="2580:2650" ph="SELECT `id`,... shittalkDB" />
-                <marker date="1496349128000" expanded="true" signature="2580:2725" ph="SELECT `id`,... shittalk" />
-                <marker date="1496349128000" expanded="true" signature="3138:3242" ph="SELECT `id`,... shittalk" />
-                <marker date="1496349128000" expanded="true" signature="3658:3795" ph="SELECT `id`,... shittalk" />
-                <marker date="1496349128000" expanded="true" signature="4221:4355" ph="SELECT `id`,... shittalk" />
-                <marker date="1496349128000" expanded="true" signature="4990:5061" ph="SELECT COUNT... shittalk" />
-                <marker date="1496349128000" expanded="true" signature="5571:5683" ph="SELECT `id`,... shittalk" />
-                <marker date="1496349128000" expanded="true" signature="6149:6257" ph="SELECT `id`,... shittalk" />
-                <marker date="1496349128000" expanded="true" signature="6927:7046" ph="INSERT INTO `shittalk`... " />
-                <marker date="1496349128000" expanded="true" signature="7187:7242" ph="UPDATE shitt... " />
-                <marker date="1496349128000" expanded="true" signature="7396:7455" ph="UPDATE shitt... " />
-                <marker date="1496349128000" expanded="true" signature="7411:7455" ph="UPDATE shitt... " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="build_cfg.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/php/build_cfg.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1500">
-              <caret line="75" column="75" lean-forward="false" selection-start-line="75" selection-start-column="75" selection-end-line="75" selection-end-column="75" />
-              <folding>
-                <marker date="1496349128000" expanded="true" signature="2225:2352" ph="SELECT *, `u... shittalkDB" />
-                <marker date="1496349128000" expanded="true" signature="2699:2827" ph="UPDATE `time... " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="delete_downvoted.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/php/delete_downvoted.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-200">
-              <caret line="83" column="38" lean-forward="false" selection-start-line="83" selection-start-column="38" selection-end-line="83" selection-end-column="38" />
-              <folding>
-                <marker date="1496349128000" expanded="true" signature="602:663" ph="SELECT *, `u... shittalkDB" />
-                <marker date="1496349128000" expanded="true" signature="602:683" ph="SELECT *, `u... shittalk" />
-                <marker date="1496349128000" expanded="true" signature="3112:3146" ph="DELETE FROM " />
-                <marker date="1496349128000" expanded="true" signature="3132:3146" ph="DELETE FROM " />
-                <marker date="1496349128000" expanded="true" signature="3642:3978" ph="UPDATE `time... " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="build_cfg_dota2.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/php/build_cfg_dota2.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="7" column="33" lean-forward="false" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="33" />
-              <folding>
-                <marker date="1496349128000" expanded="true" signature="2193:2323" ph="SELECT *, `u... shittalkDB" />
-                <marker date="1496349128000" expanded="true" signature="2670:2798" ph="UPDATE `time... " />
+                <marker date="1496356748000" expanded="true" signature="2558:2633" ph="SELECT `id`,... shittalk" />
+                <marker date="1496356748000" expanded="true" signature="2558:2742" ph="SELECT `id`,... shittalk" />
+                <marker date="1496356748000" expanded="true" signature="3150:3305" ph="SELECT `id`,... shittalk" />
+                <marker date="1496356748000" expanded="true" signature="3716:3890" ph="SELECT `id`,... shittalk" />
+                <marker date="1496356748000" expanded="true" signature="4311:4448" ph="SELECT `id`,... shittalk" />
+                <marker date="1496356748000" expanded="true" signature="4311:4485" ph="SELECT `id`,... shittalk" />
+                <marker date="1496356748000" expanded="true" signature="5120:5191" ph="SELECT COUNT... shittalk" />
+                <marker date="1496356748000" expanded="true" signature="5706:5869" ph="SELECT `id`,... shittalk" />
+                <marker date="1496356748000" expanded="true" signature="6335:6469" ph="SELECT `id`,... shittalk" />
+                <marker date="1496356748000" expanded="true" signature="6418:6469" ph="SELECT `id`,... shittalk" />
+                <marker date="1496356748000" expanded="true" signature="7139:7258" ph="INSERT INTO `shittalk`... " />
+                <marker date="1496356748000" expanded="true" signature="7399:7454" ph="UPDATE shitt... " />
+                <marker date="1496356748000" expanded="true" signature="7608:7667" ph="UPDATE shitt... " />
+                <marker date="1496356748000" expanded="true" signature="7623:7667" ph="UPDATE shitt... " />
               </folding>
             </state>
           </provider>
@@ -171,10 +149,61 @@
       <file leaf-file-name="import_old.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/php/import_old.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="40">
-              <caret line="2" column="23" lean-forward="false" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
+            <state relative-caret-position="117">
+              <caret line="82" column="12" lean-forward="false" selection-start-line="82" selection-start-column="12" selection-end-line="82" selection-end-column="12" />
               <folding>
-                <marker date="1496349128000" expanded="true" signature="941:1060" ph="INSERT INTO `shittalkDB`... " />
+                <marker date="1496349128000" expanded="true" signature="941:1060" ph="INSERT INTO `shittalk`... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="build_cfg.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/php/build_cfg.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-460">
+              <caret line="45" column="14" lean-forward="false" selection-start-line="45" selection-start-column="14" selection-end-line="45" selection-end-column="14" />
+              <folding>
+                <marker date="1496357845000" expanded="true" signature="1155:1224" ph="{...}" />
+                <marker date="1496357845000" expanded="true" signature="2162:2563" ph="{...}" />
+                <marker date="1496357845000" expanded="true" signature="2225:2352" ph="SELECT *, `u... shittalkDB" />
+                <marker date="1496357845000" expanded="true" signature="2435:2538" ph="..." />
+                <marker date="1496357845000" expanded="true" signature="2483:2532" ph="..." />
+                <marker date="1496357845000" expanded="true" signature="2593:2855" ph="{...}" />
+                <marker date="1496357845000" expanded="true" signature="2699:2827" ph="UPDATE `time... " />
+                <marker date="1496357845000" expanded="true" signature="2903:3098" ph="{...}" />
+                <marker date="1496357845000" expanded="true" signature="3062:3095" ph="..." />
+                <marker date="1496357845000" expanded="true" signature="3138:3751" ph="{...}" />
+                <marker date="1496357845000" expanded="true" signature="3161:3447" ph="..." />
+                <marker date="1496357845000" expanded="true" signature="3472:3694" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="delete_downvoted.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/php/delete_downvoted.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="308">
+              <caret line="108" column="42" lean-forward="false" selection-start-line="108" selection-start-column="42" selection-end-line="108" selection-end-column="42" />
+              <folding>
+                <marker date="1496357836000" expanded="true" signature="527:2950" ph="{...}" />
+                <marker date="1496357836000" expanded="true" signature="2278:2293" ph="..." />
+                <marker date="1496357836000" expanded="true" signature="2278:2860" ph="..." />
+                <marker date="1496357836000" expanded="true" signature="2278:2866" ph="..." />
+                <marker date="1496357836000" expanded="true" signature="2333:2613" ph="..." />
+                <marker date="1496357836000" expanded="true" signature="2432:2599" ph="..." />
+                <marker date="1496357836000" expanded="true" signature="2621:2848" ph="..." />
+                <marker date="1496357836000" expanded="true" signature="2667:2834" ph="..." />
+                <marker date="1496357836000" expanded="true" signature="2995:3307" ph="{...}" />
+                <marker date="1496357836000" expanded="true" signature="3064:3302" ph="..." />
+                <marker date="1496357836000" expanded="true" signature="3112:3146" ph="DELETE FROM " />
+                <marker date="1496357836000" expanded="true" signature="3132:3146" ph="DELETE FROM " />
+                <marker date="1496357836000" expanded="true" signature="3237:3296" ph="..." />
+                <marker date="1496357836000" expanded="true" signature="3378:4131" ph="{...}" />
+                <marker date="1496357836000" expanded="true" signature="3642:3978" ph="UPDATE `time... " />
+                <marker date="1496357836000" expanded="true" signature="4042:4087" ph="..." />
+                <marker date="1496357836000" expanded="true" signature="4095:4127" ph="..." />
               </folding>
             </state>
           </provider>
@@ -193,18 +222,41 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>sh</find>
-      <find>s</find>
-      <find>shittal</find>
-      <find>shittalk_g</find>
-      <find>shittalkD</find>
-      <find>shittalk</find>
-      <find>url: &quot;php/</find>
       <find>shittalk_</find>
-      <find>shittalkDB</find>
+      <find>=</find>
+      <find>=</find>
+      <find>= []</find>
+      <find>= [];</find>
+      <find>shittalk_g</find>
+      <find>get_RateMoreTableRows</find>
+      <find>shittalk</find>
+      <find>UPDATE shittalk</find>
+      <find>`</find>
+      <find>`s</find>
+      <find>`sh</find>
+      <find>`shit</find>
+      <find>`shittal</find>
+      <find>`shittalk.</find>
+      <find>`shittalk1.</find>
+      <find>`shittalk1</find>
+      <find>`shittalk</find>
+      <find>`shittalk`</find>
+      <find>`shittalk`.</find>
+      <find>`shittalk`.s</find>
+      <find>`shittalk`.sh</find>
+      <find>`shittalk`.shit</find>
+      <find>`shittalk`.shittal</find>
+      <find>`shittalk`.shittalk</find>
+      <find>`shittalk`.shittalk`</find>
+      <find>`shittalk`.`shittalk`</find>
       <find>[]</find>
+      <find>OR (`upvotes` - `downvotes`) IS NULL</find>
+      <find>shittalkDB</find>
     </findStrings>
     <replaceStrings>
+      <replace>= array();</replace>
+      <replace>UPDATE `shittalk`.`shittalk`</replace>
+      <replace />
       <replace>shittalk</replace>
     </replaceStrings>
     <dirStrings>
@@ -240,17 +292,17 @@
         <option value="$PROJECT_DIR$/js/shittalk_test.js" />
         <option value="$PROJECT_DIR$/index_test.php" />
         <option value="$PROJECT_DIR$/js/shittalk.js" />
-        <option value="$PROJECT_DIR$/index.php" />
-        <option value="$PROJECT_DIR$/js/shittalk_v2.js" />
-        <option value="$PROJECT_DIR$/php/shittalk_functions.php" />
-        <option value="$PROJECT_DIR$/php/controller/controller.php" />
-        <option value="$PROJECT_DIR$/php/build_cfg.php" />
-        <option value="$PROJECT_DIR$/php/delete_downvoted.php" />
-        <option value="$PROJECT_DIR$/php/build_cfg_dota2.php" />
         <option value="$PROJECT_DIR$/php/import_old.php" />
-        <option value="$PROJECT_DIR$/php/connect.php" />
-        <option value="$PROJECT_DIR$/php/setup/setup.php" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/php/build_cfg.php" />
+        <option value="$PROJECT_DIR$/php/build_cfg_dota2.php" />
+        <option value="$PROJECT_DIR$/php/shittalk_functions.php" />
+        <option value="$PROJECT_DIR$/php/delete_downvoted.php" />
+        <option value="$PROJECT_DIR$/php/controller/controller.php" />
+        <option value="$PROJECT_DIR$/php/connect.php" />
+        <option value="$PROJECT_DIR$/js/shittalk_v2.js" />
+        <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/php/setup/setup.php" />
       </list>
     </option>
   </component>
@@ -339,6 +391,42 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="php" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controller" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="shittalk_generator" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="shittalk" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="shittalk_v2.js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NestingTreeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="shittalk_generator" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="shittalk" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="js" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
@@ -350,7 +438,6 @@
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="watcher.settings" />
-    <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="js-jscs-nodeInterpreter" value="F:\Progs\nodejs\node.exe" />
@@ -384,6 +471,34 @@
     </option>
   </component>
   <component name="RunManager">
+    <configuration default="true" type="BashConfigurationType" factoryName="Bash">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="INTERPRETER_PATH" value="/bin/bash" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="CodeceptionConfigurationType" factoryName="Codeception">
+      <PhpTestRunnerSettings />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerJest" factoryName="Jest">
+      <node-interpreter value="project" />
+      <working-dir value="" />
+      <envs />
+      <scope-kind value="ALL" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerProtractor" factoryName="Protractor">
+      <config-file value="" />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
       <method />
     </configuration>
@@ -399,6 +514,18 @@
       <method />
     </configuration>
     <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpSpecConfigurationType" factoryName="PHPSpec">
+      <PhpTestRunnerSettings />
+      <method />
+    </configuration>
+    <configuration default="true" type="RRunConfigurationType" factoryName="R">
+      <option name="SCRIPT_PATH" value="" />
+      <option name="SCRIPT_ARGS" value="" />
+      <option name="WORKING_DIRECTORY_PATH" value="" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
@@ -444,12 +571,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1451534325540</updated>
-      <workItem from="1496348958445" duration="2146000" />
+      <workItem from="1496348958445" duration="5773000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2146000" />
+    <option name="totallyTimeSpent" value="5773000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -474,7 +601,7 @@
       <window_info id="R Packages" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="R Graphics" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32135308" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32056737" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -490,22 +617,24 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20613107" sideWeight="0.503125" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20811099" sideWeight="0.496875" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39957717" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20824525" sideWeight="0.496875" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.4978678" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28340292" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32230523" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33049646" sideWeight="0.4978678" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28755364" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="combo" />
+      <window_info id="R Packages" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="R Graphics" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32056737" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -578,18 +707,20 @@
           <caret line="103" column="48" lean-forward="false" selection-start-line="103" selection-start-column="48" selection-end-line="103" selection-end-column="48" />
           <folding>
             <element signature="e#6#90#0#PHP" expanded="true" />
-            <marker date="1496349128000" expanded="true" signature="2580:2650" ph="SELECT `id`,... shittalkDB" />
-            <marker date="1496349128000" expanded="true" signature="2580:2725" ph="SELECT `id`,... shittalk" />
-            <marker date="1496349128000" expanded="true" signature="3138:3242" ph="SELECT `id`,... shittalk" />
-            <marker date="1496349128000" expanded="true" signature="3658:3795" ph="SELECT `id`,... shittalk" />
-            <marker date="1496349128000" expanded="true" signature="4221:4355" ph="SELECT `id`,... shittalk" />
-            <marker date="1496349128000" expanded="true" signature="4990:5061" ph="SELECT COUNT... shittalk" />
-            <marker date="1496349128000" expanded="true" signature="5571:5683" ph="SELECT `id`,... shittalk" />
-            <marker date="1496349128000" expanded="true" signature="6149:6257" ph="SELECT `id`,... shittalk" />
-            <marker date="1496349128000" expanded="true" signature="6927:7046" ph="INSERT INTO `shittalk`... " />
-            <marker date="1496349128000" expanded="true" signature="7187:7242" ph="UPDATE shitt... " />
-            <marker date="1496349128000" expanded="true" signature="7396:7455" ph="UPDATE shitt... " />
-            <marker date="1496349128000" expanded="true" signature="7411:7455" ph="UPDATE shitt... " />
+            <marker date="1496356748000" expanded="true" signature="2558:2633" ph="SELECT `id`,... shittalk" />
+            <marker date="1496356748000" expanded="true" signature="2558:2742" ph="SELECT `id`,... shittalk" />
+            <marker date="1496356748000" expanded="true" signature="3150:3305" ph="SELECT `id`,... shittalk" />
+            <marker date="1496356748000" expanded="true" signature="3716:3890" ph="SELECT `id`,... shittalk" />
+            <marker date="1496356748000" expanded="true" signature="4311:4448" ph="SELECT `id`,... shittalk" />
+            <marker date="1496356748000" expanded="true" signature="4311:4485" ph="SELECT `id`,... shittalk" />
+            <marker date="1496356748000" expanded="true" signature="5120:5191" ph="SELECT COUNT... shittalk" />
+            <marker date="1496356748000" expanded="true" signature="5706:5869" ph="SELECT `id`,... shittalk" />
+            <marker date="1496356748000" expanded="true" signature="6335:6469" ph="SELECT `id`,... shittalk" />
+            <marker date="1496356748000" expanded="true" signature="6418:6469" ph="SELECT `id`,... shittalk" />
+            <marker date="1496356748000" expanded="true" signature="7139:7258" ph="INSERT INTO `shittalk`... " />
+            <marker date="1496356748000" expanded="true" signature="7399:7454" ph="UPDATE shitt... " />
+            <marker date="1496356748000" expanded="true" signature="7608:7667" ph="UPDATE shitt... " />
+            <marker date="1496356748000" expanded="true" signature="7623:7667" ph="UPDATE shitt... " />
           </folding>
         </state>
       </provider>
@@ -643,18 +774,20 @@
           <caret line="103" column="48" lean-forward="false" selection-start-line="103" selection-start-column="48" selection-end-line="103" selection-end-column="48" />
           <folding>
             <element signature="e#6#90#0#PHP" expanded="true" />
-            <marker date="1496349128000" expanded="true" signature="2580:2650" ph="SELECT `id`,... shittalkDB" />
-            <marker date="1496349128000" expanded="true" signature="2580:2725" ph="SELECT `id`,... shittalk" />
-            <marker date="1496349128000" expanded="true" signature="3138:3242" ph="SELECT `id`,... shittalk" />
-            <marker date="1496349128000" expanded="true" signature="3658:3795" ph="SELECT `id`,... shittalk" />
-            <marker date="1496349128000" expanded="true" signature="4221:4355" ph="SELECT `id`,... shittalk" />
-            <marker date="1496349128000" expanded="true" signature="4990:5061" ph="SELECT COUNT... shittalk" />
-            <marker date="1496349128000" expanded="true" signature="5571:5683" ph="SELECT `id`,... shittalk" />
-            <marker date="1496349128000" expanded="true" signature="6149:6257" ph="SELECT `id`,... shittalk" />
-            <marker date="1496349128000" expanded="true" signature="6927:7046" ph="INSERT INTO `shittalk`... " />
-            <marker date="1496349128000" expanded="true" signature="7187:7242" ph="UPDATE shitt... " />
-            <marker date="1496349128000" expanded="true" signature="7396:7455" ph="UPDATE shitt... " />
-            <marker date="1496349128000" expanded="true" signature="7411:7455" ph="UPDATE shitt... " />
+            <marker date="1496356748000" expanded="true" signature="2558:2633" ph="SELECT `id`,... shittalk" />
+            <marker date="1496356748000" expanded="true" signature="2558:2742" ph="SELECT `id`,... shittalk" />
+            <marker date="1496356748000" expanded="true" signature="3150:3305" ph="SELECT `id`,... shittalk" />
+            <marker date="1496356748000" expanded="true" signature="3716:3890" ph="SELECT `id`,... shittalk" />
+            <marker date="1496356748000" expanded="true" signature="4311:4448" ph="SELECT `id`,... shittalk" />
+            <marker date="1496356748000" expanded="true" signature="4311:4485" ph="SELECT `id`,... shittalk" />
+            <marker date="1496356748000" expanded="true" signature="5120:5191" ph="SELECT COUNT... shittalk" />
+            <marker date="1496356748000" expanded="true" signature="5706:5869" ph="SELECT `id`,... shittalk" />
+            <marker date="1496356748000" expanded="true" signature="6335:6469" ph="SELECT `id`,... shittalk" />
+            <marker date="1496356748000" expanded="true" signature="6418:6469" ph="SELECT `id`,... shittalk" />
+            <marker date="1496356748000" expanded="true" signature="7139:7258" ph="INSERT INTO `shittalk`... " />
+            <marker date="1496356748000" expanded="true" signature="7399:7454" ph="UPDATE shitt... " />
+            <marker date="1496356748000" expanded="true" signature="7608:7667" ph="UPDATE shitt... " />
+            <marker date="1496356748000" expanded="true" signature="7623:7667" ph="UPDATE shitt... " />
           </folding>
         </state>
       </provider>
@@ -686,18 +819,20 @@
           <caret line="53" column="57" lean-forward="false" selection-start-line="53" selection-start-column="57" selection-end-line="53" selection-end-column="57" />
           <folding>
             <element signature="e#6#90#0#PHP" expanded="true" />
-            <marker date="1496349128000" expanded="true" signature="2580:2650" ph="SELECT `id`,... shittalkDB" />
-            <marker date="1496349128000" expanded="true" signature="2580:2725" ph="SELECT `id`,... shittalk" />
-            <marker date="1496349128000" expanded="true" signature="3138:3242" ph="SELECT `id`,... shittalk" />
-            <marker date="1496349128000" expanded="true" signature="3658:3795" ph="SELECT `id`,... shittalk" />
-            <marker date="1496349128000" expanded="true" signature="4221:4355" ph="SELECT `id`,... shittalk" />
-            <marker date="1496349128000" expanded="true" signature="4990:5061" ph="SELECT COUNT... shittalk" />
-            <marker date="1496349128000" expanded="true" signature="5571:5683" ph="SELECT `id`,... shittalk" />
-            <marker date="1496349128000" expanded="true" signature="6149:6257" ph="SELECT `id`,... shittalk" />
-            <marker date="1496349128000" expanded="true" signature="6927:7046" ph="INSERT INTO `shittalk`... " />
-            <marker date="1496349128000" expanded="true" signature="7187:7242" ph="UPDATE shitt... " />
-            <marker date="1496349128000" expanded="true" signature="7396:7455" ph="UPDATE shitt... " />
-            <marker date="1496349128000" expanded="true" signature="7411:7455" ph="UPDATE shitt... " />
+            <marker date="1496356748000" expanded="true" signature="2558:2633" ph="SELECT `id`,... shittalk" />
+            <marker date="1496356748000" expanded="true" signature="2558:2742" ph="SELECT `id`,... shittalk" />
+            <marker date="1496356748000" expanded="true" signature="3150:3305" ph="SELECT `id`,... shittalk" />
+            <marker date="1496356748000" expanded="true" signature="3716:3890" ph="SELECT `id`,... shittalk" />
+            <marker date="1496356748000" expanded="true" signature="4311:4448" ph="SELECT `id`,... shittalk" />
+            <marker date="1496356748000" expanded="true" signature="4311:4485" ph="SELECT `id`,... shittalk" />
+            <marker date="1496356748000" expanded="true" signature="5120:5191" ph="SELECT COUNT... shittalk" />
+            <marker date="1496356748000" expanded="true" signature="5706:5869" ph="SELECT `id`,... shittalk" />
+            <marker date="1496356748000" expanded="true" signature="6335:6469" ph="SELECT `id`,... shittalk" />
+            <marker date="1496356748000" expanded="true" signature="6418:6469" ph="SELECT `id`,... shittalk" />
+            <marker date="1496356748000" expanded="true" signature="7139:7258" ph="INSERT INTO `shittalk`... " />
+            <marker date="1496356748000" expanded="true" signature="7399:7454" ph="UPDATE shitt... " />
+            <marker date="1496356748000" expanded="true" signature="7608:7667" ph="UPDATE shitt... " />
+            <marker date="1496356748000" expanded="true" signature="7623:7667" ph="UPDATE shitt... " />
           </folding>
         </state>
       </provider>
@@ -801,14 +936,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index_test.php" />
     <entry file="file://$PROJECT_DIR$/js/shittalk_test.js" />
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4900">
-          <caret line="245" column="19" lean-forward="false" selection-start-line="245" selection-start-column="19" selection-end-line="245" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/shittalk_v2.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -817,129 +944,176 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/php/controller/controller.php">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="8" column="37" lean-forward="false" selection-start-line="8" selection-start-column="37" selection-end-line="8" selection-end-column="37" />
-          <folding>
-            <element signature="e#6#90#0#PHP" expanded="true" />
-            <marker date="1496349128000" expanded="true" signature="2580:2650" ph="SELECT `id`,... shittalkDB" />
-            <marker date="1496349128000" expanded="true" signature="2580:2725" ph="SELECT `id`,... shittalk" />
-            <marker date="1496349128000" expanded="true" signature="3138:3242" ph="SELECT `id`,... shittalk" />
-            <marker date="1496349128000" expanded="true" signature="3658:3795" ph="SELECT `id`,... shittalk" />
-            <marker date="1496349128000" expanded="true" signature="4221:4355" ph="SELECT `id`,... shittalk" />
-            <marker date="1496349128000" expanded="true" signature="4990:5061" ph="SELECT COUNT... shittalk" />
-            <marker date="1496349128000" expanded="true" signature="5571:5683" ph="SELECT `id`,... shittalk" />
-            <marker date="1496349128000" expanded="true" signature="6149:6257" ph="SELECT `id`,... shittalk" />
-            <marker date="1496349128000" expanded="true" signature="6927:7046" ph="INSERT INTO `shittalk`... " />
-            <marker date="1496349128000" expanded="true" signature="7187:7242" ph="UPDATE shitt... " />
-            <marker date="1496349128000" expanded="true" signature="7396:7455" ph="UPDATE shitt... " />
-            <marker date="1496349128000" expanded="true" signature="7411:7455" ph="UPDATE shitt... " />
-          </folding>
+        <state relative-caret-position="359">
+          <caret line="48" column="6" lean-forward="false" selection-start-line="48" selection-start-column="6" selection-end-line="48" selection-end-column="6" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/php/build_cfg_dota2.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="7" column="33" lean-forward="false" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="33" />
+        <state relative-caret-position="123">
+          <caret line="45" column="14" lean-forward="false" selection-start-line="45" selection-start-column="14" selection-end-line="45" selection-end-column="14" />
           <folding>
-            <marker date="1496349128000" expanded="true" signature="2193:2323" ph="SELECT *, `u... shittalkDB" />
-            <marker date="1496349128000" expanded="true" signature="2670:2798" ph="UPDATE `time... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/php/import_old.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="2" column="23" lean-forward="false" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
-          <folding>
-            <marker date="1496349128000" expanded="true" signature="941:1060" ph="INSERT INTO `shittalkDB`... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/shittalk_v2.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="55" column="33" lean-forward="false" selection-start-line="55" selection-start-column="33" selection-end-line="55" selection-end-column="33" />
-          <folding>
-            <marker date="1496149528000" expanded="true" signature="8415:8431" ph="..." />
-            <marker date="1496149528000" expanded="true" signature="8541:8557" ph="..." />
+            <marker date="1496357842000" expanded="true" signature="2193:2323" ph="SELECT *, `u... shittalkDB" />
+            <marker date="1496357842000" expanded="true" signature="2670:2798" ph="UPDATE `time... " />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/php/build_cfg.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1500">
-          <caret line="75" column="75" lean-forward="false" selection-start-line="75" selection-start-column="75" selection-end-line="75" selection-end-column="75" />
+        <state relative-caret-position="-460">
+          <caret line="45" column="14" lean-forward="false" selection-start-line="45" selection-start-column="14" selection-end-line="45" selection-end-column="14" />
           <folding>
-            <marker date="1496349128000" expanded="true" signature="2225:2352" ph="SELECT *, `u... shittalkDB" />
-            <marker date="1496349128000" expanded="true" signature="2699:2827" ph="UPDATE `time... " />
+            <marker date="1496357845000" expanded="true" signature="1155:1224" ph="{...}" />
+            <marker date="1496357845000" expanded="true" signature="2162:2563" ph="{...}" />
+            <marker date="1496357845000" expanded="true" signature="2225:2352" ph="SELECT *, `u... shittalkDB" />
+            <marker date="1496357845000" expanded="true" signature="2435:2538" ph="..." />
+            <marker date="1496357845000" expanded="true" signature="2483:2532" ph="..." />
+            <marker date="1496357845000" expanded="true" signature="2593:2855" ph="{...}" />
+            <marker date="1496357845000" expanded="true" signature="2699:2827" ph="UPDATE `time... " />
+            <marker date="1496357845000" expanded="true" signature="2903:3098" ph="{...}" />
+            <marker date="1496357845000" expanded="true" signature="3062:3095" ph="..." />
+            <marker date="1496357845000" expanded="true" signature="3138:3751" ph="{...}" />
+            <marker date="1496357845000" expanded="true" signature="3161:3447" ph="..." />
+            <marker date="1496357845000" expanded="true" signature="3472:3694" ph="..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/php/connect.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="19" column="27" lean-forward="false" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/php/delete_downvoted.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-200">
-          <caret line="83" column="38" lean-forward="false" selection-start-line="83" selection-start-column="38" selection-end-line="83" selection-end-column="38" />
+        <state relative-caret-position="308">
+          <caret line="108" column="42" lean-forward="false" selection-start-line="108" selection-start-column="42" selection-end-line="108" selection-end-column="42" />
           <folding>
-            <marker date="1496349128000" expanded="true" signature="602:663" ph="SELECT *, `u... shittalkDB" />
-            <marker date="1496349128000" expanded="true" signature="602:683" ph="SELECT *, `u... shittalk" />
-            <marker date="1496349128000" expanded="true" signature="3112:3146" ph="DELETE FROM " />
-            <marker date="1496349128000" expanded="true" signature="3132:3146" ph="DELETE FROM " />
-            <marker date="1496349128000" expanded="true" signature="3642:3978" ph="UPDATE `time... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/php/setup/setup.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="13" column="9" lean-forward="false" selection-start-line="13" selection-start-column="9" selection-end-line="13" selection-end-column="9" />
-          <folding>
-            <marker date="1496352611000" expanded="true" signature="980:1380" ph="CREATE TABLE... shittalk" />
-            <marker date="1496352611000" expanded="true" signature="1013:1380" ph="CREATE TABLE... shittalkDB" />
+            <marker date="1496357836000" expanded="true" signature="527:2950" ph="{...}" />
+            <marker date="1496357836000" expanded="true" signature="2278:2293" ph="..." />
+            <marker date="1496357836000" expanded="true" signature="2278:2860" ph="..." />
+            <marker date="1496357836000" expanded="true" signature="2278:2866" ph="..." />
+            <marker date="1496357836000" expanded="true" signature="2333:2613" ph="..." />
+            <marker date="1496357836000" expanded="true" signature="2432:2599" ph="..." />
+            <marker date="1496357836000" expanded="true" signature="2621:2848" ph="..." />
+            <marker date="1496357836000" expanded="true" signature="2667:2834" ph="..." />
+            <marker date="1496357836000" expanded="true" signature="2995:3307" ph="{...}" />
+            <marker date="1496357836000" expanded="true" signature="3064:3302" ph="..." />
+            <marker date="1496357836000" expanded="true" signature="3112:3146" ph="DELETE FROM " />
+            <marker date="1496357836000" expanded="true" signature="3132:3146" ph="DELETE FROM " />
+            <marker date="1496357836000" expanded="true" signature="3237:3296" ph="..." />
+            <marker date="1496357836000" expanded="true" signature="3378:4131" ph="{...}" />
+            <marker date="1496357836000" expanded="true" signature="3642:3978" ph="UPDATE `time... " />
+            <marker date="1496357836000" expanded="true" signature="4042:4087" ph="..." />
+            <marker date="1496357836000" expanded="true" signature="4095:4127" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/php/shittalk_functions.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="155" column="22" lean-forward="false" selection-start-line="155" selection-start-column="22" selection-end-line="155" selection-end-column="22" />
+        <state relative-caret-position="2060">
+          <caret line="108" column="0" lean-forward="false" selection-start-line="108" selection-start-column="0" selection-end-line="108" selection-end-column="0" />
           <folding>
-            <marker date="1496349128000" expanded="true" signature="363:409" ph="SELECT sum(`... shittalk" />
-            <marker date="1496349128000" expanded="true" signature="597:653" ph="SELECT sum(`... timestamps" />
-            <marker date="1496349128000" expanded="true" signature="976:1052" ph="SELECT `uses... timestamps" />
-            <marker date="1496349128000" expanded="true" signature="1341:1389" ph="SELECT sum(`... shittalk" />
-            <marker date="1496349128000" expanded="true" signature="1577:1635" ph="SELECT sum(`... timestamps" />
-            <marker date="1496349128000" expanded="true" signature="1976:2134" ph="SELECT sum(`... shittalk" />
-            <marker date="1496349128000" expanded="true" signature="2422:2486" ph="SELECT MAX(i... shittalk" />
-            <marker date="1496349128000" expanded="true" signature="2748:2908" ph="SELECT sum(`... shittalk" />
-            <marker date="1496349128000" expanded="true" signature="3300:3360" ph="SELECT * FRO... timestamps" />
-            <marker date="1496349128000" expanded="true" signature="3616:3693" ph="SELECT COUNT... shittalk" />
-            <marker date="1496349128000" expanded="true" signature="3954:3994" ph="SELECT COUNT... shittalk" />
+            <marker date="1496357831000" expanded="true" signature="363:409" ph="SELECT sum(`... shittalk" />
+            <marker date="1496357831000" expanded="true" signature="597:653" ph="SELECT sum(`... timestamps" />
+            <marker date="1496357831000" expanded="true" signature="976:1052" ph="SELECT `uses... timestamps" />
+            <marker date="1496357831000" expanded="true" signature="1341:1389" ph="SELECT sum(`... shittalk" />
+            <marker date="1496357831000" expanded="true" signature="1577:1635" ph="SELECT sum(`... timestamps" />
+            <marker date="1496357831000" expanded="true" signature="1976:2134" ph="SELECT sum(`... shittalk" />
+            <marker date="1496357831000" expanded="true" signature="2387:2406" ph="{...}" />
+            <marker date="1496357831000" expanded="true" signature="3602:3889" ph="{...}" />
+            <marker date="1496357831000" expanded="true" signature="3616:3693" ph="SELECT COUNT... shittalk" />
+            <marker date="1496357831000" expanded="true" signature="3762:3864" ph="..." />
+            <marker date="1496357831000" expanded="true" signature="3810:3858" ph="..." />
+            <marker date="1496357831000" expanded="true" signature="3919:4190" ph="{...}" />
+            <marker date="1496357831000" expanded="true" signature="3954:3994" ph="SELECT COUNT... shittalk" />
+            <marker date="1496357831000" expanded="true" signature="4063:4165" ph="..." />
+            <marker date="1496357831000" expanded="true" signature="4111:4159" ph="..." />
+            <marker date="1496357831000" expanded="true" signature="4195:4270" ph="..." />
+            <marker date="1496357831000" expanded="true" signature="4300:4726" ph="{...}" />
+            <marker date="1496357831000" expanded="true" signature="4581:4645" ph="..." />
+            <marker date="1496357831000" expanded="true" signature="4761:5041" ph="{...}" />
+            <marker date="1496357831000" expanded="true" signature="4875:5020" ph="..." />
+            <marker date="1496357831000" expanded="true" signature="5126:5306" ph="{...}" />
+            <marker date="1496357831000" expanded="true" signature="5218:5260" ph="..." />
+            <marker date="1496357831000" expanded="true" signature="5268:5303" ph="..." />
+            <marker date="1496357831000" expanded="true" signature="5346:6012" ph="{...}" />
+            <marker date="1496357831000" expanded="true" signature="5369:5682" ph="..." />
+            <marker date="1496357831000" expanded="true" signature="5707:5955" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/php/controller/controller.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="48" column="6" lean-forward="true" selection-start-line="48" selection-start-column="6" selection-end-line="48" selection-end-column="6" />
+        <state relative-caret-position="4960">
+          <caret line="248" column="16" lean-forward="false" selection-start-line="248" selection-start-column="16" selection-end-line="248" selection-end-column="16" />
+          <folding>
+            <element signature="e#6#90#0#PHP" expanded="true" />
+            <marker date="1496356748000" expanded="true" signature="2558:2633" ph="SELECT `id`,... shittalk" />
+            <marker date="1496356748000" expanded="true" signature="2558:2742" ph="SELECT `id`,... shittalk" />
+            <marker date="1496356748000" expanded="true" signature="3150:3305" ph="SELECT `id`,... shittalk" />
+            <marker date="1496356748000" expanded="true" signature="3716:3890" ph="SELECT `id`,... shittalk" />
+            <marker date="1496356748000" expanded="true" signature="4311:4448" ph="SELECT `id`,... shittalk" />
+            <marker date="1496356748000" expanded="true" signature="4311:4485" ph="SELECT `id`,... shittalk" />
+            <marker date="1496356748000" expanded="true" signature="5120:5191" ph="SELECT COUNT... shittalk" />
+            <marker date="1496356748000" expanded="true" signature="5706:5869" ph="SELECT `id`,... shittalk" />
+            <marker date="1496356748000" expanded="true" signature="6335:6469" ph="SELECT `id`,... shittalk" />
+            <marker date="1496356748000" expanded="true" signature="6418:6469" ph="SELECT `id`,... shittalk" />
+            <marker date="1496356748000" expanded="true" signature="7139:7258" ph="INSERT INTO `shittalk`... " />
+            <marker date="1496356748000" expanded="true" signature="7399:7454" ph="UPDATE shitt... " />
+            <marker date="1496356748000" expanded="true" signature="7608:7667" ph="UPDATE shitt... " />
+            <marker date="1496356748000" expanded="true" signature="7623:7667" ph="UPDATE shitt... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/import_old.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="117">
+          <caret line="82" column="12" lean-forward="false" selection-start-line="82" selection-start-column="12" selection-end-line="82" selection-end-column="12" />
+          <folding>
+            <marker date="1496349128000" expanded="true" signature="941:1060" ph="INSERT INTO `shittalk`... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/connect.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/shittalk_v2.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="179" column="6" lean-forward="false" selection-start-line="179" selection-start-column="6" selection-end-line="179" selection-end-column="6" />
+          <folding>
+            <marker date="1496357563000" expanded="true" signature="8415:8431" ph="..." />
+            <marker date="1496357563000" expanded="true" signature="8541:8557" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="211" column="51" lean-forward="false" selection-start-line="211" selection-start-column="51" selection-end-line="211" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/setup/setup.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="11" column="28" lean-forward="false" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
+          <folding>
+            <marker date="1496357875000" expanded="true" signature="384:812" ph="CREATE TABLE... shittalk" />
+            <marker date="1496357875000" expanded="true" signature="417:812" ph="CREATE TABLE... shittalkDB" />
+          </folding>
         </state>
       </provider>
     </entry>
