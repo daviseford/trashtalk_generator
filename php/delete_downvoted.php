@@ -25,7 +25,7 @@ function getRowsForDeletion()
     $arrayOfIDs = [];
     $downvotes = 0;
     $upvotes = 0;
-    $sql = "SELECT *, `upvotes` - `downvotes` AS `netVotes` FROM shittalkDB WHERE downvotes > 0;";
+    $sql = "SELECT *, `upvotes` - `downvotes` AS `netVotes` FROM shittalk WHERE downvotes > 0;";
     $result = mySqlQuery($sql);
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
@@ -81,7 +81,7 @@ function deleteAllSelectedRows($arrayOfIDs)
     $max = count($arrayOfIDs);
     for ($i = 0; $i < $max; $i++) {
         $id = $arrayOfIDs[$i];
-        $sql = "DELETE FROM shittalkDB WHERE `id` = $id;";
+        $sql = "DELETE FROM shittalk WHERE `id` = $id;";
         $result = mySqlQuery($sql);
         if ($result === 1 || $result === true) {
             echo 'Deleted row ' . $id . '<br />';

@@ -12,5 +12,7 @@
     <orderEntry type="library" name="respond" level="application" />
     <orderEntry type="library" name="04761ed2a5778c505527" level="application" />
     <orderEntry type="library" name="zepto" level="application" />
+    <orderEntry type="library" name="R User Library" level="project" />
+    <orderEntry type="library" name="R Skeletons" level="application" />
   </component>
 </module>

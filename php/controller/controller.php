@@ -81,7 +81,7 @@ if (isset($postdec['query'])) {
 
 function getRecentList()
 {
-    $sql = "SELECT `id`, `text`, `upvotes`-`downvotes` AS `netVotes` FROM shittalkDB WHERE (`upvotes` - `downvotes`) > -5 ORDER by `date_created` DESC LIMIT 20;";
+    $sql = "SELECT `id`, `text`, `upvotes`-`downvotes` AS `netVotes` FROM shittalk WHERE (`upvotes` - `downvotes`) > -5 ORDER by `date_created` DESC LIMIT 20;";
     $result = mySqlQuery($sql);
     $response = [];
     if ($result->num_rows > 0) {
@@ -98,7 +98,7 @@ function getRecentList()
 
 function getTopList()
 {
-    $sql = "SELECT `id`, `text`, `upvotes`-`downvotes` AS `netVotes` FROM shittalkDB ORDER by `netVotes` DESC LIMIT 50;";
+    $sql = "SELECT `id`, `text`, `upvotes`-`downvotes` AS `netVotes` FROM shittalk ORDER by `netVotes` DESC LIMIT 50;";
     $result = mySqlQuery($sql);
     $response = [];
     if ($result->num_rows > 0) {
@@ -115,7 +115,7 @@ function getTopList()
 
 function getRandomList()
 {
-    $sql = "SELECT `id`, `text`, `upvotes`-`downvotes` AS `netVotes` FROM shittalkDB WHERE (`upvotes` - `downvotes`) > -5 ORDER by rand() DESC LIMIT 20;";
+    $sql = "SELECT `id`, `text`, `upvotes`-`downvotes` AS `netVotes` FROM shittalk WHERE (`upvotes` - `downvotes`) > -5 ORDER by rand() DESC LIMIT 20;";
     $result = mySqlQuery($sql);
     $response = [];
     if ($result->num_rows > 0) {
@@ -132,7 +132,7 @@ function getRandomList()
 
 function createRateMoreTableRows()
 {
-    $sql = "SELECT `id`, `text`, `upvotes` - `downvotes` AS `netVotes` FROM shittalkDB WHERE (`upvotes` - `downvotes`) > -5 ORDER BY rand() LIMIT 25;";
+    $sql = "SELECT `id`, `text`, `upvotes` - `downvotes` AS `netVotes` FROM shittalk WHERE (`upvotes` - `downvotes`) > -5 ORDER BY rand() LIMIT 25;";
     $result = mySqlQuery($sql);
 
     $response = [];
@@ -149,7 +149,7 @@ function checkIfDuplicate($text)
 {
     $response = 0;
     $text_escaped = mysql_escape_mimic($text);
-    $sql = "SELECT COUNT(*) AS `total` FROM shittalkDB WHERE `text` = '$text_escaped';";
+    $sql = "SELECT COUNT(*) AS `total` FROM shittalk WHERE `text` = '$text_escaped';";
     $result = mySqlQuery($sql);
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
@@ -169,7 +169,7 @@ function getRandomRows($limit)
     /* Let's try to target stuff without votes first */
     if ($randomInt <= 3) { //let's not bias it too much in favor, but we do want to include some new stuff when possible
 
-        $sql = "SELECT `id`, `text` FROM shittalkDB WHERE `upvotes` < 2 AND `downvotes` < 2 AND `text`<>'' ORDER BY rand() LIMIT 1;";
+        $sql = "SELECT `id`, `text` FROM shittalk WHERE `upvotes` < 2 AND `downvotes` < 2 AND `text`<>'' ORDER BY rand() LIMIT 1;";
         $result = mySqlQuery($sql);
 
         if ($result->num_rows > 0) {
@@ -184,7 +184,7 @@ function getRandomRows($limit)
         }
     }
 
-    $sql = "SELECT `id`, `text` FROM shittalkDB WHERE (`upvotes` - `downvotes`) > -5 AND `text`<>'' ORDER BY rand() LIMIT $limit_escaped;";
+    $sql = "SELECT `id`, `text` FROM shittalk WHERE (`upvotes` - `downvotes`) > -5 AND `text`<>'' ORDER BY rand() LIMIT $limit_escaped;";
     $result = mySqlQuery($sql);
 
     if ($result->num_rows > 0) {
@@ -208,7 +208,7 @@ function createShittalkRow($text)
     $text_escaped = mysql_escape_mimic(strip_double_quotes($text));
     $today = mysql_escape_mimic(date("Y-m-d H:i:s"));
 
-    $sql = "INSERT INTO `shittalkDB`
+    $sql = "INSERT INTO `shittalk`
             (`text`, `date_created`, `custom`)
             VALUES ('$text_escaped', '$today', 1);";
     $result = mySqlQuery($sql);
@@ -219,7 +219,7 @@ function createShittalkRow($text)
 function upvoteRow($id)
 {
     $id_escaped = mysql_escape_mimic($id);
-    $sql = "UPDATE shittalkDB SET upvotes = upvotes + 1 WHERE `id` = $id_escaped;";
+    $sql = "UPDATE shittalk SET upvotes = upvotes + 1 WHERE `id` = $id_escaped;";
     $result = mySqlQuery($sql);
 
     return $result;
@@ -228,7 +228,7 @@ function upvoteRow($id)
 function downvoteRow($id)
 {
     $id_escaped = mysql_escape_mimic($id);
-    $sql = "UPDATE shittalkDB SET downvotes = downvotes + 1 WHERE `id` = $id_escaped;";
+    $sql = "UPDATE shittalk SET downvotes = downvotes + 1 WHERE `id` = $id_escaped;";
     $result = mySqlQuery($sql);
 
     return $result;

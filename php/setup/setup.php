@@ -6,23 +6,46 @@
  * Time: 12:30 AM
  */
 
-require_once(__DIR__ . '/../shittalk_functions.php');
-
-set_time_limit(0);
+ini_set('display_errors', true);
 error_reporting(E_ALL);
-ob_implicit_flush(TRUE);
-ob_end_flush();
+if(is_readable('../shittalk_functions.php')) {
+    echo('ok!');
+}
+include('../shittalk_functions.php');
+
+createshittalk();
+echo "hey";
+
+//function mySqlQuery($query)
+//{
+//    $servername = 'shittalk.cinwj67fm5hu.us-east-1.rds.amazonaws.com';
+//    $username = "shittalk";
+//    $password = "shittalk";
+//    $dbname = "shittalk";
+//
+//    $conn = new mysqli($servername, $username, $password, $dbname);
+//
+//    // Check connection
+//    if ($conn->connect_error) {
+//        die("Connection failed: " . $conn->connect_error);
+//    }
+//    $result = $conn->query($query);
+//
+//    $conn->close();
+//
+//    return $result;
+//}
 
 function createSchema()
 {
-    $sql = "CREATE DATABASE `shittalk_generator` /*!40100 DEFAULT CHARACTER SET utf8 */;";
+    $sql = "CREATE DATABASE `shittalk` /*!40100 DEFAULT CHARACTER SET utf8 */;";
     $result = mySqlQuery($sql);
     return $result;
 }
 
-function createShittalkDB()
+function createshittalk()
 {
-    $sql = "CREATE TABLE `shittalk_generator`.`shittalkDB` (
+    $sql = "CREATE TABLE `shittalk`.`shittalk` (
       `id` INT NOT NULL AUTO_INCREMENT,
       `text` TEXT NULL,
       `category` TEXT NULL,

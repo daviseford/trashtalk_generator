@@ -32,7 +32,7 @@ function createShittalkRow($text)
     $text_escaped = mysql_escape_mimic(strip_double_quotes($text));
     $today = mysql_escape_mimic(date("Y-m-d H:i:s"));
 
-    $sql = "INSERT INTO `shittalkDB`
+    $sql = "INSERT INTO `shittalk`
             (`text`, `date_created`, `custom`)
             VALUES ('$text_escaped', '$today', 0);";
     $result = mySqlQuery($sql);

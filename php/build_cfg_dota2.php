@@ -75,7 +75,7 @@ function getUpvotedTextRowsForCfg($limit = 150)
 {
     $response = [];
     $limit_escaped = mysql_escape_mimic($limit);
-    $sql = "SELECT *, `upvotes` - `downvotes` AS `netVotes` FROM shittalkDB WHERE (`upvotes` - `downvotes`) >= 5 ORDER by `netVotes` DESC LIMIT $limit_escaped;";
+    $sql = "SELECT *, `upvotes` - `downvotes` AS `netVotes` FROM shittalk WHERE (`upvotes` - `downvotes`) >= 5 ORDER by `netVotes` DESC LIMIT $limit_escaped;";
     $result = mySqlQuery($sql);
 
     if ($result->num_rows > 0) {
