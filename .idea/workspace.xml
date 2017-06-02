@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e71ba388-5453-4657-bab2-4131080d390b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cfg/new_shittalk.cfg" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/php/import_old.php" afterPath="$PROJECT_DIR$/php/import_old.php" />
     </list>
     <ignored path="shittalk_generator.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,7 +27,7 @@
       <file leaf-file-name="shittalk_v2.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/shittalk_v2.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
+            <state relative-caret-position="3580">
               <caret line="179" column="6" lean-forward="false" selection-start-line="179" selection-start-column="6" selection-end-line="179" selection-end-column="6" />
               <folding>
                 <marker date="1496357563000" expanded="true" signature="8415:8431" ph="..." />
@@ -39,11 +37,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="46" column="86" lean-forward="false" selection-start-line="46" selection-start-column="86" selection-end-line="46" selection-end-column="86" />
+            <state relative-caret-position="243">
+              <caret line="79" column="61" lean-forward="false" selection-start-line="79" selection-start-column="61" selection-end-line="79" selection-end-column="61" />
               <folding />
             </state>
           </provider>
@@ -97,7 +95,7 @@
       <file leaf-file-name="controller.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/php/controller/controller.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3063">
+            <state relative-caret-position="4960">
               <caret line="248" column="16" lean-forward="false" selection-start-line="248" selection-start-column="16" selection-end-line="248" selection-end-column="16" />
               <folding>
                 <element signature="e#6#90#0#PHP" expanded="true" />
@@ -120,10 +118,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="import_old.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="import_old.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/php/import_old.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
+            <state relative-caret-position="800">
               <caret line="40" column="26" lean-forward="false" selection-start-line="40" selection-start-column="26" selection-end-line="40" selection-end-column="26" />
               <folding>
                 <marker date="1496359044000" expanded="true" signature="1117:1236" ph="INSERT INTO `shittalk`... " />
@@ -135,21 +133,13 @@
       <file leaf-file-name="build_cfg.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/php/build_cfg.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-460">
+            <state relative-caret-position="900">
               <caret line="45" column="14" lean-forward="false" selection-start-line="45" selection-start-column="14" selection-end-line="45" selection-end-column="14" />
               <folding>
                 <marker date="1496357845000" expanded="true" signature="1155:1224" ph="{...}" />
                 <marker date="1496357845000" expanded="true" signature="2162:2563" ph="{...}" />
                 <marker date="1496357845000" expanded="true" signature="2225:2352" ph="SELECT *, `u... shittalkDB" />
-                <marker date="1496357845000" expanded="true" signature="2435:2538" ph="..." />
-                <marker date="1496357845000" expanded="true" signature="2483:2532" ph="..." />
-                <marker date="1496357845000" expanded="true" signature="2593:2855" ph="{...}" />
                 <marker date="1496357845000" expanded="true" signature="2699:2827" ph="UPDATE `time... " />
-                <marker date="1496357845000" expanded="true" signature="2903:3098" ph="{...}" />
-                <marker date="1496357845000" expanded="true" signature="3062:3095" ph="..." />
-                <marker date="1496357845000" expanded="true" signature="3138:3751" ph="{...}" />
-                <marker date="1496357845000" expanded="true" signature="3161:3447" ph="..." />
-                <marker date="1496357845000" expanded="true" signature="3472:3694" ph="..." />
               </folding>
             </state>
           </provider>
@@ -158,26 +148,10 @@
       <file leaf-file-name="delete_downvoted.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/php/delete_downvoted.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
+            <state relative-caret-position="2160">
               <caret line="108" column="42" lean-forward="false" selection-start-line="108" selection-start-column="42" selection-end-line="108" selection-end-column="42" />
               <folding>
-                <marker date="1496357836000" expanded="true" signature="527:2950" ph="{...}" />
                 <marker date="1496357836000" expanded="true" signature="2278:2293" ph="..." />
-                <marker date="1496357836000" expanded="true" signature="2278:2860" ph="..." />
-                <marker date="1496357836000" expanded="true" signature="2278:2866" ph="..." />
-                <marker date="1496357836000" expanded="true" signature="2333:2613" ph="..." />
-                <marker date="1496357836000" expanded="true" signature="2432:2599" ph="..." />
-                <marker date="1496357836000" expanded="true" signature="2621:2848" ph="..." />
-                <marker date="1496357836000" expanded="true" signature="2667:2834" ph="..." />
-                <marker date="1496357836000" expanded="true" signature="2995:3307" ph="{...}" />
-                <marker date="1496357836000" expanded="true" signature="3064:3302" ph="..." />
-                <marker date="1496357836000" expanded="true" signature="3112:3146" ph="DELETE FROM " />
-                <marker date="1496357836000" expanded="true" signature="3132:3146" ph="DELETE FROM " />
-                <marker date="1496357836000" expanded="true" signature="3237:3296" ph="..." />
-                <marker date="1496357836000" expanded="true" signature="3378:4131" ph="{...}" />
-                <marker date="1496357836000" expanded="true" signature="3642:3978" ph="UPDATE `time... " />
-                <marker date="1496357836000" expanded="true" signature="4042:4087" ph="..." />
-                <marker date="1496357836000" expanded="true" signature="4095:4127" ph="..." />
               </folding>
             </state>
           </provider>
@@ -275,10 +249,10 @@
         <option value="$PROJECT_DIR$/php/connect.php" />
         <option value="$PROJECT_DIR$/js/shittalk_v2.js" />
         <option value="$PROJECT_DIR$/php/setup/setup.php" />
-        <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/php/import_old.php" />
         <option value="$PROJECT_DIR$/blah.html" />
         <option value="$PROJECT_DIR$/blah.php" />
+        <option value="$PROJECT_DIR$/index.php" />
       </list>
     </option>
   </component>
@@ -312,6 +286,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -388,10 +363,6 @@
               <option name="myItemId" value="js" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="shittalk_v2.js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NestingTreeNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -403,7 +374,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
+              <option name="myItemId" value="img" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -423,7 +394,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -563,11 +533,13 @@
       <option name="presentableId" value="Default" />
       <updated>1451534325540</updated>
       <workItem from="1496348958445" duration="7438000" />
+      <workItem from="1496370794659" duration="398000" />
+      <workItem from="1496404135822" duration="182000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7438000" />
+    <option name="totallyTimeSpent" value="8018000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -579,19 +551,18 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="797" extended-state="0" />
+    <frame x="0" y="23" width="1440" height="797" extended-state="6" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20613107" sideWeight="0.503125" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33049646" sideWeight="0.4978678" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33049646" sideWeight="0.4978678" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28755364" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="R Packages" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="R Graphics" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29613733" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="R Packages" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="R Graphics" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32056737" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -601,6 +572,7 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39957717" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20824525" sideWeight="0.496875" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32056737" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -906,7 +878,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -941,54 +912,30 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/php/build_cfg.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-460">
+        <state relative-caret-position="900">
           <caret line="45" column="14" lean-forward="false" selection-start-line="45" selection-start-column="14" selection-end-line="45" selection-end-column="14" />
           <folding>
             <marker date="1496357845000" expanded="true" signature="1155:1224" ph="{...}" />
             <marker date="1496357845000" expanded="true" signature="2162:2563" ph="{...}" />
             <marker date="1496357845000" expanded="true" signature="2225:2352" ph="SELECT *, `u... shittalkDB" />
-            <marker date="1496357845000" expanded="true" signature="2435:2538" ph="..." />
-            <marker date="1496357845000" expanded="true" signature="2483:2532" ph="..." />
-            <marker date="1496357845000" expanded="true" signature="2593:2855" ph="{...}" />
             <marker date="1496357845000" expanded="true" signature="2699:2827" ph="UPDATE `time... " />
-            <marker date="1496357845000" expanded="true" signature="2903:3098" ph="{...}" />
-            <marker date="1496357845000" expanded="true" signature="3062:3095" ph="..." />
-            <marker date="1496357845000" expanded="true" signature="3138:3751" ph="{...}" />
-            <marker date="1496357845000" expanded="true" signature="3161:3447" ph="..." />
-            <marker date="1496357845000" expanded="true" signature="3472:3694" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/php/delete_downvoted.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
+        <state relative-caret-position="2160">
           <caret line="108" column="42" lean-forward="false" selection-start-line="108" selection-start-column="42" selection-end-line="108" selection-end-column="42" />
           <folding>
-            <marker date="1496357836000" expanded="true" signature="527:2950" ph="{...}" />
             <marker date="1496357836000" expanded="true" signature="2278:2293" ph="..." />
-            <marker date="1496357836000" expanded="true" signature="2278:2860" ph="..." />
-            <marker date="1496357836000" expanded="true" signature="2278:2866" ph="..." />
-            <marker date="1496357836000" expanded="true" signature="2333:2613" ph="..." />
-            <marker date="1496357836000" expanded="true" signature="2432:2599" ph="..." />
-            <marker date="1496357836000" expanded="true" signature="2621:2848" ph="..." />
-            <marker date="1496357836000" expanded="true" signature="2667:2834" ph="..." />
-            <marker date="1496357836000" expanded="true" signature="2995:3307" ph="{...}" />
-            <marker date="1496357836000" expanded="true" signature="3064:3302" ph="..." />
-            <marker date="1496357836000" expanded="true" signature="3112:3146" ph="DELETE FROM " />
-            <marker date="1496357836000" expanded="true" signature="3132:3146" ph="DELETE FROM " />
-            <marker date="1496357836000" expanded="true" signature="3237:3296" ph="..." />
-            <marker date="1496357836000" expanded="true" signature="3378:4131" ph="{...}" />
-            <marker date="1496357836000" expanded="true" signature="3642:3978" ph="UPDATE `time... " />
-            <marker date="1496357836000" expanded="true" signature="4042:4087" ph="..." />
-            <marker date="1496357836000" expanded="true" signature="4095:4127" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/shittalk_v2.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
+        <state relative-caret-position="3580">
           <caret line="179" column="6" lean-forward="false" selection-start-line="179" selection-start-column="6" selection-end-line="179" selection-end-column="6" />
           <folding>
             <marker date="1496357563000" expanded="true" signature="8415:8431" ph="..." />
@@ -999,7 +946,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/php/controller/controller.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3063">
+        <state relative-caret-position="4960">
           <caret line="248" column="16" lean-forward="false" selection-start-line="248" selection-start-column="16" selection-end-line="248" selection-end-column="16" />
           <folding>
             <element signature="e#6#90#0#PHP" expanded="true" />
@@ -1060,17 +1007,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="46" column="86" lean-forward="false" selection-start-line="46" selection-start-column="86" selection-end-line="46" selection-end-column="86" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/php/import_old.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
+        <state relative-caret-position="800">
           <caret line="40" column="26" lean-forward="false" selection-start-line="40" selection-start-column="26" selection-end-line="40" selection-end-column="26" />
           <folding>
             <marker date="1496359044000" expanded="true" signature="1117:1236" ph="INSERT INTO `shittalk`... " />
@@ -1078,18 +1017,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/blah.html">
+    <entry file="file://$PROJECT_DIR$/blah.html" />
+    <entry file="file://$PROJECT_DIR$/blah.php" />
+    <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="28" lean-forward="false" selection-start-line="0" selection-start-column="28" selection-end-line="0" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blah.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="18" lean-forward="false" selection-start-line="0" selection-start-column="18" selection-end-line="0" selection-end-column="18" />
+        <state relative-caret-position="243">
+          <caret line="79" column="61" lean-forward="false" selection-start-line="79" selection-start-column="61" selection-end-line="79" selection-end-column="61" />
           <folding />
         </state>
       </provider>

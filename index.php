@@ -44,11 +44,6 @@ if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) {
                 </div>
             </div>
         </div>
-        <div class="alert alert-info">Hey there! I've decided to reset the votes as of June 1st, 2017, as a way of
-            freshening up the config. It's been a year and a half since I first launched this page, and millions of
-            visitors have voted on insults. I figured I'd take away the incumbent advantage and hopefully open some
-            space for new, fresh insults. :)
-        </div>
     </div>
 </div>
 
@@ -82,6 +77,14 @@ if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) {
     <div class="row clearfix"></div>
 
     <div class="row">
+        <div class="col-md-8 col-md-offset-2 col-xs-12 col-xs-offset-0">
+            <div class="alert alert-info">
+                Hey there! I've decided to reset the votes as of June 1st, 2017, as a way of
+                freshening up the config. It's been a year and a half since I first launched this page, and millions of
+                visitors have voted on insults. I figured I'd take away the incumbent advantage and hopefully open some
+                space for new, fresh insults. :)
+            </div>
+        </div>
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 hidden-xs">
                 <li class="list-group-item"><h3 class="text-center">Recent Insults</h3></li>
