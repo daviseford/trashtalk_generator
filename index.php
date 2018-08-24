@@ -14,9 +14,9 @@ if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Davis Ford">
     <meta property="og:type" content="article"/>
-    <meta property="og:url" content="http://daviseford.com/shittalk/"/>
+    <meta property="og:url" content="https://daviseford.com/shittalk/"/>
     <meta property="og:title" content="Shittalk Generator"/>
-    <meta property="og:image" content="http://daviseford.com/shittalk/img/shittalk_yelling_man.jpg"/>
+    <meta property="og:image" content="https://daviseford.com/shittalk/img/shittalk_yelling_man.jpg"/>
     <meta property="og:description"
           content="Trash Talk Script for TF2, DOTA2, CS:GO, and all Source Engine games. Crowd-sourced insults compiled into one easy config"/>
 
@@ -25,13 +25,20 @@ if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) {
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" media="screen"
           href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
+    <style>.navbar-brand{float:none;}</style>
+
 </head>
 <body>
 
 <div class="jumbotron">
     <div class="container">
-        <h1>Welcome to the Shittalk Generator</h1>
-        <p>Help us out by rating these binds:</p>
+        <div class="row text-center">
+            <a class="navbar-brand" href="/blog/">daviseford.com</a>
+        </div>
+        <div class="row text-center">
+            <h1>Welcome to the Shittalk Generator</h1>
+            <p>Help us out by rating these binds:</p>
+        </div>
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-body">
@@ -78,11 +85,9 @@ if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) {
 
     <div class="row">
         <div class="col-md-8 col-md-offset-2 col-xs-12 col-xs-offset-0">
-            <div class="alert alert-info">
-                Hey there! I've decided to reset the votes as of June 1st, 2017, as a way of
-                freshening up the config. It's been a year and a half since I first launched this page, and millions of
-                visitors have voted on insults. I figured I'd take away the incumbent advantage and hopefully open some
-                space for new, fresh insults. :)
+            <div class="alert alert-success">
+                Hey there! You're in the right demographic to check out my latest tool,
+                the <a href="/bitcoin-arbitrage/" target="_blank" class="text-strong">Bitcoin Arbitrage Calculator!</a>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -224,8 +229,8 @@ if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) {
   (function (i, s, o, g, r, a, m) {
     i['GoogleAnalyticsObject'] = r;
     i[r] = i[r] || function () {
-          (i[r].q = i[r].q || []).push(arguments)
-        }, i[r].l = 1 * new Date();
+      (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date();
     a = s.createElement(o),
         m = s.getElementsByTagName(o)[0];
     a.async = 1;
@@ -241,53 +246,53 @@ if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) {
 
 <!-- Shittalk CSS -->
 <script>
-    /*!
-     loadCSS: load a CSS file asynchronously.
-     [c]2015 @scottjehl, Filament Group, Inc.
-     Licensed MIT
-     */
-    (function (w) {
-      "use strict";
-        /* exported loadCSS */
-      var loadCSS = function (href, before, media) {
-        var doc = w.document;
-        var ss = doc.createElement("link");
-        var ref;
-        if (before) {
-          ref = before;
-        }
-        else {
-          var refs = ( doc.body || doc.getElementsByTagName("head")[0] ).childNodes;
-          ref = refs[refs.length - 1];
-        }
+  /*!
+   loadCSS: load a CSS file asynchronously.
+   [c]2015 @scottjehl, Filament Group, Inc.
+   Licensed MIT
+   */
+  (function (w) {
+    "use strict";
+    /* exported loadCSS */
+    var loadCSS = function (href, before, media) {
+      var doc = w.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      }
+      else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
 
-        var sheets = doc.styleSheets;
-        ss.rel = "stylesheet";
-        ss.href = href;
-        ss.media = "only x";
-        ref.parentNode.insertBefore(ss, ( before ? ref : ref.nextSibling ));
-        var onloadcssdefined = function (cb) {
-          var resolvedHref = ss.href;
-          var i = sheets.length;
-          while (i--) {
-            if (sheets[i].href === resolvedHref) {
-              return cb();
-            }
+      var sheets = doc.styleSheets;
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      ref.parentNode.insertBefore(ss, (before ? ref : ref.nextSibling));
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
           }
-          setTimeout(function () {
-            onloadcssdefined(cb);
-          });
-        };
-
-        ss.onloadcssdefined = onloadcssdefined;
-        onloadcssdefined(function () {
-          ss.media = media || "all";
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
         });
-        return ss;
       };
-      w.loadCSS = loadCSS;
-    }(typeof global !== "undefined" ? global : this));
-    loadCSS("css/shittalk.min.css");
+
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(function () {
+        ss.media = media || "all";
+      });
+      return ss;
+    };
+    w.loadCSS = loadCSS;
+  }(typeof global !== "undefined" ? global : this));
+  loadCSS("css/shittalk.min.css");
 </script>
 
 </body>

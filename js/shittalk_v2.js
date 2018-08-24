@@ -18,63 +18,63 @@ $(document).ready(function () {
   });
 
   $('#create_shittalk_Btn')
-    .click(function (e) {
-      e.preventDefault();
-      var that = this;
-      var parent = $(that).parent().parent();
+      .click(function (e) {
+        e.preventDefault();
+        var that = this;
+        var parent = $(that).parent().parent();
 
-      var shittalkText = $('#create_shittalk_Text').val();
-      var shittalkText_LowerCase = shittalkText.toLowerCase();
+        var shittalkText = $('#create_shittalk_Text').val();
+        var shittalkText_LowerCase = shittalkText.toLowerCase();
 
-      if (shittalkText_LowerCase.indexOf('http://') > -1 || shittalkText_LowerCase.indexOf('https://') > -1 || shittalkText_LowerCase.indexOf('www.') > -1 || shittalkText_LowerCase.indexOf('.com') > -1) {
-        parent.addClass('has-error');
-        $('#helpBlock2').removeClass('hidden');
-      } else if (shittalkText_LowerCase.indexOf('nigger') > -1 || shittalkText_LowerCase.indexOf('faggot') > -1) {
-        parent.addClass('has-error');
-        $('#helpBlock3').removeClass('hidden');
-      } else {
-        var form = {};
-        form['create_shittalk_Text'] = shittalkText;
-        form['query'] = 'check_IfDuplicate';
+        if (shittalkText_LowerCase.indexOf('http://') > -1 || shittalkText_LowerCase.indexOf('https://') > -1 || shittalkText_LowerCase.indexOf('www.') > -1 || shittalkText_LowerCase.indexOf('.com') > -1) {
+          parent.addClass('has-error');
+          $('#helpBlock2').removeClass('hidden');
+        } else if (shittalkText_LowerCase.indexOf('nigger') > -1 || shittalkText_LowerCase.indexOf('faggot') > -1) {
+          parent.addClass('has-error');
+          $('#helpBlock3').removeClass('hidden');
+        } else {
+          var form = {};
+          form['create_shittalk_Text'] = shittalkText;
+          form['query'] = 'check_IfDuplicate';
 
-        $.ajax({
-          url: "php/controller/controller.php",
-          contentType: "application/json; charset=utf-8",
-          type: "POST",
-          dataType: 'json',
-          data: JSON.stringify(form),
-          success: function (data) {
-            if (data < 1) { // i.e. not a duplicate
-              var form2 = {};
-              form2['create_shittalk_Text'] = shittalkText;
-              form2['query'] = 'create_Shittalk';
+          $.ajax({
+            url: "php/controller/controller.php",
+            contentType: "application/json; charset=utf-8",
+            type: "POST",
+            dataType: 'json',
+            data: JSON.stringify(form),
+            success: function (data) {
+              if (data < 1) { // i.e. not a duplicate
+                var form2 = {};
+                form2['create_shittalk_Text'] = shittalkText;
+                form2['query'] = 'create_Shittalk';
 
-              $.ajax({
-                url: "php/controller/controller.php",
-                contentType: "application/json; charset=utf-8",
-                type: "POST",
-                dataType: 'json',
-                data: JSON.stringify(form2),
-                success: function (data) {
-                  if (data === true) {
-                    location.reload();
+                $.ajax({
+                  url: "php/controller/controller.php",
+                  contentType: "application/json; charset=utf-8",
+                  type: "POST",
+                  dataType: 'json',
+                  data: JSON.stringify(form2),
+                  success: function (data) {
+                    if (data === true) {
+                      location.reload();
+                    }
+                  },
+                  error: function (data) {
+                    console.log(data);
                   }
-                },
-                error: function (data) {
-                  console.log(data);
-                }
-              });
-            } else {
-              parent.addClass('has-error');
-              $('#helpBlock').removeClass('hidden');
+                });
+              } else {
+                parent.addClass('has-error');
+                $('#helpBlock').removeClass('hidden');
+              }
+            },
+            error: function (data) {
+              console.log(data);
             }
-          },
-          error: function (data) {
-            console.log(data);
-          }
-        });
-      }
-    });
+          });
+        }
+      });
 
   function makeRecentList() {
     var post = {};
@@ -185,18 +185,18 @@ $(document).ready(function () {
         rate_more_tbody.html(tableRows);
 
         rate_more_tbody.find('td .glyphicon-arrow-up')
-          .click(function (e) {
-            e.preventDefault();
-            var send = sendVote.bind(this);
-            send(true, false);
-          });
+            .click(function (e) {
+              e.preventDefault();
+              var send = sendVote.bind(this);
+              send(true, false);
+            });
 
         rate_more_tbody.find('td .glyphicon-arrow-down')
-          .click(function (e) {
-            e.preventDefault();
-            var send = sendVote.bind(this);
-            send(false, false);
-          });
+            .click(function (e) {
+              e.preventDefault();
+              var send = sendVote.bind(this);
+              send(false, false);
+            });
         updateBadges();
       },
       error: function (data) {
@@ -253,7 +253,11 @@ $(document).ready(function () {
       dataType: 'json',
       data: JSON.stringify(post),
       success: function (data) {
+        console.log('jumob data', data)
         assembleJumbotron(data);
+      },
+      error: function (err) {
+        console.log('error', err)
       }
     });
   }
@@ -268,9 +272,9 @@ $(document).ready(function () {
       var rowID = currentRow['id'] || '';
       if (rowText !== '' && rowID !== '') {
         var spantemplate = '<tr id="jumboid_' + rowID + '"><td>' +
-          '<span class="glyphicon glyphicon-arrow-up text-success" style="font-size:2.0em;"  aria-hidden="true"> </span> ' +
-          '<span class="glyphicon glyphicon-arrow-down text-danger" style="font-size:2.0em;" aria-hidden="true"> </span>' +
-          '</td><td><h4>' + rowText + '</h4></td></tr>';
+            '<span class="glyphicon glyphicon-arrow-up text-success" style="font-size:2.0em;"  aria-hidden="true"> </span> ' +
+            '<span class="glyphicon glyphicon-arrow-down text-danger" style="font-size:2.0em;" aria-hidden="true"> </span>' +
+            '</td><td><h4>' + rowText + '</h4></td></tr>';
 
         rowHolder.push(spantemplate)
       }
@@ -280,19 +284,19 @@ $(document).ready(function () {
     }
 
     jumbotron_tbody.find('td .glyphicon-arrow-up')
-      .click(function (e) {
-        e.preventDefault();
-        var send = sendVote.bind(this);
-        send(true, true);
-      });
+        .click(function (e) {
+          e.preventDefault();
+          var send = sendVote.bind(this);
+          send(true, true);
+        });
 
 
     jumbotron_tbody.find('td .glyphicon-arrow-down')
-      .click(function (e) {
-        e.preventDefault();
-        var send = sendVote.bind(this);
-        send(false, true);
-      });
+        .click(function (e) {
+          e.preventDefault();
+          var send = sendVote.bind(this);
+          send(false, true);
+        });
   }
 
   function sendVote(isUpvote, isJumbo) {
