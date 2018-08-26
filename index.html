@@ -1,11 +1,3 @@
-<?php
-/* Credit: http://betterexplained.com/articles/how-to-optimize-your-site-with-gzip-compression/ */
-if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) {
-    ob_start('ob_gzhandler');
-} else {
-    ob_start();
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
@@ -168,18 +160,6 @@ if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) {
                         </div>
                     </div>
 
-
-                    <div class="row clearfix"></div>
-                    <div class="row">
-                        <div class="col-md-12 text-center">
-                            <p class="small">Looking for the original shittalk.cfg? <br/>
-                                <a href="cfg/shittalkcfg.rar"
-                                   class="btn btn-primary btn-md"
-                                   title="shittalk.cfg by Davis Ford">
-                                    <span class="glyphicon glyphicon-download-alt"></span> Download Shittalk Classic</a>
-                            </p>
-                        </div>
-                    </div>
                 </div>
             </div>
 
