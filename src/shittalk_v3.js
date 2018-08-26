@@ -1,12 +1,38 @@
-var Config = {
-  endpoint: 'https://jkgd35citl.execute-api.us-east-1.amazonaws.com/dev/shittalk'
-}
-
-
+const Config = require('./config')
+const Submit = require('./submit')
 /**
  * Created by Davis on 12/31/2015.
  */
 $(document).ready(function () {
+
+
+  $.ajax({
+    url: Config.endpoint,
+    contentType: "application/json; charset=utf-8",
+    type: "GET",
+    success: function (res) {
+      console.log(res)
+
+      const sortedResults = res.data.sort(function (a, b) {
+        // Turn your strings into dates, and then subtract them
+        // to get a value that is either negative, positive, or zero.
+        return new Date(b.createdAt) - new Date(a.createdAt);
+      });
+      const recent = sortedResults.slice(0, 21)
+
+      const splitObj = {
+        recent,
+      }
+console.log(splitObj)
+      
+    },
+    error: function (data) {
+      console.error('Error in fetch', data);
+    }
+  });
+
+
+
 
   makeJumboRows(3);
   makeRecentList();
@@ -22,54 +48,7 @@ $(document).ready(function () {
     });
   });
 
-  $('#create_shittalk_Btn')
-    .click(function (e) {
-      e.preventDefault();
-      var that = this;
-      var parent = $(that).parent().parent();
-
-      var orig_text = $('#create_shittalk_Text').val();
-      if (!orig_text || orig_text.length < 2) {
-        parent.addClass('has-error');
-        $('#helpBlock4').removeClass('hidden');
-        return;
-      }
-      var text = orig_text.toLowerCase();
-
-      if (text.indexOf('http://') > -1 || text.indexOf('https://') > -1 || text.indexOf('www.') > -1 || text.indexOf('.com') > -1) {
-        parent.addClass('has-error');
-        $('#helpBlock2').removeClass('hidden');
-        return;
-      }
-
-      if (text.indexOf('nigg') > -1 || text.indexOf('fag') > -1) {
-        parent.addClass('has-error');
-        $('#helpBlock3').removeClass('hidden');
-        return;
-      }
-      var data = {
-        submission: orig_text
-      };
-
-      $.ajax({
-        url: Config.endpoint,
-        contentType: "application/json; charset=utf-8",
-        type: "POST",
-        dataType: 'json',
-        data: JSON.stringify(data),
-        success: function (data) {
-          if (!data.error) {
-            location.reload();
-          } else {
-            parent.addClass('has-error');
-            $('#helpBlock').removeClass('hidden');
-          }
-        },
-        error: function (data) {
-          console.log(data);
-        }
-      });
-    });
+  $('#create_shittalk_Btn').click(Submit);
 
   function makeRecentList() {
     $.ajax({
@@ -77,21 +56,25 @@ $(document).ready(function () {
       contentType: "application/json; charset=utf-8",
       type: "GET",
       success: function (res) {
-        console.log(' CHECK THIS SUC', res)
-        var listRowHolder = [];
+        console.log(res)
 
-        var listRowHolder = res.data.map(x => {
-          var id = x.id;
-          var netVotes = x.net_votes || 0;
-          var text = x.submission;
-          return '<li class="list-group-item" id="recentid_' + id + '"><span class="badge">' + netVotes + '</span> ' + text + '</li>';
+        const sortedResults = res.data.sort(function (a, b) {
+          // Turn your strings into dates, and then subtract them
+          // to get a value that is either negative, positive, or zero.
+          return new Date(b.createdAt) - new Date(a.createdAt);
+        });
+
+        var listRowHolder = sortedResults.map(x => {
+          return '<li class="list-group-item" id="recentid_' +
+            x.id + '"><span class="badge">' + x.net_votes + '</span> ' +
+            x.submission + '</li>';
         })
         var listRowsJoined = listRowHolder.join('\n');
         $('#recent_listGroup').html(listRowsJoined);
         updateBadges();
       },
       error: function (data) {
-        console.log('CHECK DIS ERROR', data);
+        console.error('Error in makeRecentList', data);
       }
     });
   }
@@ -348,4 +331,7 @@ $(document).ready(function () {
       }
     });
   }
+
+
+
 });

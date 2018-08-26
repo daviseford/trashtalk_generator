@@ -47,3 +47,4 @@ Temporary Items
 .apdisk
 *.xml
 .idea/
+node_modules/
