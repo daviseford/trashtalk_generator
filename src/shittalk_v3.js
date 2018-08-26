@@ -5,35 +5,6 @@ const Submit = require('./submit')
  */
 $(document).ready(function () {
 
-
-  $.ajax({
-    url: Config.endpoint,
-    contentType: "application/json; charset=utf-8",
-    type: "GET",
-    success: function (res) {
-      console.log(res)
-
-      const sortedResults = res.data.sort(function (a, b) {
-        // Turn your strings into dates, and then subtract them
-        // to get a value that is either negative, positive, or zero.
-        return new Date(b.createdAt) - new Date(a.createdAt);
-      });
-      const recent = sortedResults.slice(0, 21)
-
-      const splitObj = {
-        recent,
-      }
-console.log(splitObj)
-      
-    },
-    error: function (data) {
-      console.error('Error in fetch', data);
-    }
-  });
-
-
-
-
   makeJumboRows(3);
   makeRecentList();
   makeTopList();
@@ -56,19 +27,16 @@ console.log(splitObj)
       contentType: "application/json; charset=utf-8",
       type: "GET",
       success: function (res) {
-        console.log(res)
-
-        const sortedResults = res.data.sort(function (a, b) {
-          // Turn your strings into dates, and then subtract them
-          // to get a value that is either negative, positive, or zero.
-          return new Date(b.createdAt) - new Date(a.createdAt);
-        });
-
-        var listRowHolder = sortedResults.map(x => {
-          return '<li class="list-group-item" id="recentid_' +
-            x.id + '"><span class="badge">' + x.net_votes + '</span> ' +
-            x.submission + '</li>';
-        })
+        let listRowHolder;
+        if (res.data.length === 0) {
+          listRowHolder = ['<li class="list-group-item text-center" id="recentid_0">No results found.</li>']
+        } else {
+          listRowHolder = res.data.map(x => {
+            return '<li class="list-group-item" id="recentid_' +
+              x.id + '"><span class="badge">' + x.net_votes + '</span> ' +
+              x.submission + '</li>';
+          })
+        }
         var listRowsJoined = listRowHolder.join('\n');
         $('#recent_listGroup').html(listRowsJoined);
         updateBadges();
@@ -80,27 +48,20 @@ console.log(splitObj)
   }
 
   function makeTopList() {
-    var post = {};
-    post['query'] = 'get_TopList';
     $.ajax({
-      url: "php/controller/controller.php",
+      url: Config.endpoint + '/top',
       contentType: "application/json; charset=utf-8",
-      type: "POST",
-      dataType: 'json',
-      data: JSON.stringify(post),
-      success: function (data) {
-        var listRowHolder = [];
-        for (var i = 0; i < data.length; i++) {
-          var listObject = data[i];
-          var id = listObject['id'] || '';
-          var netVotes = listObject['netVotes'] || '';
-          var text = listObject['text'] || '';
-          if (id !== '' && netVotes !== '' && text !== '') {
-            var listRow = '<li class="list-group-item" id="topid_' + id + '"><span class="badge">' + netVotes + '</span> ' + text + '</li>';
-            listRowHolder.push(listRow);
-          }
+      type: "GET",
+      success: function (res) {
+        let listRowHolder;
+        if (res.data.length === 0) {
+          listRowHolder = ['<li class="list-group-item text-center" id="recentid_0">No results found.</li>']
+        } else {
+          listRowHolder = res.data.map(x => {
+            return '<li class="list-group-item" id="topid_' + x.id + '"><span class="badge">' + x.net_votes + '</span> ' + x.submission + '</li>';
+          })
         }
-        var listRowsJoined = listRowHolder.join('\n');
+        const listRowsJoined = listRowHolder.join('\n');
         $('#top_listGroup').html(listRowsJoined);
         updateBadges();
       },
