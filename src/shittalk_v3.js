@@ -1,179 +1,55 @@
 const Config = require('./config')
 const Submit = require('./submit')
+const makeTopList = require('./top')
+const makeRecentList = require('./recent')
+const { updateBadges } = require('./utils')
+
 /**
  * Created by Davis on 12/31/2015.
+ * Moved to serverless setup on 8/26/2018 :)
  */
 $(document).ready(function () {
 
   makeJumboRows(3);
   makeRecentList();
   makeTopList();
-  makeRandomList();
-
-  /* None of these are viewable without scrolling */
-  $(window).ready(function () {
-    $(this).one('scroll', function () {
-      makeIncludedBindCount();
-      makeTotalBindCount();
-      makeRateMoreTableRows();
-    });
-  });
+  // makeRandomList();
 
   $('#create_shittalk_Btn').click(Submit);
 
-  function makeRecentList() {
-    $.ajax({
-      url: Config.endpoint + '/recent',
-      contentType: "application/json; charset=utf-8",
-      type: "GET",
-      success: function (res) {
-        let listRowHolder;
-        if (res.data.length === 0) {
-          listRowHolder = ['<li class="list-group-item text-center" id="recentid_0">No results found.</li>']
-        } else {
-          listRowHolder = res.data.map(x => {
-            return '<li class="list-group-item" id="recentid_' +
-              x.id + '"><span class="badge">' + x.net_votes + '</span> ' +
-              x.submission + '</li>';
-          })
-        }
-        var listRowsJoined = listRowHolder.join('\n');
-        $('#recent_listGroup').html(listRowsJoined);
-        updateBadges();
-      },
-      error: function (data) {
-        console.error('Error in makeRecentList', data);
-      }
-    });
-  }
 
-  function makeTopList() {
-    $.ajax({
-      url: Config.endpoint + '/top',
-      contentType: "application/json; charset=utf-8",
-      type: "GET",
-      success: function (res) {
-        let listRowHolder;
-        if (res.data.length === 0) {
-          listRowHolder = ['<li class="list-group-item text-center" id="recentid_0">No results found.</li>']
-        } else {
-          listRowHolder = res.data.map(x => {
-            return '<li class="list-group-item" id="topid_' + x.id + '"><span class="badge">' + x.net_votes + '</span> ' + x.submission + '</li>';
-          })
-        }
-        const listRowsJoined = listRowHolder.join('\n');
-        $('#top_listGroup').html(listRowsJoined);
-        updateBadges();
-      },
-      error: function (data) {
-        console.log(data);
-      }
-    });
-  }
+  // function makeRandomList() {
+  //   var post = {};
+  //   post['query'] = 'get_RandomList';
+  //   $.ajax({
+  //     url: "php/controller/controller.php",
+  //     contentType: "application/json; charset=utf-8",
+  //     type: "POST",
+  //     dataType: 'json',
+  //     data: JSON.stringify(post),
+  //     success: function (data) {
+  //       var listRowHolder = [];
+  //       for (var i = 0; i < data.length; i++) {
+  //         var listObject = data[i];
+  //         var id = listObject['id'] || '';
+  //         var netVotes = listObject['netVotes'] || '';
+  //         var text = listObject['text'] || '';
+  //         if (id !== '' && netVotes !== '' && text !== '') {
+  //           var listRow = '<li class="list-group-item" id="randomid_' + id + '"><span class="badge">' + netVotes + '</span> ' + text + '</li>';
+  //           listRowHolder.push(listRow);
+  //         }
+  //       }
+  //       var listRowsJoined = listRowHolder.join('\n');
+  //       $('#random_listGroup').html(listRowsJoined);
+  //       updateBadges();
+  //     },
+  //     error: function (data) {
+  //       console.log(data);
+  //     }
+  //   });
+  // }
 
-  function makeRandomList() {
-    var post = {};
-    post['query'] = 'get_RandomList';
-    $.ajax({
-      url: "php/controller/controller.php",
-      contentType: "application/json; charset=utf-8",
-      type: "POST",
-      dataType: 'json',
-      data: JSON.stringify(post),
-      success: function (data) {
-        var listRowHolder = [];
-        for (var i = 0; i < data.length; i++) {
-          var listObject = data[i];
-          var id = listObject['id'] || '';
-          var netVotes = listObject['netVotes'] || '';
-          var text = listObject['text'] || '';
-          if (id !== '' && netVotes !== '' && text !== '') {
-            var listRow = '<li class="list-group-item" id="randomid_' + id + '"><span class="badge">' + netVotes + '</span> ' + text + '</li>';
-            listRowHolder.push(listRow);
-          }
-        }
-        var listRowsJoined = listRowHolder.join('\n');
-        $('#random_listGroup').html(listRowsJoined);
-        updateBadges();
-      },
-      error: function (data) {
-        console.log(data);
-      }
-    });
-  }
-
-
-  function makeRateMoreTableRows() {
-    var post = {};
-    post['query'] = 'get_RateMoreTableRows';
-    $.ajax({
-      url: "php/controller/controller.php",
-      contentType: "application/json; charset=utf-8",
-      type: "POST",
-      dataType: 'json',
-      data: JSON.stringify(post),
-      success: function (data) {
-        var rate_more_tbody = $('#rate_more_tbody');
-        var tableRows = data.join('\n');
-        rate_more_tbody.html(tableRows);
-
-        rate_more_tbody.find('td .glyphicon-arrow-up')
-          .click(function (e) {
-            e.preventDefault();
-            var send = sendVote.bind(this);
-            send(true, false);
-          });
-
-        rate_more_tbody.find('td .glyphicon-arrow-down')
-          .click(function (e) {
-            e.preventDefault();
-            var send = sendVote.bind(this);
-            send(false, false);
-          });
-        updateBadges();
-      },
-      error: function (data) {
-        console.log(data);
-      }
-    });
-  }
-
-  function makeTotalBindCount() {
-    var post = {};
-    post['query'] = 'get_TotalBindCount';
-    $.ajax({
-      url: "php/controller/controller.php",
-      contentType: "application/json; charset=utf-8",
-      type: "POST",
-      dataType: 'json',
-      data: JSON.stringify(post),
-      success: function (data) {
-        $('#TotalBindCount').text(data);
-      },
-      error: function (data) {
-        console.log(data);
-      }
-    });
-  }
-
-  function makeIncludedBindCount() {
-    var post = {};
-    post['query'] = 'get_IncludedBindCount';
-    $.ajax({
-      url: "php/controller/controller.php",
-      contentType: "application/json; charset=utf-8",
-      type: "POST",
-      dataType: 'json',
-      data: JSON.stringify(post),
-      success: function (data) {
-        $('#IncludedBindCount').text(data);
-      },
-      error: function (data) {
-        console.log(data);
-      }
-    });
-  }
-
+  // TODO:
   function makeJumboRows(limit) {
     var post = {};
     post['query'] = 'get_RandomRows';
@@ -198,29 +74,22 @@ $(document).ready(function () {
   function assembleJumbotron(data) {
     var jumbotron_tbody = $('#jumbotron_tbody');
     var rowHolder = [];
-    for (var i = 0; i < data.length; i++) {
-      var currentRow = data[i];
+    rowHolder = data.map(x => {
+      return '<tr id="jumboid_' + x.id + '"><td>' +
+        '<span class="glyphicon glyphicon-arrow-up text-success" style="font-size:2.0em;"  aria-hidden="true"> </span> ' +
+        '<span class="glyphicon glyphicon-arrow-down text-danger" style="font-size:2.0em;" aria-hidden="true"> </span>' +
+        '</td><td><h4>' + x.submission + '</h4></td></tr>';
+    })
 
-      var rowText = currentRow['text'] || '';
-      var rowID = currentRow['id'] || '';
-      if (rowText !== '' && rowID !== '') {
-        var spantemplate = '<tr id="jumboid_' + rowID + '"><td>' +
-          '<span class="glyphicon glyphicon-arrow-up text-success" style="font-size:2.0em;"  aria-hidden="true"> </span> ' +
-          '<span class="glyphicon glyphicon-arrow-down text-danger" style="font-size:2.0em;" aria-hidden="true"> </span>' +
-          '</td><td><h4>' + rowText + '</h4></td></tr>';
 
-        rowHolder.push(spantemplate)
-      }
-    }
-    if (rowHolder !== '') {
-      jumbotron_tbody.html(rowHolder.join('\n'));
-    }
+    jumbotron_tbody.html(rowHolder.join('\n'));
+
 
     jumbotron_tbody.find('td .glyphicon-arrow-up')
       .click(function (e) {
         e.preventDefault();
         var send = sendVote.bind(this);
-        send(true, true);
+        send(true);
       });
 
 
@@ -228,36 +97,30 @@ $(document).ready(function () {
       .click(function (e) {
         e.preventDefault();
         var send = sendVote.bind(this);
-        send(false, true);
+        send(false);
       });
   }
 
-  function sendVote(isUpvote, isJumbo) {
+  function sendVote(isUpvote) {
     if ($(this).is('[disabled=disabled]') !== true) {
       var parent = $(this).parent().parent();
       $(this).attr('disabled', 'disabled');
-      if (isJumbo) {
-        parent.addClass('selected-st');
-      }
 
-      var query = {};
-      var id = parent.attr('id');
-      query['id'] = id.split('_')[1];
-      query['query'] = isUpvote ? 'upvote_Row' : 'downvote_Row';
+      parent.addClass('selected-st');
+
+      var id = parent.attr('id').split('_')[1];
+      // query['id'] = id.split('_')[1];
+      const action = isUpvote ? 'upvote' : 'downvote';
 
       $.ajax({
-        url: "php/controller/controller.php",
+        url: Config.endpoint + '/' + action + '/' + id,
         contentType: "application/json; charset=utf-8",
         type: "POST",
         dataType: 'json',
-        data: JSON.stringify(query),
+        data: JSON.stringify({ id }),
         success: function () {
           parent.addClass(isUpvote ? 'bg-success' : 'bg-danger');
-          if (isJumbo) {
-            checkIfJumbotronIsFull();
-          } else {
-            checkIfRateMoreIsFull();
-          }
+          checkIfJumbotronIsFull();
         },
         error: function (data) {
           console.log(data);
@@ -272,26 +135,6 @@ $(document).ready(function () {
     }
   }
 
-  function checkIfRateMoreIsFull() {
-    var tbody = $('#rate_more_tbody');
-    var tbodySuccessCount = tbody.find('.bg-success').length;
-    var tbodyDangerCount = tbody.find('.bg-danger').length;
-    var rowsUsed = tbodyDangerCount + tbodySuccessCount;
-    if (rowsUsed === 25) {
-      location.reload();
-    }
-  }
-
-  function updateBadges() {
-    $('.badge').each(function () {
-      var thisVal = $(this).text();
-      if (thisVal < 0) {
-        $(this).css("background-color", "#a94442");
-      } else if (thisVal > 0) {
-        $(this).css("background-color", "#3c763d");
-      }
-    });
-  }
 
 
 
