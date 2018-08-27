@@ -11,7 +11,7 @@ const makeRecentList = () => {
       if (res.data.length === 0) {
         listRowHolder = ['<li class="list-group-item text-center" id="recentid_0">No results found.</li>']
       } else {
-        const r = res.data.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt))
+        const r = res.data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
         listRowHolder = r.map(x => {
           return '<li class="list-group-item" id="recentid_' +
             x.id + '"><span class="badge">' + x.net_votes + '</span> ' +
