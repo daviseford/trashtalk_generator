@@ -51,19 +51,14 @@ $(document).ready(function () {
 
   // TODO:
   function makeJumboRows(limit) {
-    var post = {};
-    post['query'] = 'get_RandomRows';
-    post['limit'] = limit;
 
     $.ajax({
-      url: "php/controller/controller.php",
+      url: Config.endpoint + '/old',
       contentType: "application/json; charset=utf-8",
-      type: "POST",
-      dataType: 'json',
-      data: JSON.stringify(post),
-      success: function (data) {
-        console.log('jumob data', data)
-        assembleJumbotron(data);
+      type: "GET",
+      success: function (res) {
+        console.log('jumbo data', res)
+        assembleJumbotron(res.data);
       },
       error: function (err) {
         console.log('error', err)
@@ -78,12 +73,10 @@ $(document).ready(function () {
       return '<tr id="jumboid_' + x.id + '"><td>' +
         '<span class="glyphicon glyphicon-arrow-up text-success" style="font-size:2.0em;"  aria-hidden="true"> </span> ' +
         '<span class="glyphicon glyphicon-arrow-down text-danger" style="font-size:2.0em;" aria-hidden="true"> </span>' +
-        '</td><td><h4>' + x.submission + '</h4></td></tr>';
+        '</td><td><h4 id="jumboh4_' + x.id + '">' + x.submission + '</h4></td></tr>';
     })
 
-
     jumbotron_tbody.html(rowHolder.join('\n'));
-
 
     jumbotron_tbody.find('td .glyphicon-arrow-up')
       .click(function (e) {
@@ -91,7 +84,6 @@ $(document).ready(function () {
         var send = sendVote.bind(this);
         send(true);
       });
-
 
     jumbotron_tbody.find('td .glyphicon-arrow-down')
       .click(function (e) {
@@ -108,22 +100,26 @@ $(document).ready(function () {
 
       parent.addClass('selected-st');
 
-      var id = parent.attr('id').split('_')[1];
-      // query['id'] = id.split('_')[1];
+      const id = parent.attr('id').split('_')[1];
+      const submission = $(`#jumboh4_${id}`).text()
+      console.log('sub', submission)
       const action = isUpvote ? 'upvote' : 'downvote';
 
       $.ajax({
-        url: Config.endpoint + '/' + action + '/' + id,
+        url: Config.endpoint + '/' + action,
         contentType: "application/json; charset=utf-8",
         type: "POST",
+        data: JSON.stringify({ id, submission }),
         dataType: 'json',
-        data: JSON.stringify({ id }),
-        success: function () {
+        success: function (data) {
+          console.log(data)
           parent.addClass(isUpvote ? 'bg-success' : 'bg-danger');
           checkIfJumbotronIsFull();
+          return false;
         },
         error: function (data) {
           console.log(data);
+          return false;
         }
       });
     }
