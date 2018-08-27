@@ -56,7 +56,6 @@ $(document).ready(function () {
       contentType: "application/json; charset=utf-8",
       type: "GET",
       success: function (res) {
-        console.log('jumbo data', res)
         assembleJumbotron(res.data);
       },
       error: function (err) {
@@ -99,7 +98,6 @@ $(document).ready(function () {
 
       const id = parent.attr('id').split('_')[1];
       const submission = $(`#jumboh4_${id}`).text()
-      console.log('sub', submission)
       const suffix = isUpvote ? 'upvote' : 'downvote';
 
       $.ajax({
@@ -109,7 +107,6 @@ $(document).ready(function () {
         data: JSON.stringify({ id, submission }),
         dataType: 'json',
         success: function (data) {
-          console.log(data)
           parent.addClass(isUpvote ? 'bg-success' : 'bg-danger');
           checkIfJumbotronIsFull();
           return false;

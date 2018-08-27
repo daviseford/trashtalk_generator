@@ -1,9 +1,6 @@
 const Config = require('./config')
 const { updateBadges } = require('./utils')
 
-
-
-
 const makeTopList = () => {
   $.ajax({
     url: Config.endpoint + '/top',
