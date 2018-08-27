@@ -10,7 +10,7 @@ const { updateBadges } = require('./utils')
  */
 $(document).ready(function () {
 
-  makeJumboRows(3);
+  makeJumboRows(5);
   makeRecentList();
   makeTopList();
   // makeRandomList();
@@ -49,7 +49,6 @@ $(document).ready(function () {
   //   });
   // }
 
-  // TODO:
   function makeJumboRows(limit) {
 
     $.ajax({
@@ -67,9 +66,8 @@ $(document).ready(function () {
   }
 
   function assembleJumbotron(data) {
-    var jumbotron_tbody = $('#jumbotron_tbody');
-    var rowHolder = [];
-    rowHolder = data.map(x => {
+    const jumbotron_tbody = $('#jumbotron_tbody');
+    const rowHolder = data.map(x => {
       return '<tr id="jumboid_' + x.id + '"><td>' +
         '<span class="glyphicon glyphicon-arrow-up text-success" style="font-size:2.0em;"  aria-hidden="true"> </span> ' +
         '<span class="glyphicon glyphicon-arrow-down text-danger" style="font-size:2.0em;" aria-hidden="true"> </span>' +
@@ -97,16 +95,15 @@ $(document).ready(function () {
     if ($(this).is('[disabled=disabled]') !== true) {
       var parent = $(this).parent().parent();
       $(this).attr('disabled', 'disabled');
-
       parent.addClass('selected-st');
 
       const id = parent.attr('id').split('_')[1];
       const submission = $(`#jumboh4_${id}`).text()
       console.log('sub', submission)
-      const action = isUpvote ? 'upvote' : 'downvote';
+      const suffix = isUpvote ? 'upvote' : 'downvote';
 
       $.ajax({
-        url: Config.endpoint + '/' + action,
+        url: Config.endpoint + '/' + suffix,
         contentType: "application/json; charset=utf-8",
         type: "POST",
         data: JSON.stringify({ id, submission }),
@@ -118,20 +115,20 @@ $(document).ready(function () {
           return false;
         },
         error: function (data) {
-          console.log(data);
+          console.error(data);
           return false;
         }
       });
     }
   }
 
-  function checkIfJumbotronIsFull() {
-    if ($('#jumbotron_tbody').find('.selected-st').length === 3) {
-      makeJumboRows(3);
+  const checkIfJumbotronIsFull = () => {
+    const jumboLimit = 5;
+    if ($('#jumbotron_tbody').find('.selected-st').length >= jumboLimit) {
+      makeJumboRows(jumboLimit);
+      makeRecentList();
+      makeTopList();
     }
   }
-
-
-
 
 });
