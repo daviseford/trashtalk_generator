@@ -25,7 +25,6 @@ const handleSubmitButton = (e) => {
         return;
     }
     const data = { submission: orig_text };
-
     checkDuplicate(data, parent)
 }
 
@@ -42,7 +41,7 @@ const checkDuplicate = (pData, pParent) => {
                 pParent.addClass('has-error');
                 $('#helpBlock').removeClass('hidden');
             } else {
-                submitRequest(pParent, pData)
+                submitRequest(pData)
             }
         },
         error: function (data) {
@@ -53,7 +52,7 @@ const checkDuplicate = (pData, pParent) => {
     })
 }
 
-const submitRequest = (parent, data) => {
+const submitRequest = (data) => {
     $.ajax({
         url: Config.endpoint,
         contentType: "application/json; charset=utf-8",
