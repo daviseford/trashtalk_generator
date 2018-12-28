@@ -66,7 +66,7 @@ $(document).ready(function () {
 
   function assembleJumbotron(data) {
     const jumbotron_tbody = $('#jumbotron_tbody');
-    const rowHolder = data.map(x => {
+    const rowHolder = data.filter(x => !!x.submission && x.submission.trim() !== '').map(x => {
       return '<tr id="jumboid_' + x.id + '"><td>' +
         '<span class="glyphicon glyphicon-arrow-up text-success" style="font-size:2.0em;"  aria-hidden="true"> </span> ' +
         '<span class="glyphicon glyphicon-arrow-down text-danger" style="font-size:2.0em;" aria-hidden="true"> </span>' +
