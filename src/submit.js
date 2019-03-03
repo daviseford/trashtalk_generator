@@ -1,5 +1,6 @@
 const Config = require('./config')
 const clean = require('clean-text-utils')
+const { send_to_ga } = require('./utils')
 
 const cleanText = (str) => {
     if (!str) return ''
@@ -69,11 +70,7 @@ const submitRequest = (data) => {
         data: JSON.stringify(data),
         success: function (data) {
             console.log(data)
-            try {
-                ga('send', 'event', 'button', 'click', `shittalk_submit`);
-            } catch (err) {
-                // pass
-            }
+            send_to_ga(`shittalk_submit`)
             if (!data.error) {
                 location.reload();
             }

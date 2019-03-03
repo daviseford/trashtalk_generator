@@ -1,3 +1,10 @@
+const send_to_ga = (val) => {
+  try {
+    ga('send', 'event', 'button', 'click', val);
+  } catch (err) {
+    // pass
+  }
+}
 
 const updateBadges = () => {
     $('.badge').each(function () {
@@ -11,5 +18,6 @@ const updateBadges = () => {
   }
 
   module.exports = {
-      updateBadges
+      updateBadges,
+      send_to_ga,
   }

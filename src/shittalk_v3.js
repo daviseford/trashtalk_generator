@@ -2,55 +2,34 @@ const Config = require('./config')
 const Submit = require('./submit')
 const makeTopList = require('./top')
 const makeRecentList = require('./recent')
-const { updateBadges } = require('./utils')
+const { send_to_ga } = require('./utils')
 
 /**
  * Created by Davis on 12/31/2015.
  * Moved to serverless setup on 8/26/2018 :)
+ * Added shittalk.cfg serverless generation on 2/03/2019
  */
 $(document).ready(function () {
 
-  makeJumboRows(5);
+  makeJumboRows();
   makeRecentList();
   makeTopList();
-  // makeRandomList();
 
   $('#create_shittalk_Btn').click(Submit);
 
+  // When the download button is clicked, regenerate shittalk.cfg on S3
+  $('#downloadBtn').click((e) => {
+    send_to_ga('shittalk_download')
+    $.ajax({
+      url: Config.endpoint + '/generate_cfg',
+      contentType: "application/json; charset=utf-8",
+      type: "GET",
+      success: (res) => console.log('Regenerated shittalk.cfg'),
+      error: (err) => console.error(err)
+    });
+  })
 
-  // function makeRandomList() {
-  //   var post = {};
-  //   post['query'] = 'get_RandomList';
-  //   $.ajax({
-  //     url: "php/controller/controller.php",
-  //     contentType: "application/json; charset=utf-8",
-  //     type: "POST",
-  //     dataType: 'json',
-  //     data: JSON.stringify(post),
-  //     success: function (data) {
-  //       var listRowHolder = [];
-  //       for (var i = 0; i < data.length; i++) {
-  //         var listObject = data[i];
-  //         var id = listObject['id'] || '';
-  //         var netVotes = listObject['netVotes'] || '';
-  //         var text = listObject['text'] || '';
-  //         if (id !== '' && netVotes !== '' && text !== '') {
-  //           var listRow = '<li class="list-group-item" id="randomid_' + id + '"><span class="badge">' + netVotes + '</span> ' + text + '</li>';
-  //           listRowHolder.push(listRow);
-  //         }
-  //       }
-  //       var listRowsJoined = listRowHolder.join('\n');
-  //       $('#random_listGroup').html(listRowsJoined);
-  //       updateBadges();
-  //     },
-  //     error: function (data) {
-  //       console.log(data);
-  //     }
-  //   });
-  // }
-
-  function makeJumboRows(limit) {
-
+  function makeJumboRows() {
     $.ajax({
       url: Config.endpoint + '/old',
       contentType: "application/json; charset=utf-8",
@@ -109,11 +88,7 @@ $(document).ready(function () {
         success: function (data) {
           parent.addClass(isUpvote ? 'bg-success' : 'bg-danger');
           checkIfJumbotronIsFull();
-          try {
-            ga('send', 'event', 'button', 'click', `shittalk_${isUpvote ? 'up' : 'down'}vote`);
-          } catch (err) {
-            // pass
-          }
+          send_to_ga(`shittalk_${isUpvote ? 'up' : 'down'}vote`)
           return false;
         },
         error: function (data) {
@@ -125,12 +100,10 @@ $(document).ready(function () {
   }
 
   const checkIfJumbotronIsFull = () => {
-    const jumboLimit = 5;
-    if ($('#jumbotron_tbody').find('.selected-st').length >= jumboLimit) {
-      makeJumboRows(jumboLimit);
+    if ($('#jumbotron_tbody').find('.selected-st').length >= 5) {
+      makeJumboRows();
       makeRecentList();
       makeTopList();
     }
   }
-
 });
