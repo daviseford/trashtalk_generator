@@ -109,6 +109,11 @@ $(document).ready(function () {
         success: function (data) {
           parent.addClass(isUpvote ? 'bg-success' : 'bg-danger');
           checkIfJumbotronIsFull();
+          try {
+            ga('send', 'event', 'button', 'click', `shittalk_${isUpvote ? 'up' : 'down'}vote`);
+          } catch (err) {
+            // pass
+          }
           return false;
         },
         error: function (data) {

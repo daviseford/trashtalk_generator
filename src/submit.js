@@ -61,6 +61,11 @@ const submitRequest = (data) => {
         data: JSON.stringify(data),
         success: function (data) {
             console.log(data)
+            try {
+                ga('send', 'event', 'button', 'click', `shittalk_submit`);
+            } catch (err) {
+                // pass
+            }
             if (!data.error) {
                 location.reload();
             }
