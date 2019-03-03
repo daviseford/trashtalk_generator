@@ -1,11 +1,19 @@
 const Config = require('./config')
+const clean = require('clean-text-utils')
+
+const cleanText = (str) => {
+    if (!str) return ''
+    str = clean.strip.newlines(str)
+    str = clean.replace.smartChars(str)
+    return clean.strip.extraSpace(str)
+}
 
 const handleSubmitButton = (e) => {
     e.preventDefault();
     const that = this;
     const parent = $(that).parent().parent();
 
-    const orig_text = $('#create_shittalk_Text').val();
+    const orig_text = cleanText($('#create_shittalk_Text').val());
     if (!orig_text || orig_text.length < 2) {
         parent.addClass('has-error');
         $('#helpBlock4').removeClass('hidden');
