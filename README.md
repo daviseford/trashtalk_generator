@@ -1,4 +1,4 @@
-# Shittalk Generator V3
+# Shittalk Generator V4
 
 `npm i`
 
