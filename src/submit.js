@@ -14,23 +14,28 @@ const handleSubmitButton = (e) => {
     const that = this;
     const parent = $(that).parent().parent();
 
+    $('#helpBlock').addClass('d-none')
+    $('#helpBlock2').addClass('d-none')
+    $('#helpBlock3').addClass('d-none')
+    $('#helpBlock4').addClass('d-none')
+
     const orig_text = cleanText($('#create_shittalk_Text').val());
     if (!orig_text || orig_text.length < 2) {
         parent.addClass('has-error');
-        $('#helpBlock4').removeClass('hidden');
+        $('#helpBlock4').removeClass('d-none');
         return;
     }
     const text = orig_text.toLowerCase();
 
     if (text.indexOf('http://') > -1 || text.indexOf('https://') > -1 || text.indexOf('www.') > -1 || text.indexOf('.com') > -1) {
         parent.addClass('has-error');
-        $('#helpBlock2').removeClass('hidden');
+        $('#helpBlock2').removeClass('d-none');
         return;
     }
 
     if (text.indexOf('nigg') > -1 || text.indexOf('fag') > -1) {
         parent.addClass('has-error');
-        $('#helpBlock3').removeClass('hidden');
+        $('#helpBlock3').removeClass('d-none');
         return;
     }
     const data = { submission: orig_text };
@@ -48,7 +53,7 @@ const checkDuplicate = (pData, pParent) => {
         success: function (sData) {
             if (sData.duplicate) {
                 pParent.addClass('has-error');
-                $('#helpBlock').removeClass('hidden');
+                $('#helpBlock').removeClass('d-none');
             } else {
                 submitRequest(pData)
             }
