@@ -4,7 +4,7 @@
 <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="author" content="Davis E. Ford">
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://daviseford.com/shittalk/" />
@@ -17,9 +17,9 @@
 
 <body>
     <main role="main">
-        <div class="container">
 
-            <!-- Begin Jumbotron -->
+        <!-- Begin Jumbotron -->
+        <div class="container-fluid">
             <div class="jumbotron">
                 <div class="row">
                     <div class="col text-center">
@@ -40,168 +40,162 @@
                     </div>
                 </div>
             </div>
-            <!-- End Jumbotron -->
+        </div>
+        <!-- End Jumbotron -->
 
+        <!-- Begin Shittalk App -->
+        <div class="container">
 
-            <div class="row">
-                <div class="col-12">
-                    <form class="form-horizontal" role="form">
-                        <div class="form-group justify-content-center">
-                            <div class="col-6 col-xs-12">
+            <!-- Begin Submit Input -->
+            <div class="row align-content-center">
+                <div class="col">
+                    <form class="form" role="form">
+                        <div class="form-row">
+                            <div class="col-7">
                                 <input type="text" class="form-control" id="create_shittalk_Text"
                                     placeholder="Submit your own" maxlength="128" aria-describedby="helpBlock">
-                                <span id="helpBlock" class="help-block d-none">This insult already exists in our
+                                <span id="helpBlock" class="form-text text-muted d-none">This insult already exists in our
                                     database.</span>
-                                <span id="helpBlock2" class="help-block d-none">Please do not submit websites or
+                                <span id="helpBlock2" class="form-text text-muted d-none">Please do not submit websites or
                                     URLs.</span>
-                                <span id="helpBlock3" class="help-block d-none">Yikes... Be cool.</span>
-                                <span id="helpBlock4" class="help-block d-none">Try typing an insult first :)</span>
+                                <span id="helpBlock3" class="form-text text-muted d-none">Yikes... Be cool.</span>
+                                <span id="helpBlock4" class="form-text text-muted d-none">Try typing an insult first :)</span>
                             </div>
-                            <div class="col-md-3 col-md-offset-0 col-sm-3 col-sm-offset-0 col-xs-4 col-xs-offset-4">
-                                <div class="visible-xs">
-                                    <br />
-                                </div>
+                            <div class="col">
                                 <button type="submit" id="create_shittalk_Btn" class="btn btn-primary">Submit</button>
                             </div>
                         </div>
                     </form>
                 </div>
             </div>
+            <!-- End Submit Input -->
 
-            <div class="row clearfix"></div>
-
+            <!-- Begin Content -->
             <div class="row">
 
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                        <li class="list-group-item">
-                            <h3 class="text-center">Recent Insults</h3>
-                        </li>
-                        <ul class="list-group def-list-group-scroll" id="recent_listGroup">
-                        </ul>
-                    </div>
+                <!-- Begin Recent Insults -->
+                <div class="col-xs-12 col-sm-12 col-lg-6 col-xl-6">
+                    <li class="list-group-item">
+                        <h3 class="text-center">Recent Insults</h3>
+                    </li>
+                    <ul class="list-group" id="recent_listGroup"></ul>
+                </div>
 
-                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                        <li class="list-group-item">
-                            <h3 class="text-center">Random Insults</h3>
-                        </li>
-                        <ul class="list-group def-list-group-scroll" id="random_listGroup">
-                        </ul>
-                    </div>
+                <!-- Begin Random Insults -->
+                <div class="col-xs-12 col-sm-12 col-lg-6 col-xl-6">
+                    <li class="list-group-item">
+                        <h3 class="text-center">Random Insults</h3>
+                    </li>
+                    <ul class="list-group" id="random_listGroup"></ul>
+                </div>
 
-                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                        <li class="list-group-item">
-                            <h3 class="text-center">Hall of Fame</h3>
-                        </li>
-                        <ul class="list-group def-list-group-scroll" id="top_listGroup">
-                        </ul>
-                    </div>
+                <!-- Begin Top Insults -->
+                <div class="col-xs-12 col-sm-12 col-lg-6 col-xl-6">
+                    <li class="list-group-item">
+                        <h3 class="text-center">Hall of Fame</h3>
+                    </li>
+                    <ul class="list-group" id="top_listGroup"></ul>
+                </div>
 
-                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <!-- Begin Installation Instructions -->
+                <div class="col-xs-12 col-sm-12 col-lg-6 col-xl-6">
 
+                    <div class="card">
+                        <div class="card-body">
 
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <h3 class="text-center">Installation Instructions</h3>
-                                        <p style="padding-top: 1em;">Want to download these binds in the form of a
-                                            script
-                                            which works in TF2, CS:GO, CS:Source, and other Source Engine games?</p>
-                                        <p>You sure landed on the right page!</p>
-                                        <h4>Installation:</h4>
-                                        <p>1.) Download the latest <code>shittalk.cfg</code> by clicking the button
-                                            below.
-                                        </p>
-                                        <p>2.) Drag <code>shittalk.cfg</code> to your game's <code>cfg</code>
-                                            folder.
-                                        </p>
-                                        <p>
-                                            <strong>TF2 -
-                                            </strong><code>\Steam\steamapps\common\Team Fortress 2\tf\cfg</code>
-                                            <br />
-                                            <strong>CS:GO - </strong><code>\Steam\steamapps\common\Counter-Strike Global
+                            <div class="row">
+                                <div class="col">
+                                    <h3 class="text-center">Installation Instructions</h3>
+                                    <p class="pt-1">Want to download these binds in the form of a
+                                        script
+                                        which works in TF2, CS:GO, CS:Source, and other Source Engine games?</p>
+                                    <p>You sure landed on the right page!</p>
+                                    <p>1.) Download the latest <code>shittalk.cfg</code> by clicking the button
+                                        below.
+                                    </p>
+                                    <p>2.) Drag <code>shittalk.cfg</code> to your game's <code>cfg</code>
+                                        folder.
+                                    </p>
+                                    <p>
+                                        <strong>TF2 -
+                                        </strong><code>\Steam\steamapps\common\Team Fortress 2\tf\cfg</code>
+                                        <br />
+                                        <strong>CS:GO - </strong><code>\Steam\steamapps\common\Counter-Strike Global
                                             Offensive\csgo\cfg</code>
-                                        </p>
+                                    </p>
 
-                                        <p>3.) Add <code>exec shittalk.cfg</code> to your <code>autoexec.cfg</code>.
-                                        </p>
-                                        <p>&nbsp;&nbsp;&nbsp;&nbsp;a.) Alternatively, add
-                                            <code>+exec shittalk.cfg</code> to
-                                            your game's launch options.</p>
-                                        <p>4.) You can now launch your game. To ensure <code>shittalk.cfg</code>
-                                            loaded
-                                            correctly, open console and type <code>exec shittalk</code>. </p>
-                                        <p>5.) By default, <kbd>TAB</kbd> cycles through the insults, and
-                                            <kbd>X</kbd>
-                                            sends
-                                            the message to chat. </p>
-                                        <p>You can modify these binds in the <code>shittalk.cfg</code> file.</p>
-                                        <p>The more keys you can bind <code>cycle_both</code> to, the better. The
-                                            <code>cycle_both</code> command is what provides the psuedo-randomness
-                                            of
-                                            the
-                                            script.
-                                        </p>
-                                    </div>
+                                    <p>3.) Add <code>exec shittalk.cfg</code> to your <code>autoexec.cfg</code>.
+                                    </p>
+                                    <p>&nbsp;&nbsp;&nbsp;&nbsp;a.) Alternatively, add
+                                        <code>+exec shittalk.cfg</code> to
+                                        your game's launch options.</p>
+                                    <p>4.) You can now launch your game. To ensure <code>shittalk.cfg</code>
+                                        loaded
+                                        correctly, open console and type <code>exec shittalk</code>. </p>
+                                    <p>5.) By default, <kbd>TAB</kbd> cycles through the insults, and
+                                        <kbd>X</kbd>
+                                        sends
+                                        the message to chat. </p>
+                                    <p>You can modify these binds in the <code>shittalk.cfg</code> file.</p>
+                                    <p>The more keys you can bind <code>cycle_both</code> to, the better. The
+                                        <code>cycle_both</code> command is what provides the psuedo-randomness
+                                        of
+                                        the
+                                        script.
+                                    </p>
                                 </div>
-                                <div class="row clearfix"></div>
-                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-                                    <a href="https://s3.amazonaws.com/shittalk-cfgs/shittalk.cfg"
-                                        class="btn btn-lg btn-success" id="downloadBtn">
-                                        <span class="glyphicon glyphicon-cloud-download"
-                                            title="Crowd-sourced Shittalk.cfg"></span> Download shittalk.cfg</a>
-                                </div>
-
                             </div>
-                        </div>
 
-                        <div class="col-xs-12 text-center vcenter">
-                            <em>
-                                <h2 id="funText" style="padding-top: 2.5em;"></h2>
-                            </em>
-                        </div>
+                            <div class="col text-center">
+                                <a href="https://s3.amazonaws.com/shittalk-cfgs/shittalk.cfg"
+                                    class="btn btn-lg btn-success" id="downloadBtn">
+                                    <span class="oi oi-cloud-download" title="Crowd-sourced Shittalk.cfg"></span>
+                                    &nbsp;Download shittalk.cfg</a>
+                            </div>
 
+                        </div>
                     </div>
 
+                    <div class="col-12 text-center pt-4 pb-2">
+                        <em>
+                            <h2 id="funText" class="lead"></h2>
+                        </em>
+                    </div>
                 </div>
+
             </div>
-        </div>
+            <!-- End Content -->
 
-
-
-
-        <div class="container">
+            <!-- Begin Footer -->
             <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center" style="padding-top: 3%">
-                    <a href="mailto:shittalkgenerator+website@gmail.com" class="btn btn-default btn-lg">
-                        Contact Me <span class="glyphicon glyphicon-envelope"> </span></a>
+                <div class="col-12 text-center pt-2">
+                    <a href="mailto:shittalkgenerator+website@gmail.com" class="btn btn-outline-dark btn-lg"
+                        role="button">
+                        Contact Me <span class="oi oi-envelope-open"> </span>
+                    </a>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center"
-                    style="padding-top: 3%; padding-bottom: 2%;">
-                    <small>Copyright <a href="http://daviseford.com/" target="_blank">Davis Ford</a> 2018 |
+                <div class="col-12 text-center py-2">
+                    <small>Copyright <a href="http://daviseford.com/" target="_blank">Davis Ford</a> 2019 |
                         <a href="https://www.youtube.com/watch?v=HW_IH0jipeU" target="_blank">
                             What is the odds?</a></small>
                 </div>
             </div>
+            <!-- End Footer -->
+
         </div>
-        </div>
+        <!-- End Shittalk App -->
+
     </main>
 
+    <!-- Scripts and CSS -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-        crossorigin="anonymous"></script> -->
-
-    <link href="./open-iconic/font/css/open-iconic-bootstrap.css" rel="stylesheet">
-    <link href="./css/shittalk.css" rel="stylesheet">
+    <link href="//cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css"
+        rel="stylesheet">
+    <!-- <link href="//daviseford.com/shittalk/css/shittalk.css" rel="stylesheet"> -->
 
     <!-- Google Analytics -->
     <script>
