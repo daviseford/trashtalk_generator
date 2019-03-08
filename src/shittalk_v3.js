@@ -50,23 +50,30 @@ $(document).ready(function () {
 
   function assembleJumbotron(data) {
     const jumbotron_tbody = $('#jumbotron_tbody');
-    const rowHolder = data.filter(x => !!x.submission && x.submission.trim() !== '').map(x => {
-      return '<tr id="jumboid_' + x.id + '"><td>' +
-        '<span class="glyphicon glyphicon-arrow-up text-success" style="font-size:2.0em;"  aria-hidden="true"> </span> ' +
-        '<span class="glyphicon glyphicon-arrow-down text-danger" style="font-size:2.0em;" aria-hidden="true"> </span>' +
-        '</td><td><h4 id="jumboh4_' + x.id + '">' + x.submission + '</h4></td></tr>';
+    const rowHolder = data.filter(x => x.submission && x.submission.trim() !== '').map(x => {
+      return `
+        <tr id="jumboid_${x.id}">
+          <td>
+            <span class="oi oi-arrow-thick-top text-success" style="font-size:2.0em;" aria-hidden="true"> </span>
+            <span class="oi oi-arrow-thick-bottom text-danger" style="font-size:2.0em;" aria-hidden="true"> </span>
+          </td>
+          <td>
+            <h4 id="jumboh4_${x.id}">${x.submission}</h4>
+          </td>
+        </tr>
+        `
     })
 
     jumbotron_tbody.html(rowHolder.join('\n'));
 
-    jumbotron_tbody.find('td .glyphicon-arrow-up')
+    jumbotron_tbody.find('td .oi-arrow-thick-top')
       .click(function (e) {
         e.preventDefault();
         var send = sendVote.bind(this);
         send(true);
       });
 
-    jumbotron_tbody.find('td .glyphicon-arrow-down')
+    jumbotron_tbody.find('td .oi-arrow-thick-bottom')
       .click(function (e) {
         e.preventDefault();
         var send = sendVote.bind(this);
