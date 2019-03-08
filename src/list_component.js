@@ -1,12 +1,6 @@
 const Config = require('./config')
 const { updateBadges } = require('./utils')
 
-
-
-const error = (error) => {
-  console.error(`Error in ListComponent(${endpoint}, ${selector})`, error);
-}
-
 /**
  * endpoint: string - e.g. 'random'
  * sortFn: function|null - e.g. (a, b) => b.createdAt - a.createdAt
@@ -16,7 +10,7 @@ module.exports = (endpoint, sortFn) => {
     url: `${Config.endpoint}/${endpoint}`,
     contentType: "application/json; charset=utf-8",
     type: "GET",
-    error,
+    error: (err) => console.error(err),
     success: function (res) {
       let listRowHolder;
       if (res.data.length === 0) {
@@ -24,9 +18,17 @@ module.exports = (endpoint, sortFn) => {
       } else {
         const r = sortFn ? res.data.sort(sortFn) : res.data
         listRowHolder = r.map(x => {
-          return `<li class="list-group-item" id="${endpoint}id_${x.id}">
-                    <span class="badge">${x.net_votes}</span> ${x.submission}
-                  </li>`
+          return `
+          <li class="list-group-item" id="${endpoint}id_${x.id}">
+            <div class="row h-100">
+              <div class="col-2 align-middle align-self-center">
+                <h5>
+                  <span class="badge badge-pill badge-secondary">${x.net_votes}</span>
+                </h5>
+              </div>
+              <div class="col"><span>${x.submission}</span></div>
+            </div>
+          </li>`
         })
       }
       const listRowsJoined = listRowHolder.join('\n');

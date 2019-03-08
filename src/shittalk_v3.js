@@ -1,22 +1,23 @@
-const Config = require('./config')
-const Submit = require('./submit')
-const PreloadedInsults = require('./preload')
 const _ = require('lodash')
-const ListComponent = require('./list_component')
 const { send_to_ga } = require('./utils')
+const Config = require('./config')
+const CreateListComponent = require('./list_component')
+const PreloadedInsults = require('./preload')
+const Submit = require('./submit')
 
 /**
  * Created by Davis on 12/31/2015.
  * Moved to serverless setup on 8/26/2018 :)
- * Added shittalk.cfg serverless generation on 2/03/2019
+ * Added shittalk.cfg serverless generation on March 3rd, 2019
+ * Added Bootstrap4 on March 8th, 2019
  */
 $(document).ready(function () {
   const loadQuote = () => $('#funText').html(_.sample(PreloadedInsults).trim())
   const loadData = () => {
     makeJumboRows();
-    ListComponent('recent', (a, b) => b.createdAt - a.createdAt)
-    ListComponent('random', null)
-    ListComponent('top', (a, b) => b.net_votes - a.net_votes)
+    CreateListComponent('recent', (a, b) => b.createdAt - a.createdAt)
+    CreateListComponent('random', null)
+    CreateListComponent('top', (a, b) => b.net_votes - a.net_votes)
     loadQuote()
   }
 
@@ -50,50 +51,65 @@ $(document).ready(function () {
 
   function assembleJumbotron(data) {
     const jumbotron_tbody = $('#jumbotron_tbody');
-    const rowHolder = data.filter(x => !!x.submission && x.submission.trim() !== '').map(x => {
-      return '<tr id="jumboid_' + x.id + '"><td>' +
-        '<span class="glyphicon glyphicon-arrow-up text-success" style="font-size:2.0em;"  aria-hidden="true"> </span> ' +
-        '<span class="glyphicon glyphicon-arrow-down text-danger" style="font-size:2.0em;" aria-hidden="true"> </span>' +
-        '</td><td><h4 id="jumboh4_' + x.id + '">' + x.submission + '</h4></td></tr>';
+    const rowHolder = data.filter(x => x.submission && x.submission.trim() !== '').map(x => {
+      return `
+        <tr id="jumboid_${x.id}">
+          <td class="align-middle">
+            <span class="oi oi-arrow-thick-top text-success" style="font-size:2.0em;" aria-hidden="true"> </span>
+            <span class="oi oi-arrow-thick-bottom text-danger" style="font-size:2.0em;" aria-hidden="true"> </span>
+          </td>
+          <td class="align-middle">
+            <h5 id="jumboh5_${x.id}">${x.submission}</h5>
+          </td>
+        </tr>
+        `
     })
 
     jumbotron_tbody.html(rowHolder.join('\n'));
 
-    jumbotron_tbody.find('td .glyphicon-arrow-up')
+    jumbotron_tbody.find('td .oi-arrow-thick-top')
       .click(function (e) {
         e.preventDefault();
-        var send = sendVote.bind(this);
+        const send = sendVote.bind(this);
         send(true);
       });
 
-    jumbotron_tbody.find('td .glyphicon-arrow-down')
+    jumbotron_tbody.find('td .oi-arrow-thick-bottom')
       .click(function (e) {
         e.preventDefault();
-        var send = sendVote.bind(this);
+        const send = sendVote.bind(this);
         send(false);
       });
   }
 
   function sendVote(isUpvote) {
     if ($(this).is('[disabled=disabled]') !== true) {
-      var parent = $(this).parent().parent();
+      const table_row = $(this).parent().parent();
       $(this).attr('disabled', 'disabled');
-      parent.addClass('selected-st');
 
-      const id = parent.attr('id').split('_')[1];
-      const submission = $(`#jumboh4_${id}`).text()
+      const id = table_row.attr('id').split('_')[1];
+      const submission = $(`#jumboh5_${id}`).text()
       const suffix = isUpvote ? 'upvote' : 'downvote';
-      parent.addClass(isUpvote ? 'bg-success' : 'bg-danger');
+
+      // Hide both voting arrows
+      $(this).parent().children().attr('class', 'd-none')
+
+      // Turn submission text to a legible color (it's on a dark background now!)
+      $(`#jumboh5_${id}`).attr('class', 'text-light')
+
+      // Add background color
+      table_row.addClass('selected-st');
+      table_row.addClass(isUpvote ? 'bg-success' : 'bg-danger');
 
       $.ajax({
-        url: Config.endpoint + '/' + suffix,
+        url: `${Config.endpoint}/${suffix}`,
         contentType: "application/json; charset=utf-8",
         type: "POST",
         data: JSON.stringify({ id, submission }),
         dataType: 'json',
         success: function (data) {
           checkIfJumbotronIsFull();
-          send_to_ga(`shittalk_${isUpvote ? 'up' : 'down'}vote`)
+          send_to_ga(`shittalk_${suffix}`)
           return false;
         },
         error: function (data) {
