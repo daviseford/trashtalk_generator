@@ -15,10 +15,8 @@ $(document).ready(function () {
   const loadQuote = () => $('#funText').html(_.sample(PreloadedInsults).trim())
   const loadData = () => {
     makeJumboRows();
-    CreateListComponent('recent', (a, b) => b.createdAt - a.createdAt)
-    CreateListComponent('random', null)
-    CreateListComponent('top', (a, b) => b.net_votes - a.net_votes)
-    loadQuote()
+    makeLists();
+    loadQuote();
   }
 
   loadData();
@@ -36,6 +34,20 @@ $(document).ready(function () {
       error: (err) => console.error(err)
     });
   })
+
+  function makeLists() {
+    $.ajax({
+      url: Config.endpoint + '/all',
+      contentType: "application/json; charset=utf-8",
+      type: "GET",
+      success: function (res) {
+        CreateListComponent('recent', res.data.recent)
+        CreateListComponent('random', res.data.random)
+        CreateListComponent('top', res.data.top)
+      },
+      error: (err) => console.log(err)
+    });
+  }
 
   function makeJumboRows() {
     $.ajax({

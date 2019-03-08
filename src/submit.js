@@ -2,6 +2,8 @@ const Config = require('./config')
 const clean = require('clean-text-utils')
 const { send_to_ga } = require('./utils')
 
+const HIDDEN_CLASS = 'd-none';
+
 const cleanText = (str) => {
     if (!str) return ''
     str = clean.strip.newlines(str)
@@ -9,33 +11,40 @@ const cleanText = (str) => {
     return clean.strip.extraSpace(str)
 }
 
+/**
+ * Hide helper blocks
+ */
+const hideHelpers = () => {
+    $('#helpBlock').addClass(HIDDEN_CLASS)
+    $('#helpBlock2').addClass(HIDDEN_CLASS)
+    $('#helpBlock3').addClass(HIDDEN_CLASS)
+    $('#helpBlock4').addClass(HIDDEN_CLASS)
+}
+
 const handleSubmitButton = (e) => {
     e.preventDefault();
     const that = this;
     const parent = $(that).parent().parent();
 
-    $('#helpBlock').addClass('d-none')
-    $('#helpBlock2').addClass('d-none')
-    $('#helpBlock3').addClass('d-none')
-    $('#helpBlock4').addClass('d-none')
+    hideHelpers() // Hide helper blocks
 
     const orig_text = cleanText($('#create_shittalk_Text').val());
     if (!orig_text || orig_text.length < 2) {
         parent.addClass('has-error');
-        $('#helpBlock4').removeClass('d-none');
+        $('#helpBlock4').removeClass(HIDDEN_CLASS);
         return;
     }
     const text = orig_text.toLowerCase();
 
     if (text.indexOf('http://') > -1 || text.indexOf('https://') > -1 || text.indexOf('www.') > -1 || text.indexOf('.com') > -1) {
         parent.addClass('has-error');
-        $('#helpBlock2').removeClass('d-none');
+        $('#helpBlock2').removeClass(HIDDEN_CLASS);
         return;
     }
 
     if (text.indexOf('nigg') > -1 || text.indexOf('fag') > -1) {
         parent.addClass('has-error');
-        $('#helpBlock3').removeClass('d-none');
+        $('#helpBlock3').removeClass(HIDDEN_CLASS);
         return;
     }
     const data = { submission: orig_text };
@@ -53,7 +62,7 @@ const checkDuplicate = (pData, pParent) => {
         success: function (sData) {
             if (sData.duplicate) {
                 pParent.addClass('has-error');
-                $('#helpBlock').removeClass('d-none');
+                $('#helpBlock').removeClass(HIDDEN_CLASS);
             } else {
                 submitRequest(pData)
             }
@@ -61,7 +70,7 @@ const checkDuplicate = (pData, pParent) => {
         error: function (data) {
             console.error(data)
             pParent.addClass('has-error');
-            $('#helpBlock').removeClass('hidden');
+            $('#helpBlock').removeClass(HIDDEN_CLASS);
         }
     })
 }
