@@ -83,6 +83,7 @@ $(document).ready(function () {
       const id = parent.attr('id').split('_')[1];
       const submission = $(`#jumboh4_${id}`).text()
       const suffix = isUpvote ? 'upvote' : 'downvote';
+      parent.addClass(isUpvote ? 'bg-success' : 'bg-danger');
 
       $.ajax({
         url: Config.endpoint + '/' + suffix,
@@ -91,7 +92,6 @@ $(document).ready(function () {
         data: JSON.stringify({ id, submission }),
         dataType: 'json',
         success: function (data) {
-          parent.addClass(isUpvote ? 'bg-success' : 'bg-danger');
           checkIfJumbotronIsFull();
           send_to_ga(`shittalk_${isUpvote ? 'up' : 'down'}vote`)
           return false;

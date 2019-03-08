@@ -18,6 +18,12 @@
     -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .75);
 }
 
+.vcenter {
+    display: flex;
+    align-items: center;
+    padding-top: 30%;
+}
+
 /*==========  Mobile First Method  ==========*/
 
 /* Custom, iPhone Retina */
