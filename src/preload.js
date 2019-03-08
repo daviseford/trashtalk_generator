@@ -1,8 +1,8 @@
-const Config = require('./config')
-const axios = require('axios');
+// const Config = require('./config')
+// const axios = require('axios');
 
 // Use this file to load some sample insults into our DB
-const insults = [
+module.exports = [
     "Team Fortress 2 is also Free-To-Uninstall",
     "If the body is 70% water how are you 100% salt???",
     "You're the reason the gene pool needs a lifeguard.",
@@ -788,21 +788,21 @@ const insults = [
     "Why is it acceptable for you to be terrible, but not for me to point it out?",
 ]
 
-const run = async () => {
-    insults.map(submission => {
-        submission = submission.trim()
-        submitRequest({ submission })
-    })
-}
+// const run = async () => {
+//     insults.map(submission => {
+//         submission = submission.trim()
+//         submitRequest({ submission })
+//     })
+// }
 
-const submitRequest = (data) => {
-    axios.post(Config.endpoint, data)
-      .then(function (response) {
-        console.log(response);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-}
+// const submitRequest = (data) => {
+//     axios.post(Config.endpoint, data)
+//       .then(function (response) {
+//         console.log(response);
+//       })
+//       .catch(function (error) {
+//         console.log(error);
+//       });
+// }
 
-run();
+// run();

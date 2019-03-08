@@ -1,7 +1,8 @@
 const Config = require('./config')
 const Submit = require('./submit')
-const makeTopList = require('./top')
-const makeRecentList = require('./recent')
+const PreloadedInsults = require('./preload')
+const _ = require('lodash')
+const ListComponent = require('./list_component')
 const { send_to_ga } = require('./utils')
 
 /**
@@ -10,10 +11,16 @@ const { send_to_ga } = require('./utils')
  * Added shittalk.cfg serverless generation on 2/03/2019
  */
 $(document).ready(function () {
+  const loadQuote = () => $('#funText').html(_.sample(PreloadedInsults).trim())
+  const loadData = () => {
+    makeJumboRows();
+    ListComponent('recent', (a, b) => b.createdAt - a.createdAt)
+    ListComponent('random', null)
+    ListComponent('top', (a, b) => b.net_votes - a.net_votes)
+    loadQuote()
+  }
 
-  makeJumboRows();
-  makeRecentList();
-  makeTopList();
+  loadData();
 
   $('#create_shittalk_Btn').click(Submit);
 
@@ -37,9 +44,7 @@ $(document).ready(function () {
       success: function (res) {
         assembleJumbotron(res.data);
       },
-      error: function (err) {
-        console.log('error', err)
-      }
+      error: (err) => console.log(err)
     });
   }
 
@@ -100,10 +105,8 @@ $(document).ready(function () {
   }
 
   const checkIfJumbotronIsFull = () => {
-    if ($('#jumbotron_tbody').find('.selected-st').length >= 5) {
-      makeJumboRows();
-      makeRecentList();
-      makeTopList();
+    if ($('#jumbotron_tbody').find('.selected-st').length >= $('#jumbotron_tbody tr').length) {
+      loadData()
     }
   }
 });

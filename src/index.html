@@ -10,13 +10,14 @@
     <meta property="og:url" content="https://daviseford.com/shittalk/" />
     <meta property="og:title" content="Shittalk Generator" />
     <meta property="og:image" content="https://daviseford.com/shittalk/img/shittalk_yelling_man.jpg" />
-    <meta property="og:description" content="Trash Talk Generator. Crowd-sourced insults. Only the finest verbal barbs found here."
-    />
+    <meta property="og:description"
+        content="Trash Talk Generator. Crowd-sourced insults. Only the finest verbal barbs found here." />
 
     <title>Shittalk Generator</title>
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" media="screen" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" media="screen"
+        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
     <style>
         .navbar-brand {
             float: none;
@@ -58,15 +59,18 @@
 
                         </div>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="text" class="form-control" id="create_shittalk_Text" placeholder="Submit your own" maxlength="128" aria-describedby="helpBlock">
-                            <span id="helpBlock" class="help-block hidden">This insult already exists in our database.</span>
-                            <span id="helpBlock2" class="help-block hidden">Please do not submit websites or URLs.</span>
+                            <input type="text" class="form-control" id="create_shittalk_Text"
+                                placeholder="Submit your own" maxlength="128" aria-describedby="helpBlock">
+                            <span id="helpBlock" class="help-block hidden">This insult already exists in our
+                                database.</span>
+                            <span id="helpBlock2" class="help-block hidden">Please do not submit websites or
+                                URLs.</span>
                             <span id="helpBlock3" class="help-block hidden">Yikes... Be cool.</span>
                             <span id="helpBlock4" class="help-block hidden">Try typing an insult first :)</span>
                         </div>
                         <div class="col-md-3 col-md-offset-0 col-sm-3 col-sm-offset-0 col-xs-4 col-xs-offset-4">
                             <div class="visible-xs">
-                                <br/>
+                                <br />
                             </div>
                             <button type="submit" id="create_shittalk_Btn" class="btn btn-primary">Submit</button>
                         </div>
@@ -78,14 +82,9 @@
         <div class="row clearfix"></div>
 
         <div class="row">
-            <div class="col-md-8 col-md-offset-2 col-xs-12 col-xs-offset-0">
-                <div class="alert alert-success">
-                    Hey there! You're in the right demographic to check out my latest tool, the <a href="https://daviseford.com/bitcoin-arbitrage/"
-                        target="_blank" class="text-strong">Bitcoin Arbitrage Calculator!</a>
-                </div>
-            </div>
+            
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 hidden-xs">
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                     <li class="list-group-item">
                         <h3 class="text-center">Recent Insults</h3>
                     </li>
@@ -95,19 +94,73 @@
 
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                     <li class="list-group-item">
-                        <h3 class="text-center">Top Insults</h3>
+                        <h3 class="text-center">Random Insults</h3>
+                    </li>
+                    <ul class="list-group def-list-group-scroll" id="random_listGroup">
+                    </ul>
+                </div>
+
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                    <li class="list-group-item">
+                        <h3 class="text-center">Hall of Fame</h3>
                     </li>
                     <ul class="list-group def-list-group-scroll" id="top_listGroup">
                     </ul>
                 </div>
 
-                <!-- <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 hidden-xs">
-                    <li class="list-group-item">
-                        <h3 class="text-center">Random Insults</h3>
-                    </li>
-                    <ul class="list-group def-list-group-scroll" id="random_listGroup">
-                    </ul>
-                </div> -->
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+
+
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p style="padding-top: 1em;">Want to download these binds in the form of a script
+                                        which works in TF2, CS:GO, CS:Source, and other Source Engine games?</p>
+                                    <p>You sure landed on the right page!</p>
+                                    <h4>Installation:</h4>
+                                    <p>1.) Download the latest <code>shittalk.cfg</code> by clicking the button below.
+                                    </p>
+                                    <p>2.) Drag <code>shittalk.cfg</code> to your game's <code>cfg</code> folder.</p>
+                                    <p>
+                                        <strong>TF2 -
+                                        </strong><code>\Steam\steamapps\common\Team Fortress 2\tf\cfg</code>
+                                        <br />
+                                        <strong>CS:GO - </strong><code>\Steam\steamapps\common\Counter-Strike Global
+                                            Offensive\csgo\cfg</code>
+                                    </p>
+
+                                    <p>3.) Add <code>exec shittalk.cfg</code> to your <code>autoexec.cfg</code>.</p>
+                                    <p>&nbsp;&nbsp;&nbsp;&nbsp;a.) Alternatively, add <code>+exec shittalk.cfg</code> to
+                                        your game's launch options.</p>
+                                    <p>4.) You can now launch your game. To ensure <code>shittalk.cfg</code> loaded
+                                        correctly, open console and type <code>exec shittalk</code>. </p>
+                                    <p>5.) By default, <kbd>TAB</kbd> cycles through the insults, and <kbd>X</kbd> sends
+                                        the message to chat. </p>
+                                    <p>You can modify these binds in the <code>shittalk.cfg</code> file.</p>
+                                    <p>The more keys you can bind <code>cycle_both</code> to, the better. The
+                                        <code>cycle_both</code> command is what provides the psuedo-randomness of the
+                                        script.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row clearfix"></div>
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+                                <a href="https://s3.amazonaws.com/shittalk-cfgs/shittalk.cfg"
+                                    class="btn btn-lg btn-success" id="downloadBtn">
+                                    <span class="glyphicon glyphicon-cloud-download"
+                                        title="Crowd-sourced Shittalk.cfg"></span> Download shittalk.cfg</a>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col-12 text-center">
+                        <em><h2 id="funText"></h2></em>
+                    </div>
+
+                </div>
 
             </div>
         </div>
@@ -116,49 +169,6 @@
     </div>
 
 
-    <!-- Download Instructions -->
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    
-                <div class="panel panel-default">
-                    <div class="panel-body">
-    
-                        <div class="row">
-                            <div class="col-md-12">
-                                <p style="padding-top: 1em;">Want to download these binds in the form of a script which works in TF2, CS:GO, CS:Source, and other Source Engine games?</p>
-                                <p>You sure landed on the right page!</p>
-                                <h4>Installation:</h4>
-                                <p>1.) Download the latest <code>shittalk.cfg</code> by clicking the button below.</p>
-                                <p>2.) Drag <code>shittalk.cfg</code> to your game's <code>cfg</code> folder.</p>
-                                <p>
-                                    <strong>TF2 - </strong><code>\Steam\steamapps\common\Team Fortress 2\tf\cfg</code>
-                                    <br/>
-                                    <strong>CS:GO - </strong><code>\Steam\steamapps\common\Counter-Strike Global
-                                        Offensive\csgo\cfg</code>
-                                </p>
-    
-                                <p>3.) Add <code>exec shittalk.cfg</code> to your <code>autoexec.cfg</code>.</p>
-                                <p>&nbsp;&nbsp;&nbsp;&nbsp;a.) Alternatively, add <code>+exec shittalk.cfg</code> to your game's launch options.</p>
-                                <p>4.) You can now launch your game. To ensure <code>shittalk.cfg</code> loaded correctly, open console and type <code>exec shittalk</code>. </p>
-                                <p>5.) By default, <kbd>TAB</kbd> cycles through the insults, and <kbd>X</kbd> sends the message to chat. </p>
-                                <p>You can modify these binds in the <code>shittalk.cfg</code> file.</p>
-                                <p>The more keys you can bind <code>cycle_both</code> to, the better. The <code>cycle_both</code> command is what provides the psuedo-randomness of the script.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="row clearfix"></div>
-                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-                                <a href="https://s3.amazonaws.com/shittalk-cfgs/shittalk.cfg" class="btn btn-lg btn-success" id="downloadBtn">
-                                <span class="glyphicon glyphicon-cloud-download" title="Crowd-sourced Shittalk.cfg"></span> Download shittalk.cfg</a>
-                            </div>
-
-                    </div>
-                </div>
-    
-            </div>
-        </div>
-    
 
     </div>
 
@@ -170,7 +180,8 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center" style="padding-top: 3%; padding-bottom: 2%;">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center"
+                style="padding-top: 3%; padding-bottom: 2%;">
                 <small>Copyright <a href="http://daviseford.com/" target="_blank">Davis Ford</a> 2018 |
                     <a href="https://www.youtube.com/watch?v=HW_IH0jipeU" target="_blank">
                         What is the odds?</a></small>
@@ -178,8 +189,8 @@
         </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
     <!-- Google Analytics -->
     <script>
